@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Spin — Jennifer Bett Communications</title>
+<meta name="description" content="Field notes from the people shaping what gets covered. PR strategy, media playbooks, founder stories, and the occasional fall-favorites list — from the JBC team." />
+<style>
+  /* ---------- Design tokens ---------- */
+  :root {
+    --bg: #FFF6EB;
+    --ink: #0A0A0A;
+    --ink-2: #2B2B2B;
+    --muted: #6A6258;
+    --line: rgba(10,10,10,0.12);
+    --line-strong: rgba(10,10,10,0.22);
+    --cream-2: #F6E8D2;
+    --accent: #D64A1F;
+    --accent-ink: #8A2F14;
+    --pale: #FBF0DE;
+    --display: "Helvetica Neue", "Inter", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Fraunces", "EB Garamond", Georgia, serif;
+    --maxw: 1320px;
+    --gutter: clamp(20px, 4vw, 56px);
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+  }
+
+  /* ---------- Reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02";
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ---------- Utility bar ---------- */
+  .utility {
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .utility .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 36px;
+    gap: 16px;
+  }
+  .utility .badge { display: inline-flex; align-items: center; gap: 8px; }
+  .utility .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  /* ---------- Main nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  .nav.scrolled { border-color: var(--line); background: rgba(255,246,235,0.92); backdrop-filter: saturate(160%) blur(8px); }
+  .nav .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding-block: 22px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo { display: block; width: 74px; height: auto; }
+  footer .logo { width: 86px; }
+
+  .mainnav { justify-self: center; display: flex; gap: 36px; }
+  .mainnav a {
+    font-size: 17px;
+    letter-spacing: -0.015em;
+    color: var(--ink-2);
+    position: relative;
+    padding: 4px 0;
+  }
+  .mainnav a::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -2px 0;
+    height: 1.5px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .mainnav a:hover { color: var(--ink); }
+  .mainnav a:hover::after { transform: scaleX(1); }
+  .mainnav a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+  .mainnav a[aria-current="page"]::after { transform: scaleX(1); background: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: transform .2s, background .2s, color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); background: var(--accent); border-color: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn.lg { padding: 16px 28px; font-size: 15px; }
+  .btn .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-size: 16px;
+    margin-left: 2px;
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Eyebrow + crumbs ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow .bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .crumbs {
+    display: inline-flex;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--muted); transition: color .2s; }
+  .crumbs a:hover { color: var(--ink); }
+  .crumbs span[aria-current] { color: var(--ink); }
+  .crumbs .sep { color: var(--line-strong); }
+
+  /* ---------- Page hero ---------- */
+  .page-hero {
+    padding-top: clamp(28px, 4vw, 48px);
+    padding-bottom: clamp(48px, 7vw, 80px);
+  }
+  .page-hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(72px, 11vw, 200px);
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+    margin: 14px 0 0;
+    max-width: 10ch;
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-lede {
+    margin-top: clamp(28px, 3.5vw, 44px);
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+    padding-top: clamp(28px, 3.5vw, 44px);
+    border-top: 1px solid var(--line);
+  }
+  .hero-lede .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-lede p {
+    font-size: clamp(18px, 1.45vw, 24px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .hero-lede p + p { margin-top: 1em; }
+  .hero-lede p strong { color: var(--ink); font-weight: 500; }
+  .hero-lede p em { font-family: var(--serif); font-style: italic; color: var(--accent-ink); font-weight: 400; }
+  .hero-lede .lede-cta { margin-top: 28px; display: inline-flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---------- Topic chips ---------- */
+  .topic-bar {
+    padding-block: 20px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--pale);
+    position: sticky;
+    top: 74px;
+    z-index: 40;
+    backdrop-filter: saturate(160%) blur(8px);
+  }
+  .topic-bar .container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .topic-bar .container::-webkit-scrollbar { display: none; }
+  .topic-bar .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-right: 8px;
+    border-right: 1px solid var(--line);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    color: var(--ink-2);
+    background: transparent;
+    white-space: nowrap;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .chip:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .chip .count {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+  }
+
+  /* ---------- Featured (top) post ---------- */
+  .featured {
+    padding-block: clamp(48px, 6vw, 80px);
+  }
+  .featured .card-lg {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: stretch;
+  }
+  .card-lg .media {
+    aspect-ratio: 5 / 4;
+    border-radius: var(--radius-md);
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+  .card-lg .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .8s ease, filter .4s ease;
+    filter: saturate(1.02);
+  }
+  .card-lg:hover .media img { transform: scale(1.03); }
+  .card-lg .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(16px, 1.6vw, 24px);
+  }
+  .card-lg .tag-row {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .card-lg .tag-row .cat { color: var(--accent-ink); font-weight: 500; }
+  .card-lg .tag-row .date { color: var(--muted); }
+  .card-lg .tag-row .sep { width: 22px; height: 1px; background: var(--line-strong); }
+  .card-lg h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(36px, 4.2vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    max-width: 16ch;
+  }
+  .card-lg h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .card-lg .dek {
+    font-size: clamp(16px, 1.2vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 50ch;
+    margin: 0;
+  }
+  .card-lg .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--ink);
+    align-self: flex-start;
+    transition: color .2s, border-color .2s, gap .2s;
+  }
+  .card-lg .read-more:hover { color: var(--accent); border-color: var(--accent); gap: 14px; }
+
+  /* ---------- Grid of cards ---------- */
+  .post-grid-wrap {
+    padding-bottom: clamp(80px, 10vw, 140px);
+    border-top: 1px solid var(--line);
+    padding-top: clamp(40px, 5vw, 64px);
+  }
+  .post-grid-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: clamp(28px, 3vw, 40px);
+  }
+  .post-grid-head h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.03em;
+  }
+  .post-grid-head h2 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .post-grid-head .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(24px, 2.5vw, 40px) clamp(20px, 2vw, 32px);
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform .3s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card .media {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .card .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s ease;
+  }
+  .card:hover .media img { transform: scale(1.04); }
+  .card .tag-row {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .card .tag-row .cat { color: var(--accent-ink); font-weight: 500; }
+  .card .tag-row .date { color: var(--muted); }
+  .card .tag-row .sep { width: 16px; height: 1px; background: var(--line-strong); }
+  .card h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(20px, 1.8vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .card h3 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .card .read {
+    margin-top: auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-top: 4px;
+    transition: color .2s, gap .2s;
+  }
+  .card:hover .read { color: var(--accent); gap: 10px; }
+
+  /* ---------- Newsletter / Office Hours spotlight (dark) ---------- */
+  .spotlight {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 85% 50%, rgba(214,74,31,0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(214,74,31,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .spotlight .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .spotlight .k::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .spotlight h2 {
+    margin: 16px 0 20px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(40px, 5vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+  .spotlight h2 em { font-family: var(--serif); font-style: italic; color: var(--accent); }
+  .spotlight p {
+    max-width: 48ch;
+    color: rgba(255,246,235,0.78);
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.55;
+    margin: 0 0 24px;
+  }
+  .spotlight .btn {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+  }
+  .spotlight .btn:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+  .spotlight .btn.ghost {
+    background: transparent;
+    border-color: rgba(255,246,235,0.45);
+    color: var(--bg);
+  }
+  .spotlight .btn.ghost:hover { background: var(--bg); color: var(--ink); }
+  .spotlight-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .spotlight-card {
+    border: 1px solid rgba(255,246,235,0.18);
+    border-radius: var(--radius-md);
+    padding: clamp(24px, 3vw, 40px);
+    background: rgba(255,246,235,0.03);
+    backdrop-filter: blur(4px);
+  }
+  .spotlight-card h4 {
+    margin: 0 0 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.58);
+    font-weight: 500;
+  }
+  .spotlight-recent { display: flex; flex-direction: column; }
+  .spotlight-recent a {
+    padding: 14px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    color: var(--bg);
+    border-top: 1px solid rgba(255,246,235,0.12);
+    transition: color .2s;
+  }
+  .spotlight-recent a:first-child { border-top: 0; padding-top: 0; }
+  .spotlight-recent a:hover { color: var(--accent); }
+  .spotlight-recent .t {
+    font-family: var(--display);
+    font-size: clamp(17px, 1.4vw, 20px);
+    letter-spacing: -0.015em;
+    max-width: 30ch;
+    line-height: 1.25;
+  }
+  .spotlight-recent .d {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.5);
+    white-space: nowrap;
+  }
+
+  /* ---------- Pagination ---------- */
+  .pagination {
+    padding-block: clamp(56px, 7vw, 96px);
+    text-align: center;
+  }
+  .pagination .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 20px;
+  }
+  .pagination .btn.ghost { border: 1px solid var(--line-strong); }
+
+  /* ---------- Footer ---------- */
+  .site-foot {
+    background: var(--ink);
+    color: var(--bg);
+    padding-block: clamp(56px, 7vw, 96px);
+  }
+  .site-foot .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .site-foot h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.6);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .site-foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .site-foot a { opacity: 0.85; transition: opacity .2s, color .2s; }
+  .site-foot a:hover { opacity: 1; color: var(--accent); }
+  .site-foot img.logo { filter: invert(1) brightness(1.4); }
+  .foot-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,246,235,0.12);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Mobile nav toggle + overlay ---------- */
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: border-color .2s, background .2s;
+  }
+  .nav-toggle:hover { border-color: var(--ink); }
+  .nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s, opacity .25s;
+  }
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    transform: translateY(-100%);
+    transition: transform .35s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu-inner {
+    padding: 22px var(--gutter) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100%;
+  }
+  .mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-close {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .mobile-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+  .mobile-nav a {
+    font-family: var(--display);
+    font-size: clamp(34px, 8vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .mobile-nav a[aria-current="page"] { color: var(--accent); }
+  .mobile-menu-cta { align-self: flex-start; }
+  .mobile-menu-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  body.menu-open { overflow: hidden; }
+
+  /* ---------- Reveals ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .post-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-lg { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 1024px) {
+    .mainnav { display: none; }
+    .nav .container { grid-template-columns: 1fr auto; gap: 16px; }
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+
+    .hero-lede,
+    .spotlight-grid { grid-template-columns: 1fr; gap: 28px; align-items: start; }
+    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .topic-bar { top: 0; }
+  }
+  @media (max-width: 640px) {
+    :root { --gutter: 20px; }
+    .logo { width: 58px; }
+    .utility .container { min-height: 32px; }
+    .utility .badge { font-size: 10px; }
+
+    .page-hero h1 { font-size: 64px; }
+    .post-grid { grid-template-columns: 1fr; }
+    .card-lg h2 { font-size: 36px; }
+    .spotlight h2 { font-size: 42px; }
+    .spotlight-recent a { flex-direction: column; align-items: flex-start; gap: 4px; }
+
+    .site-foot .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+    .foot-bottom { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 380px) {
+    .page-hero h1 { font-size: 52px; }
+    .card-lg h2 { font-size: 30px; }
+    .spotlight h2 { font-size: 34px; }
+    .topic-bar .k { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="utility" aria-label="Utility">
+  <div class="container">
+    <span class="badge"><span class="dot"></span>Observer's 50 Most Powerful PR Firms · 2026</span>
+  </div>
+</div>
+
+<!-- Main nav -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="JBC home">
+      <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html" aria-current="page">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn nav-cta">Work with us<span class="arrow">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-top">
+      <a href="index.html" class="brand" aria-label="JBC home">
+        <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+      </a>
+      <button class="mobile-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html" aria-current="page">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn lg mobile-menu-cta">Work with us<span class="arrow">→</span></a>
+    <div class="mobile-menu-meta">
+      <span>NY · LA · Working globally</span>
+      <a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span aria-current="page">The Spin</span>
+    </div>
+
+    <span class="eyebrow"><span class="bullet"></span>Field notes · New posts every week</span>
+    <h1>The <em>Spin</em>.</h1>
+
+    <div class="hero-lede reveal">
+      <div class="k">Editor's note</div>
+      <div>
+        <p>Playbooks, pressure-tested takes, and the occasional fall-favorites list — <strong>from the people who actually place the stories</strong>. Written for founders, operators, and communicators navigating a media landscape that keeps rewriting itself.</p>
+        <p>No gated whitepapers. No content farms. Just <em>what's working now</em> — from the JBC team.</p>
+        <div class="lede-cta">
+          <a class="btn" href="#subscribe">Subscribe to Office Hours<span class="arrow">→</span></a>
+          <a class="btn ghost" href="#latest">See all posts</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Topic filter bar -->
+<div class="topic-bar" role="region" aria-label="Filter by topic">
+  <div class="container">
+    <span class="k">Topics</span>
+    <button class="chip" aria-pressed="true" data-topic="all">All <span class="count">20</span></button>
+    <button class="chip" aria-pressed="false" data-topic="pr-strategy-guide">Strategy Guide <span class="count">5</span></button>
+    <button class="chip" aria-pressed="false" data-topic="pr-strategy">PR Strategy <span class="count">7</span></button>
+    <button class="chip" aria-pressed="false" data-topic="what-is-pr">What Is PR <span class="count">4</span></button>
+    <button class="chip" aria-pressed="false" data-topic="founders-brand-building">Founders &amp; Brand Building <span class="count">2</span></button>
+    <button class="chip" aria-pressed="false" data-topic="jbc-life">JBC Life <span class="count">1</span></button>
+  </div>
+</div>
+
+<!-- Featured latest post -->
+<section class="featured" id="latest">
+  <div class="container">
+    <a class="card-lg" href="#" data-topic="pr-strategy">
+      <div class="media">
+        <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1776716665871-SYZPKGTHOAD8NQHYDFZJ/image2.png?format=1500w" alt="PR Agency Red Flags Brands Should Avoid" loading="eager">
+      </div>
+      <div class="body">
+        <div class="tag-row">
+          <span class="cat">PR Strategy</span>
+          <span class="sep"></span>
+          <span class="date">Apr 20, 2026</span>
+          <span class="sep"></span>
+          <span class="date">5 min read</span>
+        </div>
+        <h2>PR agency <em>red flags</em> brands should avoid.</h2>
+        <p class="dek">The questions founders should ask in a pitch — and the boilerplate answers that should make you walk away. Hiring the wrong agency isn't a cost issue, it's a 12-month setback.</p>
+        <span class="read-more">Read the piece <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Post grid -->
+<section class="post-grid-wrap">
+  <div class="container">
+    <div class="post-grid-head">
+      <h2>Most <em>recent</em>.</h2>
+      <span class="k">Showing 1–12 of 20</span>
+    </div>
+
+    <div class="post-grid" id="postGrid">
+
+      <a class="card" href="#" data-topic="pr-strategy-guide">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1775480728130-0EZAX1SQ84NT7TMOB18L/PRplanning1.jpeg?format=750w" alt="The PR Planning Checklist Every Brand Needs" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">Strategy Guide</span><span class="sep"></span><span class="date">Apr 6, 2026</span></div>
+        <h3>The PR planning checklist every brand needs</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="pr-strategy-guide">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1775482305359-42R72VDFT9EM60TVUVOM/brand+positioning1.jpeg?format=750w" alt="Creating a media-ready brand positioning" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">Strategy Guide</span><span class="sep"></span><span class="date">Apr 3, 2026</span></div>
+        <h3>Creating a <em>media-ready</em> brand positioning</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="pr-strategy-guide">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1774619436967-TLDAB9ZQFZ0QIOLS0DQQ/How+to+Measure+PR+Success2.jpeg?format=750w" alt="How to Measure PR Success and Actually Prove ROI" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">Strategy Guide</span><span class="sep"></span><span class="date">Mar 24, 2026</span></div>
+        <h3>How to measure PR success (and actually prove ROI)</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="pr-strategy-guide">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1774290851525-M3R4FGH5E512NKGNXR8O/How+to+Build+a+PR+Strategy+That+Drives+Growth+image+1.jpeg?format=750w" alt="How to Build a PR Strategy That Drives Growth" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">Strategy Guide</span><span class="sep"></span><span class="date">Mar 23, 2026</span></div>
+        <h3>How to build a PR strategy that drives growth</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="pr-strategy-guide">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1774618806000-SKALR351PKRR7GGQ6CKW/Setting+PR+Goals+That+Align+With+Business+Objectives+1.jpeg?format=750w" alt="Setting PR Goals That Actually Mean Something" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">Strategy Guide</span><span class="sep"></span><span class="date">Mar 22, 2026</span></div>
+        <h3>Setting PR goals that actually mean something</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="what-is-pr">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1774291689164-1HZFV26E09FS8ILFSYRJ/What+Makes+a+Successful+PR+Campaign+image+1.jpeg?format=750w" alt="What Makes a Successful PR Campaign" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">What Is PR</span><span class="sep"></span><span class="date">Mar 19, 2026</span></div>
+        <h3>What makes a <em>successful</em> PR campaign?</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="pr-strategy">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1773755962752-SBJWJVXC098S8CKSU53F/1771435289372.jpeg?format=750w" alt="JBC Makes Observer's Power List" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">Agency News</span><span class="sep"></span><span class="date">Mar 17, 2026</span></div>
+        <h3>JBC makes Observer's Power List</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="what-is-pr">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1773418462925-NOQX9JK3Q8U3POEVFTT7/image1.jpeg?format=750w" alt="PR vs. Marketing: What's the Difference" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">What Is PR</span><span class="sep"></span><span class="date">Mar 13, 2026</span></div>
+        <h3>PR vs. marketing: what's the difference?</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="pr-strategy">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1773173429642-62738UJF8J4IZL35RQD5/498396a0-24ea-4180-b083-9c9d7e4c3a7a_3808x5712.webp?format=750w" alt="Welcome to The Spin" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">PR Strategy</span><span class="sep"></span><span class="date">Mar 10, 2026</span></div>
+        <h3>Welcome to <em>The Spin</em></h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="what-is-pr">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1773330388543-4F4UWNA0KNG7YMMLUZ9H/image1.jpg?format=750w" alt="How PR Actually Works in 2026" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">What Is PR</span><span class="sep"></span><span class="date">Mar 10, 2026</span></div>
+        <h3>How PR actually works in 2026</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="what-is-pr">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/37c483de-5ad0-4aa4-932c-31ef9f4859aa/Screenshot+2026-03-11+at+12.36.49%E2%80%AFPM.png?format=750w" alt="Boutique PR Agency vs. Large Firm" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">What Is PR</span><span class="sep"></span><span class="date">Feb 3, 2026</span></div>
+        <h3>Boutique PR agency vs. large firm — for consumer startups</h3>
+        <span class="read">Read →</span>
+      </a>
+
+      <a class="card" href="#" data-topic="founders-brand-building">
+        <div class="media"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1774394468992-3OCF96U2KIZHX5KS599X/How_much_pr_cost_2026.webp?format=750w" alt="How Much Does PR Cost for Startups" loading="lazy"></div>
+        <div class="tag-row"><span class="cat">Founders &amp; Brand Building</span><span class="sep"></span><span class="date">Jan 8, 2026</span></div>
+        <h3>How much does PR <em>actually</em> cost for startups?</h3>
+        <span class="read">Read →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Office Hours spotlight -->
+<section class="spotlight" id="subscribe">
+  <div class="container">
+    <div class="spotlight-grid">
+      <div>
+        <span class="k">Office Hours</span>
+        <h2>Free <em>strategy</em> in your inbox.</h2>
+        <p>Office Hours is JBC's Substack — a short weekly dispatch with media-landscape shifts, brand-building tactics, and the kind of answers most founders only get after they sign a retainer. No fluff.</p>
+        <div class="spotlight-ctas">
+          <a class="btn" href="#">Subscribe to Office Hours<span class="arrow">→</span></a>
+          <a class="btn ghost" href="#">Browse past issues</a>
+        </div>
+      </div>
+      <div class="spotlight-card">
+        <h4>Latest in Office Hours</h4>
+        <div class="spotlight-recent">
+          <a href="spin-article.html"><span class="t">The 'Founder-Led Era' Is Just Getting Started</span><span class="d">Jul 7</span></a>
+          <a href="#"><span class="t">Stop Reacting &amp; Start Leading: The Proactive PR Playbook</span><span class="d">Nov 5</span></a>
+          <a href="#"><span class="t">Crisis PR 101: 9 Tips to Protect and Build Your Brand</span><span class="d">Oct 28</span></a>
+          <a href="#"><span class="t">Fall Favorites From the JBC Team</span><span class="d">Oct 20</span></a>
+          <a href="#"><span class="t">The New Media Playbook: 10 Insights Every Publicist Must Know</span><span class="d">Sep 24</span></a>
+          <a href="spin-article.html"><span class="t">The 'Founder-Led Era' Is Just Getting Started</span><span class="d">Jul 7</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- "Older posts" pagination placeholder -->
+<section class="pagination">
+  <div class="container">
+    <span class="k">There's more where that came from</span>
+    <a class="btn ghost lg" href="#">Older posts<span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a href="index.html" class="brand" aria-label="JBC home">
+          <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+        </a>
+        <p style="margin-top: 16px; max-width: 320px; color: rgba(255,246,235,0.7); font-size: 14px;">Jennifer Bett Communications. An independent, women-led strategic PR agency. Headquartered in New York &amp; Los Angeles.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="why-jbc.html">Why JBC</a></li>
+          <li><a href="the-team.html">Our Team</a></li>
+          <li><a href="the-spin.html">The Spin</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Agency</h4>
+        <ul>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a></li>
+          <li><a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Substack — Office Hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Jennifer Bett Communications® · JBC® © 2026. All rights reserved.</span>
+      <span>NY · LA · Working globally</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav shadow
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const closeBtn = document.getElementById('navClose');
+  const menu = document.getElementById('mobileMenu');
+  const setMenu = (open) => {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  closeBtn.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Intersection reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Topic chip filter
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('[data-topic]');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const topic = chip.dataset.topic;
+      chips.forEach(c => c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'));
+      cards.forEach(card => {
+        if (topic === 'all' || card.dataset.topic === topic) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Wire up all Spin article links to the single built article page for the prototype
+  document.querySelectorAll('.card, .card-lg').forEach(a => {
+    if (a.getAttribute('href') === '#') a.setAttribute('href', 'spin-article.html');
+  });
+</script>
+
+</body>
+</html>

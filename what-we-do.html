@@ -1,0 +1,1460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>What We Do — Services — JBC</title>
+<meta name="description" content="The JBC menu — strategic PR, thought leadership, media relations, affiliate, influencer, content, and crisis communications for founder-led brands." />
+<style>
+  /* ---------- Design tokens ---------- */
+  :root {
+    --bg: #FFF6EB;
+    --ink: #0A0A0A;
+    --ink-2: #2B2B2B;
+    --muted: #6A6258;
+    --line: rgba(10,10,10,0.12);
+    --line-strong: rgba(10,10,10,0.22);
+    --cream-2: #F6E8D2;
+    --accent: #D64A1F;
+    --accent-ink: #8A2F14;
+    --pale: #FBF0DE;
+    --display: "Helvetica Neue", "Inter", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Fraunces", "EB Garamond", Georgia, serif;
+    --maxw: 1320px;
+    --gutter: clamp(20px, 4vw, 56px);
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+  }
+
+  /* ---------- Reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02";
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ---------- Utility bar ---------- */
+  .utility {
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .utility .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 36px;
+    gap: 16px;
+  }
+  .utility .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .utility .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  /* ---------- Main nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  .nav.scrolled { border-color: var(--line); background: rgba(255,246,235,0.92); backdrop-filter: saturate(160%) blur(8px); }
+  .nav .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding-block: 22px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo { display: block; width: 74px; height: auto; }
+  footer .logo { width: 86px; }
+
+  .mainnav { justify-self: center; display: flex; gap: 36px; }
+  .mainnav a {
+    font-size: 17px;
+    letter-spacing: -0.015em;
+    color: var(--ink-2);
+    position: relative;
+    padding: 4px 0;
+  }
+  .mainnav a::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -2px 0;
+    height: 1.5px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .mainnav a:hover { color: var(--ink); }
+  .mainnav a:hover::after { transform: scaleX(1); }
+  .mainnav a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+  .mainnav a[aria-current="page"]::after { transform: scaleX(1); background: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: transform .2s, background .2s, color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); background: var(--accent); border-color: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn.lg { padding: 16px 28px; font-size: 15px; }
+  .btn .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-size: 16px;
+    margin-left: 2px;
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Eyebrow + crumbs ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow .bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .crumbs {
+    display: inline-flex;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--muted); transition: color .2s; }
+  .crumbs a:hover { color: var(--ink); }
+  .crumbs span[aria-current] { color: var(--ink); }
+  .crumbs .sep { color: var(--line-strong); }
+
+  /* ---------- Page hero ---------- */
+  .page-hero {
+    padding-top: clamp(28px, 4vw, 48px);
+    padding-bottom: clamp(48px, 7vw, 96px);
+  }
+  .page-hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(64px, 9vw, 160px);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    margin: 14px 0 0;
+    max-width: 14ch;
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-lede {
+    margin-top: clamp(28px, 3.5vw, 44px);
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+    padding-top: clamp(28px, 3.5vw, 44px);
+    border-top: 1px solid var(--line);
+  }
+  .hero-lede .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-lede p {
+    font-size: clamp(18px, 1.45vw, 24px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .hero-lede p strong { color: var(--ink); font-weight: 500; }
+  .hero-lede p em { font-family: var(--serif); font-style: italic; color: var(--accent-ink); font-weight: 400; }
+
+  /* ---------- Sector band ---------- */
+  .sectors {
+    padding-block: clamp(56px, 7vw, 96px);
+    background: var(--cream-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .sectors-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(24px, 3vw, 40px);
+  }
+  .sectors-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 60px);
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    margin: 14px 0 0;
+  }
+  .sectors-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .sectors-head .lede {
+    font-size: clamp(15px, 1.2vw, 18px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .sector-cell {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 140px;
+    background: var(--bg);
+    transition: background .3s;
+  }
+  .sector-cell:hover { background: var(--pale); }
+  .sector-cell .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+  }
+  .sector-cell h4 {
+    margin: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 1.7vw, 26px);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .sector-cell .count {
+    margin-top: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  /* ---------- Services section ---------- */
+  .services {
+    padding-block: clamp(80px, 10vw, 140px);
+  }
+  .services-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(40px, 5vw, 72px);
+  }
+  .services-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(44px, 6vw, 96px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+  }
+  .services-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .services-head .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .service-card {
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 260px;
+    transition: background .3s, transform .3s, border-color .3s;
+  }
+  .service-card .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-ink);
+    transition: color .3s;
+  }
+  .service-card h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(22px, 1.9vw, 28px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+    transition: color .3s;
+  }
+  .service-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    transition: color .3s;
+  }
+  .service-card .chip {
+    margin-top: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color .3s;
+  }
+  .service-card:hover {
+    background: var(--ink);
+    transform: translateY(-3px);
+    border-color: var(--ink);
+  }
+  .service-card:hover h3 { color: var(--bg); }
+  .service-card:hover p { color: rgba(255,246,235,0.8); }
+  .service-card:hover .num { color: var(--accent); }
+  .service-card:hover .chip { color: rgba(255,246,235,0.6); }
+
+  /* ---------- Spotlight: Executive Speaking ---------- */
+  .spotlight {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 85% 50%, rgba(214,74,31,0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(214,74,31,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .spotlight-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+  }
+  .spotlight .eyebrow { color: rgba(255,246,235,0.7); }
+  .spotlight .eyebrow .bullet { background: var(--accent); }
+  .spotlight h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5.4vw, 88px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 28px;
+  }
+  .spotlight h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .spotlight p {
+    font-size: clamp(16px, 1.3vw, 20px);
+    line-height: 1.55;
+    color: rgba(255,246,235,0.9);
+    max-width: 620px;
+    margin: 0 0 1.2em;
+  }
+  .spotlight-side {
+    display: grid;
+    gap: 14px;
+  }
+  .spot-card {
+    background: rgba(255,246,235,0.06);
+    border: 1px solid rgba(255,246,235,0.14);
+    border-radius: var(--radius-md);
+    padding: 22px 24px;
+    transition: background .3s, border-color .3s;
+  }
+  .spot-card:hover { background: rgba(255,246,235,0.1); border-color: rgba(214,74,31,0.5); }
+  .spot-card .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+  }
+  .spot-card h4 {
+    margin: 6px 0 6px;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 1.4vw, 22px);
+    letter-spacing: -0.015em;
+    color: var(--bg);
+  }
+  .spot-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255,246,235,0.7);
+  }
+
+  /* ---------- Process ---------- */
+  .process {
+    padding-block: clamp(80px, 10vw, 140px);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .process-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(32px, 4vw, 56px);
+  }
+  .process-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5.2vw, 84px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+  }
+  .process-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .process-head .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .process-step {
+    padding: 32px 24px 36px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .process-step:last-child { border-right: none; }
+  .process-step .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-ink);
+  }
+  .process-step h3 {
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(22px, 1.9vw, 28px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .process-step p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .process-step .tag {
+    margin-top: auto;
+    padding-top: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- Stats band ---------- */
+  .stats {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--cream-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-head {
+    padding-bottom: clamp(32px, 4vw, 56px);
+  }
+  .stats-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(36px, 4.8vw, 76px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+    max-width: 20ch;
+  }
+  .stats-head h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .stat-card {
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .stat-card .big {
+    font-family: var(--display);
+    font-size: clamp(44px, 5vw, 76px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+  .stat-card .big em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 0.7em;
+  }
+  .stat-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .stat-card .footnote {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: auto;
+    padding-top: 10px;
+  }
+
+  /* ---------- Marquee ---------- */
+  .marquee {
+    padding-block: clamp(40px, 5vw, 64px);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    width: max-content;
+    animation: marquee 45s linear infinite;
+  }
+  .marquee-track span {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 64px);
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 48px;
+  }
+  .marquee-track span::after {
+    content: "·";
+    color: var(--accent);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  /* ---------- Pull quote ---------- */
+  .pull {
+    padding-block: clamp(96px, 12vw, 180px);
+    background: var(--cream-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .pull blockquote {
+    margin: 0;
+    max-width: 1100px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(32px, 4.4vw, 72px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .pull blockquote em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .pull cite {
+    display: block;
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* ---------- Awards strip ---------- */
+  .awards {
+    padding-block: clamp(64px, 8vw, 112px);
+    border-bottom: 1px solid var(--line);
+  }
+  .awards-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(28px, 3.5vw, 48px);
+  }
+  .awards-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 52px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 14px 0 0;
+  }
+  .awards-head h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+  .awards-head .lede {
+    font-size: clamp(15px, 1.2vw, 18px);
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 520px;
+  }
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .awards-grid .cell {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+    padding: 20px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: background .3s;
+  }
+  .awards-grid .cell:hover { background: var(--pale); }
+  .awards-grid .cell .year {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+  }
+  .awards-grid .cell .name {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(14px, 1.1vw, 17px);
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  /* ---------- Big CTA ---------- */
+  .cta-block {
+    padding-block: clamp(96px, 12vw, 180px);
+  }
+  .cta-block h2 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 104px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 40px;
+    max-width: 1040px;
+  }
+  .cta-block h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--accent); }
+  .cta-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ---------- Footer ---------- */
+  .site-foot {
+    background: var(--ink);
+    color: var(--bg);
+    padding-block: clamp(56px, 7vw, 96px);
+  }
+  .site-foot .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .site-foot h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.6);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .site-foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .site-foot a { opacity: 0.85; transition: opacity .2s, color .2s; }
+  .site-foot a:hover { opacity: 1; color: var(--accent); }
+  .site-foot img.logo { filter: invert(1) brightness(1.4); }
+  .foot-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,246,235,0.12);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Mobile nav toggle + overlay ---------- */
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: border-color .2s, background .2s;
+  }
+  .nav-toggle:hover { border-color: var(--ink); }
+  .nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s, opacity .25s;
+  }
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    transform: translateY(-100%);
+    transition: transform .35s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu-inner {
+    padding: 22px var(--gutter) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100%;
+  }
+  .mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-close {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .mobile-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+  .mobile-nav a {
+    font-family: var(--display);
+    font-size: clamp(34px, 8vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .mobile-nav a[aria-current="page"] { color: var(--accent); }
+  .mobile-menu-cta { align-self: flex-start; }
+  .mobile-menu-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  body.menu-open { overflow: hidden; }
+
+  /* ---------- Intersection reveals ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .sector-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 1024px) {
+    .mainnav { display: none; }
+    .nav .container { grid-template-columns: 1fr auto; gap: 16px; }
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+
+    .hero-lede,
+    .sectors-head,
+    .services-head,
+    .process-head,
+    .awards-head,
+    .spotlight-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-step { border-bottom: 1px solid var(--line); }
+    .process-step:nth-child(odd) { border-right: 1px solid var(--line); }
+    .process-step:nth-child(even) { border-right: none; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .awards-grid { grid-template-columns: repeat(3, 1fr); }
+    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    :root { --gutter: 20px; }
+    .logo { width: 58px; }
+    .utility .container { min-height: 32px; }
+    .utility .badge { font-size: 10px; }
+
+    .page-hero h1 { font-size: 52px; }
+    .sector-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-grid { grid-template-columns: 1fr; gap: 14px; }
+    .service-card { min-height: 0; padding: 22px 20px; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-step { border-right: none !important; border-bottom: 1px solid var(--line); }
+    .process-step:last-child { border-bottom: none; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .awards-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .pull blockquote { font-size: 32px; }
+
+    .cta-ctas { flex-direction: column; }
+    .cta-ctas .btn { width: 100%; justify-content: center; }
+    .cta-block h2 { font-size: 44px; }
+
+    .site-foot .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+    .foot-bottom { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 380px) {
+    .page-hero h1 { font-size: 44px; }
+    .services-head h2 { font-size: 38px; }
+    .spotlight h2 { font-size: 36px; }
+    .process-head h2 { font-size: 34px; }
+    .pull blockquote { font-size: 28px; }
+    .cta-block h2 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="utility" aria-label="Utility">
+  <div class="container">
+    <span class="badge"><span class="dot"></span>Observer's 50 Most Powerful PR Firms · 2026</span>
+  </div>
+</div>
+
+<!-- Main nav -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="JBC home">
+      <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html" aria-current="page">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn nav-cta">Work with us<span class="arrow">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-top">
+      <a href="index.html" class="brand" aria-label="JBC home">
+        <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+      </a>
+      <button class="mobile-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html" aria-current="page">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn lg mobile-menu-cta">Work with us<span class="arrow">→</span></a>
+    <div class="mobile-menu-meta">
+      <span>NY · LA · Working globally</span>
+      <a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span aria-current="page">What We Do</span>
+    </div>
+
+    <span class="eyebrow"><span class="bullet"></span>The menu · 50 people · NY &amp; LA</span>
+    <h1>The <em>antidote</em> to traditional PR.</h1>
+
+    <div class="hero-lede reveal">
+      <div class="k">Our premise</div>
+      <p>Fifty expert publicists and specialized strategists share a common theme: we have the <strong>best stories to tell</strong> and we tell them quickly, with intention. We serve our partners with a <em>holistic</em> communications approach that creates true consumer affinity and thought leadership for leading organizations across fashion and retail, home and design, beauty, health and wellness, food and beverage, and social impact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sectors band -->
+<section class="sectors">
+  <div class="container">
+    <div class="sectors-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Where we work</span>
+        <h2>Six sectors. <em>One</em> standard.</h2>
+      </div>
+      <p class="lede">We've spent a decade building expertise across six categories — deep enough to shortcut the reporter relationships, the category context, and the competitive landscape on day one.</p>
+    </div>
+
+    <div class="sector-grid">
+      <div class="sector-cell reveal">
+        <span class="num">01</span>
+        <h4>Fashion &amp; Retail</h4>
+        <span class="count">Parachute · Fashionphile · Grove</span>
+      </div>
+      <div class="sector-cell reveal">
+        <span class="num">02</span>
+        <h4>Home &amp; Design</h4>
+        <span class="count">Parachute · Sloomoo</span>
+      </div>
+      <div class="sector-cell reveal">
+        <span class="num">03</span>
+        <h4>Beauty</h4>
+        <span class="count">Saltair · Kosas</span>
+      </div>
+      <div class="sector-cell reveal">
+        <span class="num">04</span>
+        <h4>Health &amp; Wellness</h4>
+        <span class="count">Hims &amp; Hers · Thrive Causemetics</span>
+      </div>
+      <div class="sector-cell reveal">
+        <span class="num">05</span>
+        <h4>Food &amp; Beverage</h4>
+        <span class="count">OLIPOP · Graza</span>
+      </div>
+      <div class="sector-cell reveal">
+        <span class="num">06</span>
+        <h4>Social Impact</h4>
+        <span class="count">theSkimm · charity: water</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+  <div class="container">
+    <div class="services-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Our services</span>
+        <h2>The <em>full</em> menu.</h2>
+      </div>
+      <p class="lede">Twelve integrated capabilities — not a stack of line items. We scope the mix per brand, run it in lockstep across in-house teams, and report against a single shared scorecard.</p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <span class="num">01</span>
+        <h3>Communication Strategy</h3>
+        <p>Customized, multi-dimensional strategies that first identify brand objectives, then outline tactics, outreach, and programs to maximize awareness through consistent, compelling visibility.</p>
+        <span class="chip">Strategic foundation</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">02</span>
+        <h3>Positioning &amp; Messaging</h3>
+        <p>Executive positioning and data-supported outreach that speaks to all customer communities in equal measure — reinforcing the proposition while capturing a wider consumer group.</p>
+        <span class="chip">Narrative architecture</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">03</span>
+        <h3>Media Relations</h3>
+        <p>JBC serves as your ongoing Press Office — executing strategy, vetting inbound inquiries, managing opportunities, and preparing spokespersons with full media briefings.</p>
+        <span class="chip">Always-on press office</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">04</span>
+        <h3>Data &amp; Reporting</h3>
+        <p>Vast knowledge of the media landscape informs where we place stories. All-inclusive press reports reflect coverage, outreach in progress, and upcoming initiatives — no surprises.</p>
+        <span class="chip">Weekly scoreboard</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">05</span>
+        <h3>Press Amplification</h3>
+        <p>Placements shouldn't sit between agency and client — they're marketing assets. We advise on the best strategy to extend every win into click-throughs, social, and paid.</p>
+        <span class="chip">Post-placement lift</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">06</span>
+        <h3>Strategic Partnerships</h3>
+        <p>Event, brand, and charity collaborations that amplify the brand. We work closely with internal teams to align partnership plans with the overall comms strategy.</p>
+        <span class="chip">Collaborations &amp; alliances</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">07</span>
+        <h3>Affiliate Marketing</h3>
+        <p>When working with product, affiliate is a crucial component of any well-rounded press strategy. Our in-house Affiliate division is seamlessly integrated with media relations.</p>
+        <span class="chip">In-house division</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">08</span>
+        <h3>Content</h3>
+        <p>Our in-house Content division handles timely thought leadership pieces, new-channel strategy, and SEO optimization — a menu of editorial services to match your content needs.</p>
+        <span class="chip">In-house editorial</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">09</span>
+        <h3>Media Training</h3>
+        <p>We certify that our clients are not just fully prepared for — but also entirely confident in — a variety of interview scenarios. From TV spots to podcast circuits to trade panels.</p>
+        <span class="chip">Spokesperson prep</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">10</span>
+        <h3>Influencer Marketing</h3>
+        <p>A dedicated team that crafts tailored influencer strategies, then runs them in lockstep with Affiliate and PR to drive meaningful engagement and authentic brand growth.</p>
+        <span class="chip">Authentic partnerships</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">11</span>
+        <h3>Crisis &amp; Culture Communications</h3>
+        <p>Crisis mapping, precautionary protection of brand name and stakeholders, plus the inclusive, relevant cultural voice consumers increasingly expect — all at the speed of the news cycle.</p>
+        <span class="chip">Readiness + response</span>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">12</span>
+        <h3>IRL Activations</h3>
+        <p>Immersive events designed and executed in tandem with influencer, PR, and content teams — customized activations that resonate, amplify the story, and drive authentic engagement.</p>
+        <span class="chip">Events-fluent team</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Spotlight: Executive Speaking & Awards -->
+<section class="spotlight">
+  <div class="container">
+    <div class="spotlight-grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="bullet"></span>Executive speaking &amp; awards</span>
+        <h2>Amplifying the founder's <em>voice</em>.</h2>
+        <p>Pulling focus on stages beyond the screen is a key pillar of how we elevate founder-led brands. The JBC Executive Speaking team develops original thought leadership narratives and talking points to be activated across conferences, keynotes, and roundtable discussions.</p>
+        <p>We spearhead awards submissions to present our brand partners with industry recognition — from consumer lists to category honors to business-of-the-year accolades that compound over time.</p>
+      </div>
+      <div class="spotlight-side reveal">
+        <div class="spot-card">
+          <span class="num">A</span>
+          <h4>Conference &amp; keynote scouting</h4>
+          <p>Matching the founder's POV to the audiences that move the category forward — SXSW, Fast Company Innovation Festival, Shoptalk, NRF, and category-specific summits.</p>
+        </div>
+        <div class="spot-card">
+          <span class="num">B</span>
+          <h4>Original thought leadership</h4>
+          <p>Narrative development and talking points per venue, plus moderated-Q&amp;A prep tailored to each stage.</p>
+        </div>
+        <div class="spot-card">
+          <span class="num">C</span>
+          <h4>Awards submissions</h4>
+          <p>End-to-end submission authoring for Fast Company's Most Innovative, Inc. 5000, Entrepreneur 360, Glossy Awards, Fortune's 40 Under 40, and more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How we work / Process -->
+<section class="process">
+  <div class="container">
+    <div class="process-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>How we work</span>
+        <h2>Four stages. No <em>dead</em> air.</h2>
+      </div>
+      <p class="lede">Every engagement runs on the same cadence — set the strategy, build the runway, activate against the news cycle, and keep compounding. Your dedicated team operates as an extension of your in-house org from week one.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <span class="num">01</span>
+        <h3>Immerse</h3>
+        <p>Deep dive on brand, product, category, and audience. We leave the kickoff with a full messaging matrix and a ranked list of the reporters and outlets that move the needle for your specific goal.</p>
+        <span class="tag">Weeks 1 — 2</span>
+      </div>
+      <div class="process-step reveal">
+        <span class="num">02</span>
+        <h3>Architect</h3>
+        <p>Strategy build — integrated plan across Media Relations, Affiliate, Influencer, and Content. Proof points, KPIs, and the shared scorecard go live before any pitch leaves the building.</p>
+        <span class="tag">Weeks 2 — 4</span>
+      </div>
+      <div class="process-step reveal">
+        <span class="num">03</span>
+        <h3>Activate</h3>
+        <p>Ongoing press office — proactive pitching, inbound management, spokesperson prep, and cultural newsjacking. We move in hours, not weeks, when the news cycle rewards speed.</p>
+        <span class="tag">Months 2+</span>
+      </div>
+      <div class="process-step reveal">
+        <span class="num">04</span>
+        <h3>Compound</h3>
+        <p>Weekly reporting, quarterly strategy re-cuts, executive positioning, and awards. Each win is re-cut into owned and paid — placements stop being one-offs and start being cumulative.</p>
+        <span class="tag">Ongoing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats band -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-head reveal">
+      <span class="eyebrow"><span class="bullet"></span>The numbers</span>
+      <h2>The <em>firepower</em> behind every engagement.</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="big">50<em>+</em></div>
+        <p>Expert publicists and specialized strategists — the full JBC bench.</p>
+        <div class="footnote">Across NY &amp; LA</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">12</div>
+        <p>Integrated service capabilities, not bolted-on sub-agencies. All in-house.</p>
+        <div class="footnote">One P&amp;L, one team</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">6</div>
+        <p>Category sectors with over a decade of reporter relationships behind us.</p>
+        <div class="footnote">Shortcut the ramp</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">2014</div>
+        <p>Founded on the premise that PR should create consumer affinity, not noise.</p>
+        <div class="footnote">Independent · women-led</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Comms Strategy</span>
+    <span>Media Relations</span>
+    <span>Positioning</span>
+    <span>Affiliate</span>
+    <span>Content</span>
+    <span>Influencer</span>
+    <span>Executive Speaking</span>
+    <span>Media Training</span>
+    <span>Crisis</span>
+    <span>IRL Activations</span>
+    <span>Awards</span>
+    <span>Partnerships</span>
+    <!-- duplicate for seamless loop -->
+    <span>Comms Strategy</span>
+    <span>Media Relations</span>
+    <span>Positioning</span>
+    <span>Affiliate</span>
+    <span>Content</span>
+    <span>Influencer</span>
+    <span>Executive Speaking</span>
+    <span>Media Training</span>
+    <span>Crisis</span>
+    <span>IRL Activations</span>
+    <span>Awards</span>
+    <span>Partnerships</span>
+  </div>
+</div>
+
+<!-- Awards grid -->
+<section class="awards">
+  <div class="container">
+    <div class="awards-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Our awards</span>
+        <h2>Recognition we've <em>earned</em>.</h2>
+      </div>
+      <p class="lede">A selection of the industry honors JBC has received alongside the brands we represent.</p>
+    </div>
+
+    <div class="awards-grid reveal">
+      <div class="cell">
+        <span class="year">2026</span>
+        <span class="name">Observer's 50 Most Powerful PR Firms</span>
+      </div>
+      <div class="cell">
+        <span class="year">2025</span>
+        <span class="name">PRWeek Agency of the Year — Boutique</span>
+      </div>
+      <div class="cell">
+        <span class="year">2024</span>
+        <span class="name">Inc. Best Workplaces</span>
+      </div>
+      <div class="cell">
+        <span class="year">2024</span>
+        <span class="name">Ragan's Top Places to Work</span>
+      </div>
+      <div class="cell">
+        <span class="year">2023</span>
+        <span class="name">PRovoke Media Best Agencies to Work For</span>
+      </div>
+      <div class="cell">
+        <span class="year">2023</span>
+        <span class="name">Fast Company Most Innovative — CPG</span>
+      </div>
+      <div class="cell">
+        <span class="year">2022</span>
+        <span class="name">PRWeek 40 Under 40</span>
+      </div>
+      <div class="cell">
+        <span class="year">2022</span>
+        <span class="name">AdAge A-List Standout</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pull quote -->
+<section class="pull">
+  <div class="container reveal">
+    <blockquote>
+      The best <em>stories</em> to tell — told <em>quickly</em>, with intention. That's the whole job.
+    </blockquote>
+    <cite>— JBC's founding premise</cite>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="contact">
+  <div class="container reveal">
+    <span class="eyebrow"><span class="bullet"></span>Let's talk</span>
+    <h2>Ready to put this <em>menu</em> to work?</h2>
+    <div class="cta-ctas">
+      <a class="btn lg" href="mailto:info@jenniferbett.com">Talk to Us Today<span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a href="index.html" class="brand" aria-label="JBC home">
+          <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+        </a>
+        <p style="margin-top: 16px; max-width: 320px; color: rgba(255,246,235,0.7); font-size: 14px;">Jennifer Bett Communications. An independent, women-led strategic PR agency. Headquartered in New York &amp; Los Angeles.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="why-jbc.html">Why JBC</a></li>
+          <li><a href="the-team.html">Our Team</a></li>
+          <li><a href="the-spin.html">The Spin</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Agency</h4>
+        <ul>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a></li>
+          <li><a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Substack — Office Hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Jennifer Bett Communications® · JBC® © 2026. All rights reserved.</span>
+      <span>NY · LA · Working globally</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav shadow
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const closeBtn = document.getElementById('navClose');
+  const menu = document.getElementById('mobileMenu');
+  const setMenu = (open) => {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  closeBtn.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Intersection reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

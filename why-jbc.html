@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Why JBC — The Difference — Jennifer Bett Communications</title>
+<meta name="description" content="An independent, women-led strategic PR agency shaping — not just navigating — the future of media relations. Female founders. DEI. Newsjacking. Office Hours." />
+<style>
+  /* ---------- Design tokens ---------- */
+  :root {
+    --bg: #FFF6EB;
+    --ink: #0A0A0A;
+    --ink-2: #2B2B2B;
+    --muted: #6A6258;
+    --line: rgba(10,10,10,0.12);
+    --line-strong: rgba(10,10,10,0.22);
+    --cream-2: #F6E8D2;
+    --accent: #D64A1F;
+    --accent-ink: #8A2F14;
+    --pale: #FBF0DE;
+    --display: "Helvetica Neue", "Inter", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Fraunces", "EB Garamond", Georgia, serif;
+    --maxw: 1320px;
+    --gutter: clamp(20px, 4vw, 56px);
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+  }
+
+  /* ---------- Reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02";
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ---------- Utility bar ---------- */
+  .utility {
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .utility .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 36px;
+    gap: 16px;
+  }
+  .utility .badge { display: inline-flex; align-items: center; gap: 8px; }
+  .utility .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  /* ---------- Main nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  .nav.scrolled { border-color: var(--line); background: rgba(255,246,235,0.92); backdrop-filter: saturate(160%) blur(8px); }
+  .nav .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding-block: 22px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo { display: block; width: 74px; height: auto; }
+  footer .logo { width: 86px; }
+
+  .mainnav { justify-self: center; display: flex; gap: 36px; }
+  .mainnav a {
+    font-size: 17px;
+    letter-spacing: -0.015em;
+    color: var(--ink-2);
+    position: relative;
+    padding: 4px 0;
+  }
+  .mainnav a::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -2px 0;
+    height: 1.5px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .mainnav a:hover { color: var(--ink); }
+  .mainnav a:hover::after { transform: scaleX(1); }
+  .mainnav a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+  .mainnav a[aria-current="page"]::after { transform: scaleX(1); background: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: transform .2s, background .2s, color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); background: var(--accent); border-color: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn.lg { padding: 16px 28px; font-size: 15px; }
+  .btn .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-size: 16px;
+    margin-left: 2px;
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Eyebrow + crumbs ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow .bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .crumbs {
+    display: inline-flex;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--muted); transition: color .2s; }
+  .crumbs a:hover { color: var(--ink); }
+  .crumbs span[aria-current] { color: var(--ink); }
+  .crumbs .sep { color: var(--line-strong); }
+
+  /* ---------- Page hero ---------- */
+  .page-hero {
+    padding-top: clamp(28px, 4vw, 48px);
+    padding-bottom: clamp(48px, 7vw, 96px);
+  }
+  .page-hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(64px, 9vw, 160px);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    margin: 14px 0 0;
+    max-width: 14ch;
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-lede {
+    margin-top: clamp(28px, 3.5vw, 44px);
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+    padding-top: clamp(28px, 3.5vw, 44px);
+    border-top: 1px solid var(--line);
+  }
+  .hero-lede .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-lede p {
+    font-size: clamp(18px, 1.45vw, 24px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .hero-lede p + p { margin-top: 1em; }
+  .hero-lede p strong { color: var(--ink); font-weight: 500; }
+  .hero-lede p em { font-family: var(--serif); font-style: italic; color: var(--accent-ink); font-weight: 400; }
+
+  /* ---------- Principles row (pull three mini-stats up top) ---------- */
+  .principles {
+    padding-block: clamp(48px, 6vw, 72px);
+    background: var(--cream-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+  }
+  .principle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .principle .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .principle h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(24px, 2.2vw, 34px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .principle h3 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .principle p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  /* ---------- Differentiators — 4 large rows ---------- */
+  .diff {
+    padding-block: clamp(80px, 10vw, 140px);
+  }
+  .diff-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(40px, 5vw, 72px);
+  }
+  .diff-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(44px, 6vw, 96px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+  }
+  .diff-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .diff-head .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .diff-row {
+    display: grid;
+    grid-template-columns: 0.4fr 1fr 1.4fr;
+    gap: clamp(24px, 4vw, 56px);
+    padding: clamp(40px, 5vw, 72px) 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+  .diff-row:last-child { border-bottom: 1px solid var(--line); }
+  .diff-row .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .diff-row h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 3.8vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .diff-row h3 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .diff-row .body p {
+    margin: 0 0 1em;
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .diff-row .body p:last-child { margin-bottom: 0; }
+  .diff-row .body p strong { color: var(--ink); font-weight: 500; }
+
+  .diff-proof {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .diff-proof .cell {
+    padding: 18px 20px;
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .diff-proof .big {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .diff-proof .big em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 0.7em;
+  }
+  .diff-proof .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- Pull quote ---------- */
+  .pull {
+    padding-block: clamp(96px, 12vw, 180px);
+    background: var(--cream-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pull blockquote {
+    margin: 0;
+    max-width: 1100px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(32px, 4.4vw, 72px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .pull blockquote em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .pull cite {
+    display: block;
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* ---------- Office Hours spotlight (dark) ---------- */
+  .spotlight {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 85% 50%, rgba(214,74,31,0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(214,74,31,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .spotlight-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+  }
+  .spotlight .eyebrow { color: rgba(255,246,235,0.7); }
+  .spotlight .eyebrow .bullet { background: var(--accent); }
+  .spotlight h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5.4vw, 88px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 28px;
+  }
+  .spotlight h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .spotlight p {
+    font-size: clamp(16px, 1.3vw, 20px);
+    line-height: 1.55;
+    color: rgba(255,246,235,0.9);
+    max-width: 620px;
+    margin: 0 0 1.2em;
+  }
+  .spotlight .ctas {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .spotlight .btn {
+    background: var(--bg);
+    color: var(--ink);
+    border-color: var(--bg);
+  }
+  .spotlight .btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .spotlight .btn.ghost {
+    background: transparent;
+    color: var(--bg);
+    border-color: rgba(255,246,235,0.3);
+  }
+  .spotlight .btn.ghost:hover { background: rgba(255,246,235,0.08); border-color: var(--bg); }
+
+  .spotlight-side {
+    display: grid;
+    gap: 14px;
+  }
+  .spot-card {
+    background: rgba(255,246,235,0.06);
+    border: 1px solid rgba(255,246,235,0.14);
+    border-radius: var(--radius-md);
+    padding: 22px 24px;
+    transition: background .3s, border-color .3s;
+  }
+  .spot-card:hover { background: rgba(255,246,235,0.1); border-color: rgba(214,74,31,0.5); }
+  .spot-card .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+  }
+  .spot-card h4 {
+    margin: 6px 0 6px;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 1.4vw, 22px);
+    letter-spacing: -0.015em;
+    color: var(--bg);
+  }
+  .spot-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255,246,235,0.7);
+  }
+
+  /* ---------- Stats band ---------- */
+  .stats {
+    padding-block: clamp(80px, 10vw, 140px);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-head {
+    padding-bottom: clamp(32px, 4vw, 56px);
+  }
+  .stats-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(36px, 4.8vw, 76px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+    max-width: 20ch;
+  }
+  .stats-head h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .stat-card {
+    background: var(--cream-2);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .stat-card .big {
+    font-family: var(--display);
+    font-size: clamp(44px, 5vw, 76px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+  .stat-card .big em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 0.7em;
+  }
+  .stat-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .stat-card .footnote {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: auto;
+    padding-top: 10px;
+  }
+
+  /* ---------- Marquee ---------- */
+  .marquee {
+    padding-block: clamp(40px, 5vw, 64px);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    width: max-content;
+    animation: marquee 45s linear infinite;
+  }
+  .marquee-track span {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 64px);
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 48px;
+  }
+  .marquee-track span::after {
+    content: "·";
+    color: var(--accent);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  /* ---------- Big CTA ---------- */
+  .cta-block {
+    padding-block: clamp(96px, 12vw, 180px);
+  }
+  .cta-block h2 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 104px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 40px;
+    max-width: 1040px;
+  }
+  .cta-block h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--accent); }
+  .cta-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ---------- Footer ---------- */
+  .site-foot {
+    background: var(--ink);
+    color: var(--bg);
+    padding-block: clamp(56px, 7vw, 96px);
+  }
+  .site-foot .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .site-foot h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.6);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .site-foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .site-foot a { opacity: 0.85; transition: opacity .2s, color .2s; }
+  .site-foot a:hover { opacity: 1; color: var(--accent); }
+  .site-foot img.logo { filter: invert(1) brightness(1.4); }
+  .foot-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,246,235,0.12);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Mobile nav toggle + overlay ---------- */
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: border-color .2s, background .2s;
+  }
+  .nav-toggle:hover { border-color: var(--ink); }
+  .nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s, opacity .25s;
+  }
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    transform: translateY(-100%);
+    transition: transform .35s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu-inner {
+    padding: 22px var(--gutter) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100%;
+  }
+  .mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-close {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .mobile-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+  .mobile-nav a {
+    font-family: var(--display);
+    font-size: clamp(34px, 8vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .mobile-nav a[aria-current="page"] { color: var(--accent); }
+  .mobile-menu-cta { align-self: flex-start; }
+  .mobile-menu-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  body.menu-open { overflow: hidden; }
+
+  /* ---------- Intersection reveals ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .diff-row { grid-template-columns: 0.5fr 1fr; }
+    .diff-row .body { grid-column: 1 / -1; }
+    .principles-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 1024px) {
+    .mainnav { display: none; }
+    .nav .container { grid-template-columns: 1fr auto; gap: 16px; }
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+
+    .hero-lede,
+    .diff-head,
+    .spotlight-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    :root { --gutter: 20px; }
+    .logo { width: 58px; }
+    .utility .container { min-height: 32px; }
+    .utility .badge { font-size: 10px; }
+
+    .page-hero h1 { font-size: 52px; }
+    .principles-grid { grid-template-columns: 1fr; }
+    .diff-row { grid-template-columns: 1fr; gap: 16px; }
+    .diff-proof { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+
+    .pull blockquote { font-size: 32px; }
+
+    .cta-ctas { flex-direction: column; }
+    .cta-ctas .btn { width: 100%; justify-content: center; }
+    .cta-block h2 { font-size: 44px; }
+
+    .site-foot .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+    .foot-bottom { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 380px) {
+    .page-hero h1 { font-size: 44px; }
+    .diff-head h2 { font-size: 38px; }
+    .diff-row h3 { font-size: 28px; }
+    .spotlight h2 { font-size: 36px; }
+    .pull blockquote { font-size: 28px; }
+    .cta-block h2 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="utility" aria-label="Utility">
+  <div class="container">
+    <span class="badge"><span class="dot"></span>Observer's 50 Most Powerful PR Firms · 2026</span>
+  </div>
+</div>
+
+<!-- Main nav -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="JBC home">
+      <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html" aria-current="page">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn nav-cta">Work with us<span class="arrow">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-top">
+      <a href="index.html" class="brand" aria-label="JBC home">
+        <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+      </a>
+      <button class="mobile-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html" aria-current="page">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn lg mobile-menu-cta">Work with us<span class="arrow">→</span></a>
+    <div class="mobile-menu-meta">
+      <span>NY · LA · Working globally</span>
+      <a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span aria-current="page">Why JBC</span>
+    </div>
+
+    <span class="eyebrow"><span class="bullet"></span>The JBC difference · Est. 2014</span>
+    <h1>Not just <em>navigating</em> the future — shaping it.</h1>
+
+    <div class="hero-lede reveal">
+      <div class="k">Our premise</div>
+      <div>
+        <p>At JBC, we recognize that media relations is evolving rapidly, reflecting the changing ways in which audiences consume information. As traditional news cycles shift towards a more <em>dynamic</em> landscape, we're committed to adapting our strategies to meet these new challenges and opportunities.</p>
+        <p>Our innovative approach elevates us beyond mere information dissemination; we are <strong>storytellers at the forefront</strong> of brand visibility and community connection. By harnessing strategic storytelling tailored to diverse platforms, we ensure that each message resonates deeply with target audiences while aligning seamlessly with our clients' core values and objectives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Principles band -->
+<section class="principles">
+  <div class="container">
+    <div class="principles-grid">
+      <div class="principle reveal">
+        <span class="k">01 · Point of view</span>
+        <h3>Storytelling at the <em>speed</em> of culture.</h3>
+        <p>Traditional news cycles have fractured. We build programs that move with the platforms audiences actually live on — not the ones the press release was written for.</p>
+      </div>
+      <div class="principle reveal">
+        <span class="k">02 · Posture</span>
+        <h3>Consumer affinity over noise.</h3>
+        <p>Visibility is easy. Affinity is compounding. Every placement, partnership, and piece of content ladders to a measurable lift in how the brand is understood.</p>
+      </div>
+      <div class="principle reveal">
+        <span class="k">03 · Practice</span>
+        <h3>Aligned with your <em>values</em>.</h3>
+        <p>Brand objectives get you a strategy. Brand values get you the right strategy. We scope to both from kickoff — and the work reflects it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Differentiators -->
+<section class="diff">
+  <div class="container">
+    <div class="diff-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>What makes us different</span>
+        <h2>Four things you <em>won't</em> find elsewhere.</h2>
+      </div>
+      <p class="lede">Most PR agencies sell a service mix. JBC sells a worldview — a specific take on who deserves the loudest microphone, how we earn the right to wield it, and what to do with the news cycle once we have it.</p>
+    </div>
+
+    <!-- 01 Female Founders -->
+    <article class="diff-row reveal">
+      <span class="tag">01 · Focus</span>
+      <h3>A focus on <em>female</em> founders.</h3>
+      <div class="body">
+        <p><strong>The business world is still very much a man's world.</strong> Female founders in the U.S. received just 2% of venture capital in 2021 — despite starting companies at a faster rate than men. Roughly 12% of decision-makers at VC firms are women, and that imbalance ripples through the ecosystem, down to which founders get profiled, invited on panels, and trusted as category authorities.</p>
+        <p>JBC was built to correct the imbalance on the media side of that equation. We're specialized to tell these stories — to translate founder expertise into the narratives that change category perception. Our bench, our book, and our reporter relationships are weighted toward moving women-led brands from overlooked to essential.</p>
+        <div class="diff-proof">
+          <div class="cell">
+            <span class="big">2<em>%</em></span>
+            <span class="label">VC funding to female founders · U.S. 2021</span>
+          </div>
+          <div class="cell">
+            <span class="big">12<em>%</em></span>
+            <span class="label">Female decision-makers at VC firms</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 DEI -->
+    <article class="diff-row reveal">
+      <span class="tag">02 · Lens</span>
+      <h3>DEI is not a <em>chapter</em>.</h3>
+      <div class="body">
+        <p>Everything we do is viewed through a DEI lens — from pitch strategy to spokesperson selection to the outlets we put on the A-list for every brand. That isn't a quarterly add-on; it's a structural filter that runs through the way we staff accounts, prep executives, and measure whose stories get amplified.</p>
+        <p>We back it up internally with strategic hires and an ongoing <strong>monthly educational series</strong> that keeps the full team sharpened on evolving best practices across race, gender, class, and ability. The goal: a team that doesn't need to be asked to do the work — it's already in the scope.</p>
+        <div class="diff-proof">
+          <div class="cell">
+            <span class="big">Monthly</span>
+            <span class="label">Internal DEI education series</span>
+          </div>
+          <div class="cell">
+            <span class="big">All-hands</span>
+            <span class="label">Every account reviewed through the lens</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 Newsjacking -->
+    <article class="diff-row reveal">
+      <span class="tag">03 · Speed</span>
+      <h3>Newsjacking &amp; <em>trend</em> forecasting.</h3>
+      <div class="body">
+        <p>JBC has its pulse on the news cycle. We don't just react to what's happening — we <strong>decode, synthesize, and predict</strong>. Our analytical reporting turns the chaos of a news day into a clear map of where a brand's voice belongs, where it doesn't, and which trend curves are worth betting on 48 hours before the rest of the category notices.</p>
+        <p>That same rigor runs as a forward-looking service: quarterly trend briefs, monthly category scans, and real-time Slack-speed flag-ups when a cultural moment opens a window to insert the brand meaningfully. Speed without strategy is noise. Strategy without speed is a press release. We run both.</p>
+        <div class="diff-proof">
+          <div class="cell">
+            <span class="big">&lt;2<em>h</em></span>
+            <span class="label">Typical response window on breaking news</span>
+          </div>
+          <div class="cell">
+            <span class="big">Quarterly</span>
+            <span class="label">Trend briefs + category scans</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 Office Hours -->
+    <article class="diff-row reveal">
+      <span class="tag">04 · Generosity</span>
+      <h3><em>Office Hours</em> — free, monthly.</h3>
+      <div class="body">
+        <p>Once a month, JBC opens the doors. <strong>Office Hours</strong> is a free session for founders and early-stage brand leaders to ask the PR questions they can't ask anywhere else — how to think about a launch, how to prep for a first profile, when to escalate a crisis, and what the agency pitch-deck promises actually mean in practice.</p>
+        <p>We do it because the right advice at the right moment shapes a category. Book a slot at <a href="mailto:officehours@jbc-pr.com" style="color:var(--accent-ink); text-decoration: underline; text-underline-offset: 3px;">officehours@jbc-pr.com</a>, or subscribe to the <em>Office Hours</em> newsletter on Substack to keep up with the weekly read on where the news cycle is headed.</p>
+        <div class="diff-proof">
+          <div class="cell">
+            <span class="big">Monthly</span>
+            <span class="label">Free 1:1 sessions for founders</span>
+          </div>
+          <div class="cell">
+            <span class="big">Weekly</span>
+            <span class="label">Office Hours on Substack</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Pull quote -->
+<section class="pull">
+  <div class="container reveal">
+    <blockquote>
+      We're not just <em>navigating</em> the future of media relations — we're <em>shaping</em> it.
+    </blockquote>
+    <cite>— The JBC Difference</cite>
+  </div>
+</section>
+
+<!-- Office Hours / Substack spotlight -->
+<section class="spotlight">
+  <div class="container">
+    <div class="spotlight-grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="bullet"></span>Open door · Office Hours</span>
+        <h2>A seat at the <em>table</em>, before you ever hire us.</h2>
+        <p>Office Hours started as a single Zoom window on a Friday afternoon and a founder asking the hardest question in the book: "Is this story worth telling yet?" Today it's an open monthly session — candid, unpaid, and deliberately low-friction — for the founders the traditional PR world tends to reach last.</p>
+        <p>The companion <em>Office Hours</em> Substack is where we publish our read on the week — the stories the team is tracking, the cultural cues we think are about to break, and the unglamorous tactical notes on what it actually looks like to ship a program inside a news cycle that never stops moving.</p>
+        <div class="ctas">
+          <a class="btn" href="mailto:officehours@jbc-pr.com">Book a session<span class="arrow">→</span></a>
+          <a class="btn ghost" href="#">Read the Substack<span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="spotlight-side reveal">
+        <div class="spot-card">
+          <span class="num">A</span>
+          <h4>30 minutes. On the house.</h4>
+          <p>One founder, one JBC senior lead, one agenda — whatever's keeping you up at night. No pitch deck on either side.</p>
+        </div>
+        <div class="spot-card">
+          <span class="num">B</span>
+          <h4>A weekly read on the cycle</h4>
+          <p>The <em>Office Hours</em> Substack distills what our desk is tracking into the shortest possible briefing — trend cues, breaking windows, and what to do with them.</p>
+        </div>
+        <div class="spot-card">
+          <span class="num">C</span>
+          <h4>Community on the record</h4>
+          <p>Past readers include founders, operators, and media-side leaders — the same people who end up in the bylines we pitch into.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats band -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-head reveal">
+      <span class="eyebrow"><span class="bullet"></span>The JBC bench</span>
+      <h2>Independent, women-led, <em>built</em> for this moment.</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="big">2014</div>
+        <p>Founded on the premise that PR should create consumer affinity, not noise.</p>
+        <div class="footnote">Independent · women-led</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">50<em>+</em></div>
+        <p>Expert publicists and strategists across New York and Los Angeles.</p>
+        <div class="footnote">One team, one scorecard</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">6</div>
+        <p>Category sectors with over a decade of reporter relationships behind us.</p>
+        <div class="footnote">Shortcut the ramp</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">0</div>
+        <p>Outsourced divisions — Affiliate, Influencer, Content, and Executive Speaking all live in-house.</p>
+        <div class="footnote">No middlemen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Female Founders</span>
+    <span>DEI Lens</span>
+    <span>Newsjacking</span>
+    <span>Trend Forecasting</span>
+    <span>Office Hours</span>
+    <span>Independent</span>
+    <span>Women-Led</span>
+    <span>In-House</span>
+    <!-- duplicate for seamless loop -->
+    <span>Female Founders</span>
+    <span>DEI Lens</span>
+    <span>Newsjacking</span>
+    <span>Trend Forecasting</span>
+    <span>Office Hours</span>
+    <span>Independent</span>
+    <span>Women-Led</span>
+    <span>In-House</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-block" id="contact">
+  <div class="container reveal">
+    <span class="eyebrow"><span class="bullet"></span>Let's talk</span>
+    <h2>If this sounds like the <em>right</em> kind of loud — let's talk.</h2>
+    <div class="cta-ctas">
+      <a class="btn lg" href="mailto:info@jenniferbett.com">Talk to Us Today<span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a href="index.html" class="brand" aria-label="JBC home">
+          <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+        </a>
+        <p style="margin-top: 16px; max-width: 320px; color: rgba(255,246,235,0.7); font-size: 14px;">Jennifer Bett Communications. An independent, women-led strategic PR agency. Headquartered in New York &amp; Los Angeles.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="why-jbc.html">Why JBC</a></li>
+          <li><a href="the-team.html">Our Team</a></li>
+          <li><a href="the-spin.html">The Spin</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Agency</h4>
+        <ul>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a></li>
+          <li><a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Substack — Office Hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Jennifer Bett Communications® · JBC® © 2026. All rights reserved.</span>
+      <span>NY · LA · Working globally</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav shadow
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const closeBtn = document.getElementById('navClose');
+  const menu = document.getElementById('mobileMenu');
+  const setMenu = (open) => {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  closeBtn.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Intersection reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,1419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Team — Jennifer Bett Communications</title>
+<meta name="description" content="Fifty expert publicists and specialized strategists — led by Jennifer Bett Meyer. An independent, women-led agency across New York and Los Angeles." />
+<style>
+  /* ---------- Design tokens ---------- */
+  :root {
+    --bg: #FFF6EB;
+    --ink: #0A0A0A;
+    --ink-2: #2B2B2B;
+    --muted: #6A6258;
+    --line: rgba(10,10,10,0.12);
+    --line-strong: rgba(10,10,10,0.22);
+    --cream-2: #F6E8D2;
+    --accent: #D64A1F;
+    --accent-ink: #8A2F14;
+    --pale: #FBF0DE;
+    --display: "Helvetica Neue", "Inter", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Fraunces", "EB Garamond", Georgia, serif;
+    --maxw: 1320px;
+    --gutter: clamp(20px, 4vw, 56px);
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+  }
+
+  /* ---------- Reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02";
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ---------- Utility bar ---------- */
+  .utility {
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .utility .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 36px;
+    gap: 16px;
+  }
+  .utility .badge { display: inline-flex; align-items: center; gap: 8px; }
+  .utility .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  /* ---------- Main nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  .nav.scrolled { border-color: var(--line); background: rgba(255,246,235,0.92); backdrop-filter: saturate(160%) blur(8px); }
+  .nav .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding-block: 22px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo { display: block; width: 74px; height: auto; }
+  footer .logo { width: 86px; }
+
+  .mainnav { justify-self: center; display: flex; gap: 36px; }
+  .mainnav a {
+    font-size: 17px;
+    letter-spacing: -0.015em;
+    color: var(--ink-2);
+    position: relative;
+    padding: 4px 0;
+  }
+  .mainnav a::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -2px 0;
+    height: 1.5px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .mainnav a:hover { color: var(--ink); }
+  .mainnav a:hover::after { transform: scaleX(1); }
+  .mainnav a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+  .mainnav a[aria-current="page"]::after { transform: scaleX(1); background: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: transform .2s, background .2s, color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); background: var(--accent); border-color: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn.lg { padding: 16px 28px; font-size: 15px; }
+  .btn .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-size: 16px;
+    margin-left: 2px;
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Eyebrow + crumbs ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow .bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .crumbs {
+    display: inline-flex;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--muted); transition: color .2s; }
+  .crumbs a:hover { color: var(--ink); }
+  .crumbs span[aria-current] { color: var(--ink); }
+  .crumbs .sep { color: var(--line-strong); }
+
+  /* ---------- Page hero ---------- */
+  .page-hero {
+    padding-top: clamp(28px, 4vw, 48px);
+    padding-bottom: clamp(48px, 7vw, 96px);
+  }
+  .page-hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(64px, 9vw, 160px);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    margin: 14px 0 0;
+    max-width: 14ch;
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-lede {
+    margin-top: clamp(28px, 3.5vw, 44px);
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+    padding-top: clamp(28px, 3.5vw, 44px);
+    border-top: 1px solid var(--line);
+  }
+  .hero-lede .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-lede p {
+    font-size: clamp(18px, 1.45vw, 24px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .hero-lede p + p { margin-top: 1em; }
+  .hero-lede p strong { color: var(--ink); font-weight: 500; }
+  .hero-lede p em { font-family: var(--serif); font-style: italic; color: var(--accent-ink); font-weight: 400; }
+
+  /* ---------- Leadership — 3 founders ---------- */
+  .leadership {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--cream-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .leadership-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(40px, 5vw, 72px);
+  }
+  .leadership-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(44px, 6vw, 96px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+  }
+  .leadership-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .leadership-head .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+  .leaders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .leader-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background .3s, transform .3s, border-color .3s;
+  }
+  .leader-card:hover { transform: translateY(-4px); border-color: var(--line-strong); }
+  .portrait {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-md);
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.02) contrast(1.02);
+    transition: transform .6s ease;
+  }
+  .leader-card:hover .portrait img { transform: scale(1.03); }
+  .portrait::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(10,10,10,0.14) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .leader-card .role {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .leader-card h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(26px, 2.2vw, 34px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .leader-card h3 .pronouns {
+    display: inline-block;
+    margin-left: 8px;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.62em;
+    font-weight: 400;
+    letter-spacing: 0;
+    vertical-align: baseline;
+  }
+  .leader-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  /* ---------- Roster grid ---------- */
+  .roster {
+    padding-block: clamp(80px, 10vw, 140px);
+  }
+  .roster-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(40px, 5vw, 72px);
+  }
+  .roster-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5.4vw, 84px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+  }
+  .roster-head h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+  .roster-head .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .roster-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .person {
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: background .3s, transform .3s, border-color .3s;
+  }
+  .person .avatar {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+    transition: border-color .3s;
+  }
+  .person .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.02) contrast(1.02);
+    transition: transform .5s ease;
+  }
+  .person:hover .avatar img { transform: scale(1.04); }
+  .person .role {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    transition: color .3s;
+  }
+  .person h4 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 1.5vw, 22px);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    color: var(--ink);
+    transition: color .3s;
+  }
+  .person h4 .pronouns {
+    display: inline-block;
+    margin-left: 6px;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.62em;
+    font-weight: 400;
+    letter-spacing: 0;
+    vertical-align: baseline;
+  }
+  .person:hover {
+    background: var(--ink);
+    transform: translateY(-3px);
+    border-color: var(--ink);
+  }
+  .person:hover .avatar {
+    background: rgba(255,246,235,0.08);
+    border-color: rgba(255,246,235,0.2);
+  }
+  .person:hover h4 { color: var(--bg); }
+  .person:hover .role { color: var(--accent); }
+  .person:hover h4 .pronouns { color: rgba(255,246,235,0.6); }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonials::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 15% 30%, rgba(214,74,31,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 85% 80%, rgba(214,74,31,0.22) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .testimonials-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .testimonials .section-head {
+    padding-bottom: clamp(40px, 5vw, 64px);
+  }
+  .testimonials .eyebrow { color: rgba(255,246,235,0.7); }
+  .testimonials .eyebrow .bullet { background: var(--accent); }
+  .testimonials .section-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5.2vw, 80px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+    max-width: 18ch;
+  }
+  .testimonials .section-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .quote {
+    background: rgba(255,246,235,0.06);
+    border: 1px solid rgba(255,246,235,0.14);
+    border-radius: var(--radius-md);
+    padding: clamp(28px, 3.5vw, 44px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: background .3s, border-color .3s;
+  }
+  .quote:hover { background: rgba(255,246,235,0.1); border-color: rgba(214,74,31,0.5); }
+  .quote .k {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+  }
+  .quote blockquote {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(20px, 1.7vw, 26px);
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    color: var(--bg);
+  }
+  .quote blockquote em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .quote .attrib {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    margin-top: auto;
+  }
+
+  /* ---------- Values / How we work ---------- */
+  .values {
+    padding-block: clamp(80px, 10vw, 140px);
+    border-bottom: 1px solid var(--line);
+  }
+  .values-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(40px, 5vw, 72px);
+  }
+  .values-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(36px, 4.6vw, 68px);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin: 14px 0 0;
+  }
+  .values-head h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+  .values-head .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .value-cell {
+    padding: 28px 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 200px;
+    background: var(--bg);
+    transition: background .3s;
+  }
+  .value-cell:hover { background: var(--pale); }
+  .value-cell .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-ink);
+  }
+  .value-cell h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(20px, 1.7vw, 26px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .value-cell h3 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .value-cell p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  /* ---------- In the news strip ---------- */
+  .news {
+    padding-block: clamp(72px, 9vw, 120px);
+    background: var(--cream-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .news-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(32px, 4vw, 56px);
+  }
+  .news-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 14px 0 0;
+  }
+  .news-head h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+  .news-head .lede {
+    font-size: clamp(15px, 1.2vw, 18px);
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 520px;
+  }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .news-cell {
+    min-height: 130px;
+    padding: 20px 18px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--bg);
+    transition: background .3s;
+  }
+  .news-cell:hover { background: var(--pale); }
+  .news-cell .outlet {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .news-cell .headline {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .news-cell .headline em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* ---------- Stats ---------- */
+  .stats {
+    padding-block: clamp(80px, 10vw, 140px);
+  }
+  .stats-head { padding-bottom: clamp(32px, 4vw, 56px); }
+  .stats-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(36px, 4.8vw, 76px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+    max-width: 20ch;
+  }
+  .stats-head h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .stat-card {
+    background: var(--pale);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .stat-card .big {
+    font-family: var(--display);
+    font-size: clamp(44px, 5vw, 76px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+  .stat-card .big em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 0.7em;
+  }
+  .stat-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .stat-card .footnote {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: auto;
+    padding-top: 10px;
+  }
+
+  /* ---------- Careers CTA ---------- */
+  .careers {
+    padding-block: clamp(96px, 12vw, 180px);
+    border-top: 1px solid var(--line);
+  }
+  .careers .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+  }
+  .careers h2 {
+    font-family: var(--display);
+    font-size: clamp(44px, 6vw, 96px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 24px;
+  }
+  .careers h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--accent); }
+  .careers p {
+    margin: 0 0 28px;
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 520px;
+  }
+  .careers .ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .careers aside {
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: clamp(28px, 3.5vw, 44px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .careers aside .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .careers aside blockquote {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(20px, 1.7vw, 26px);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .careers aside blockquote em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .careers aside cite {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+    margin-top: 4px;
+  }
+
+  /* ---------- Footer ---------- */
+  .site-foot {
+    background: var(--ink);
+    color: var(--bg);
+    padding-block: clamp(56px, 7vw, 96px);
+  }
+  .site-foot .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .site-foot h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.6);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .site-foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .site-foot a { opacity: 0.85; transition: opacity .2s, color .2s; }
+  .site-foot a:hover { opacity: 1; color: var(--accent); }
+  .site-foot img.logo { filter: invert(1) brightness(1.4); }
+  .foot-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,246,235,0.12);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Mobile nav toggle + overlay ---------- */
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: border-color .2s, background .2s;
+  }
+  .nav-toggle:hover { border-color: var(--ink); }
+  .nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s, opacity .25s;
+  }
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    transform: translateY(-100%);
+    transition: transform .35s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu-inner {
+    padding: 22px var(--gutter) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100%;
+  }
+  .mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-close {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .mobile-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+  .mobile-nav a {
+    font-family: var(--display);
+    font-size: clamp(34px, 8vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .mobile-nav a[aria-current="page"] { color: var(--accent); }
+  .mobile-menu-cta { align-self: flex-start; }
+  .mobile-menu-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  body.menu-open { overflow: hidden; }
+
+  /* ---------- Intersection reveals ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .leaders { grid-template-columns: 1fr 1fr; }
+    .leader-card:nth-child(3) { grid-column: 1 / -1; }
+    .roster-grid { grid-template-columns: repeat(3, 1fr); }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 1024px) {
+    .mainnav { display: none; }
+    .nav .container { grid-template-columns: 1fr auto; gap: 16px; }
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+
+    .hero-lede,
+    .leadership-head,
+    .roster-head,
+    .values-head,
+    .news-head,
+    .careers .grid,
+    .testimonials .section-head,
+    .quote-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    :root { --gutter: 20px; }
+    .logo { width: 58px; }
+    .utility .container { min-height: 32px; }
+    .utility .badge { font-size: 10px; }
+
+    .page-hero h1 { font-size: 52px; }
+    .leaders { grid-template-columns: 1fr; }
+    .leader-card:nth-child(3) { grid-column: auto; }
+    .roster-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .value-cell { min-height: 0; border-right: none; }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid { grid-template-columns: 1fr; }
+
+    .careers .ctas { flex-direction: column; }
+    .careers .ctas .btn { width: 100%; justify-content: center; }
+
+    .site-foot .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+    .foot-bottom { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 380px) {
+    .page-hero h1 { font-size: 44px; }
+    .leadership-head h2 { font-size: 38px; }
+    .roster-head h2 { font-size: 34px; }
+    .testimonials .section-head h2 { font-size: 34px; }
+    .careers h2 { font-size: 38px; }
+    .roster-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="utility" aria-label="Utility">
+  <div class="container">
+    <span class="badge"><span class="dot"></span>Observer's 50 Most Powerful PR Firms · 2026</span>
+  </div>
+</div>
+
+<!-- Main nav -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="JBC home">
+      <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html" aria-current="page">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn nav-cta">Work with us<span class="arrow">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-top">
+      <a href="index.html" class="brand" aria-label="JBC home">
+        <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+      </a>
+      <button class="mobile-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <a href="our-work.html">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html" aria-current="page">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn lg mobile-menu-cta">Work with us<span class="arrow">→</span></a>
+    <div class="mobile-menu-meta">
+      <span>NY · LA · Working globally</span>
+      <a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span aria-current="page">The Team</span>
+    </div>
+
+    <span class="eyebrow"><span class="bullet"></span>The JBC bench · NY &amp; LA</span>
+    <h1>Fifty publicists. <em>One</em> standard.</h1>
+
+    <div class="hero-lede reveal">
+      <div class="k">The bench</div>
+      <div>
+        <p>JBC is led by <strong>Jennifer Bett Meyer</strong> and built out of fifty expert publicists, category specialists, content leads, affiliate operators, and executive-speaking strategists — working shoulder-to-shoulder across New York and Los Angeles.</p>
+        <p>Every account is staffed by senior practitioners who have <em>done the work</em> before. Founders don't get routed through a junior relay; the person pitching your story is the person who understands why it matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Leadership -->
+<section class="leadership">
+  <div class="container">
+    <div class="leadership-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Leadership</span>
+        <h2>Founder-led. <em>Still</em>.</h2>
+      </div>
+      <p class="lede">Founded in 2014 and still personally run by its founders — which means the people who set the agency's standard are the people accountable to the work every day.</p>
+    </div>
+
+    <div class="leaders">
+      <article class="leader-card reveal">
+        <div class="portrait">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/8c20e87f-d446-40c3-9649-8f3e7551c90d/IMG_1110+copy.jpg?format=750w" alt="Jennifer Bett Meyer" loading="lazy">
+        </div>
+        <span class="role">President &amp; Founder</span>
+        <h3>Jennifer Bett Meyer<span class="pronouns">she / her</span></h3>
+        <p>For over 18 years, Jennifer has led the communications strategy for category-defining consumer brands. A graduate of Wesleyan University, she began her career as an editor at Harper's Bazaar and Marie Claire before launching JBC in January 2014 to serve a founder-led client base that is now 80%+ women.</p>
+      </article>
+
+      <article class="leader-card reveal">
+        <div class="portrait">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/84ab3ec0-0577-45df-9495-bc5b2c212d01/Melissa+Duren+Conner?format=750w" alt="Melissa Duren Conner" loading="lazy">
+        </div>
+        <span class="role">Partner &amp; Managing Director</span>
+        <h3>Melissa Duren Conner<span class="pronouns">she / her</span></h3>
+        <p>A publicist and strategic thinker with nearly 15 years of industry experience, Melissa joined JBC in July 2014 as the agency's Partner. Her bylines and thought leadership have appeared in Glossy, AdWeek, and PR News; PRSA named her to its inaugural Rising Leaders class in 2017.</p>
+      </article>
+
+      <article class="leader-card reveal">
+        <div class="portrait">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/c2e97cd1-91d6-4c25-abe9-f28142746753/image+%282%29.png?format=750w" alt="Libbey Baumgarten" loading="lazy">
+        </div>
+        <span class="role">EVP &amp; Head of Growth</span>
+        <h3>Libbey Baumgarten<span class="pronouns">she / her</span></h3>
+        <p>Libbey joined JBC in 2015 to build out its Social Impact, Health &amp; Wellness division. She now leads the agency's growth function — evaluating inbound brands against JBC's values-first filter and architecting the programs that win new partnerships.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Full roster -->
+<section class="roster">
+  <div class="container">
+    <div class="roster-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Senior roster · Selection</span>
+        <h2>The <em>rest</em> of the bench.</h2>
+      </div>
+      <p class="lede">A selection of senior leads across Strategy, Fashion, Beauty &amp; Wellness, Food &amp; Beverage, Content, Affiliate, Executive Speaking, and Operations. Hover for role detail.</p>
+    </div>
+
+    <div class="roster-grid">
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/776cb05d-1ade-4cab-87dd-98f869da4ad3/Screen+Shot+2025-06-24+at+1.22.20+PM.png?format=500w" alt="Ilana Rubin Dvir" loading="lazy"></div>
+        <span class="role">EVP, Head of Strategy</span>
+        <h4>Ilana Rubin Dvir<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/fc427a55-bb4f-48be-9916-fe43245b5815/T33MA1E6B-U09BQQP6LN4-1fe7886c5cca-512.png?format=500w" alt="Arturo Diaz" loading="lazy"></div>
+        <span class="role">VP, Executive Speaking</span>
+        <h4>Arturo Diaz<span class="pronouns">he / him</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/67739ca3-6b29-4144-9749-2b2c0932c3f7/Sara%2BGanus.jpeg?format=500w" alt="Sara Ganus" loading="lazy"></div>
+        <span class="role">SVP, Fashion</span>
+        <h4>Sara Ganus<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/3d5c4e43-c4eb-44dc-8db8-58640df3f0b6/IMG_2597.png?format=500w" alt="Erin Curran" loading="lazy"></div>
+        <span class="role">SVP, Beauty &amp; Wellness</span>
+        <h4>Erin Curran<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/68318add-0fba-431e-822e-416b12361b0e/BLAIR+DAWSON+HEADSHOT.jpg?format=500w" alt="Blair Dawson" loading="lazy"></div>
+        <span class="role">Vice President, Food &amp; Beverage</span>
+        <h4>Blair Dawson<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/f73122a8-7a89-4645-a61d-2900577107a7/T33MA1E6B-UC3MVLK88-7df0c24e71b7-512.png?format=500w" alt="Emily Tschirhart" loading="lazy"></div>
+        <span class="role">VP, Social Impact &amp; Wellness</span>
+        <h4>Emily Tschirhart<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/76824ead-c431-46ab-840c-176bc487f8be/CHRISTINA+SONG+HEADSHOT.png?format=500w" alt="Christina Song" loading="lazy"></div>
+        <span class="role">Associate Vice President</span>
+        <h4>Christina Song<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/8fb1956b-95de-423d-923c-9e5ba094ccc3/IMG_2448.jpg?format=500w" alt="Maura Brannigan" loading="lazy"></div>
+        <span class="role">VP, Content</span>
+        <h4>Maura Brannigan<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/140ef053-bfb4-494f-b299-16b1096c50f0/JBC+Headshots++2424+%282%29.jpg?format=500w" alt="Charlotte Hohorst" loading="lazy"></div>
+        <span class="role">Vice President, Lifestyle</span>
+        <h4>Charlotte Hohorst<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/7b51b98f-9074-4072-8987-d9657c177ffa/Screenshot+2025-10-08+at+12.05.59%E2%80%AFPM.png?format=500w" alt="Whitney Swaim" loading="lazy"></div>
+        <span class="role">VP, Affiliate Marketing</span>
+        <h4>Whitney Swaim<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/297c7139-bf30-471a-8a31-b887459762ce/IMG_2554.jpg?format=500w" alt="Stephanie Davis" loading="lazy"></div>
+        <span class="role">Chief of Staff</span>
+        <h4>Stephanie Davis<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/de8c0337-f33b-4f67-adbb-abaa6b5a6d45/IMG_2573-2.jpg?format=500w" alt="Olivia Davis" loading="lazy"></div>
+        <span class="role">Senior Director, Affiliate</span>
+        <h4>Olivia Davis<span class="pronouns">she / her</span></h4>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="container testimonials-inner">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="bullet"></span>What they say</span>
+      <h2>From the <em>clients</em> and the <em>press</em>.</h2>
+    </div>
+
+    <div class="quote-grid">
+      <figure class="quote reveal">
+        <span class="k">Client · Founder POV</span>
+        <blockquote>"JBC is the <em>best</em> PR firm I've ever worked with. The press we got led to enormous growth and success — they understood the brand, the moment, and the audience in a way very few agencies do."</blockquote>
+        <figcaption class="attrib">Julie Bornstein · Founder, Daydream &amp; The Yes (acquired by Pinterest)</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <span class="k">Media · Reporter POV</span>
+        <blockquote>"I've been writing stories about JBC's portfolio of brands for <em>nearly a decade</em>. The team is unfailingly prepared — they pitch the story, not the product — and they know the category better than most of the founders we cover."</blockquote>
+        <figcaption class="attrib">Liz Segran · Senior Staff Writer, Fast Company</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Values / how we work -->
+<section class="values">
+  <div class="container">
+    <div class="values-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>How we staff</span>
+        <h2>Senior on every <em>account</em>.</h2>
+      </div>
+      <p class="lede">Four structural commitments that define how we show up — the reason the same senior lead who won the pitch is still the senior lead on the Slack thread two years later.</p>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-cell reveal">
+        <span class="num">01</span>
+        <h3>Founder-led, <em>still</em></h3>
+        <p>Founded in 2014 and never sold. The partners who started the agency are still running it — accountable to the work and to every client relationship.</p>
+      </div>
+      <div class="value-cell reveal">
+        <span class="num">02</span>
+        <h3>80<em>%</em>+ female founders</h3>
+        <p>Our client base is heavily weighted toward women-led brands. Our bench, our reporter relationships, and our editorial lens are built for exactly that work.</p>
+      </div>
+      <div class="value-cell reveal">
+        <span class="num">03</span>
+        <h3>A <em>DEI</em> lens</h3>
+        <p>Everything we do is reviewed through a DEI lens, backed by ongoing monthly educational sessions and strategic internal hires. Not a chapter — a filter.</p>
+      </div>
+      <div class="value-cell reveal">
+        <span class="num">04</span>
+        <h3>No <em>outsourced</em> divisions</h3>
+        <p>Affiliate, Influencer, Content, and Executive Speaking all live in-house. One team, one P&amp;L, one scorecard — no middlemen between the strategy and the execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- In the news -->
+<section class="news">
+  <div class="container">
+    <div class="news-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>JBC in the news</span>
+        <h2>We also <em>make</em> the news.</h2>
+      </div>
+      <p class="lede">A selection of coverage and op-eds authored by the JBC team in outlets we respect — on the state of PR, the future of the news cycle, and the work of building founder-led brands.</p>
+    </div>
+
+    <div class="news-grid">
+      <a class="news-cell" href="https://digiday.com/marketing/now-that-im-a-mom-things-need-to-change-what-a-pr-firm-is-doing-to-prevent-burnout-for-working-moms/" target="_blank" rel="noopener">
+        <span class="outlet">Digiday</span>
+        <span class="headline">What a <em>PR firm</em> is doing to prevent burnout for working moms.</span>
+      </a>
+      <a class="news-cell" href="https://www.forbes.com/sites/njgoldston/2019/03/05/a-new-model-for-female-focused-founder-conferences-wide-awake-debuts-on-international-womens-day/" target="_blank" rel="noopener">
+        <span class="outlet">Forbes</span>
+        <span class="headline">A new model for <em>female-focused</em> founder conferences.</span>
+      </a>
+      <a class="news-cell" href="https://www.businessinsider.com/pr-firm-leaders-took-maternity-leave-at-the-same-time-how-they-did-it-2022-2" target="_blank" rel="noopener">
+        <span class="outlet">Business Insider</span>
+        <span class="headline">PR firm leaders took <em>maternity leave</em> at the same time.</span>
+      </a>
+      <a class="news-cell" href="https://www.glossy.co/fashion/jbcs-melissa-duren-connor-everything-about-the-original-pr-approach-is-out-of-date/" target="_blank" rel="noopener">
+        <span class="outlet">Glossy</span>
+        <span class="headline">"Everything about the <em>original</em> PR approach is out of date."</span>
+      </a>
+      <a class="news-cell" href="https://podcasts.apple.com/us/podcast/pr-revolution-putting-people-first-in-a-digital-age/id1426026971" target="_blank" rel="noopener">
+        <span class="outlet">Podcast</span>
+        <span class="headline">PR <em>Revolution</em> — putting people first in a digital age.</span>
+      </a>
+      <a class="news-cell" href="https://www.adweek.com/brand-marketing/why-your-story-shouldnt-be-what-gets-cut/" target="_blank" rel="noopener">
+        <span class="outlet">Adweek · Op-ed</span>
+        <span class="headline">Why your <em>story</em> shouldn't be what gets cut.</span>
+      </a>
+      <a class="news-cell" href="https://adage.com/article/opinion/pr-has-diversity-problem-4-ways-start-fixing-it/2469826" target="_blank" rel="noopener">
+        <span class="outlet">Ad Age · Op-ed</span>
+        <span class="headline">PR has a <em>diversity</em> problem. Four ways to start fixing it.</span>
+      </a>
+      <a class="news-cell" href="https://katiecouric.com/culture/5-ways-parents-can-close-the-dream-gap-between-girls-and-boys/" target="_blank" rel="noopener">
+        <span class="outlet">Katie Couric Media</span>
+        <span class="headline">Five ways parents can close the <em>dream gap</em>.</span>
+      </a>
+      <a class="news-cell" href="https://www.bizjournals.com/bizwomen/news/latest-news/2021/11/in-her-own-words-jennifer-bett-meyer.html" target="_blank" rel="noopener">
+        <span class="outlet">Biz Women · Profile</span>
+        <span class="headline"><em>In her own words</em> — Jennifer Bett Meyer.</span>
+      </a>
+      <a class="news-cell" href="https://observer.com/list/power-pr-rising-stars-2023/" target="_blank" rel="noopener">
+        <span class="outlet">Observer</span>
+        <span class="headline">Power PR <em>Rising Stars</em>, 2023.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-head reveal">
+      <span class="eyebrow"><span class="bullet"></span>By the numbers</span>
+      <h2>The <em>shape</em> of the bench.</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="big">50<em>+</em></div>
+        <p>Expert publicists, specialists, and strategists across New York and Los Angeles.</p>
+        <div class="footnote">Senior on every account</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">80<em>%</em></div>
+        <p>Of JBC's client base is female-founded — a specialization, not a talking point.</p>
+        <div class="footnote">Women-led focus</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">2014</div>
+        <p>Founded. Still independently owned, still women-led, still personally run by its founders.</p>
+        <div class="footnote">Never sold</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="big">0</div>
+        <p>Outsourced divisions. Affiliate, Content, Influencer, and Executive Speaking all in-house.</p>
+        <div class="footnote">One scorecard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Careers CTA -->
+<section class="careers">
+  <div class="container">
+    <div class="grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="bullet"></span>Join us</span>
+        <h2>Creativity meets <em>opportunity</em>.</h2>
+        <p>Here, senior people stay senior and junior people become senior fast. Whatever you're building — we're here to help you take the first step. If you're a publicist, a strategist, or an operator who wants the category expertise and the editorial rigor to live under one roof, let's talk.</p>
+        <div class="ctas">
+          <a class="btn lg" href="mailto:info@jenniferbett.com?subject=Careers%20at%20JBC">See open roles<span class="arrow">→</span></a>
+          <a class="btn lg ghost" href="mailto:info@jenniferbett.com">Talk to us today<span class="arrow">→</span></a>
+        </div>
+      </div>
+      <aside class="reveal">
+        <span class="k">Voice from the team</span>
+        <blockquote>"Any agency can get news on news. Only a <em>great</em> agency creates news when there isn't any."</blockquote>
+        <cite>— JBC · Internal north star</cite>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a href="index.html" class="brand" aria-label="JBC home">
+          <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+        </a>
+        <p style="margin-top: 16px; max-width: 320px; color: rgba(255,246,235,0.7); font-size: 14px;">Jennifer Bett Communications. An independent, women-led strategic PR agency. Headquartered in New York &amp; Los Angeles.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="why-jbc.html">Why JBC</a></li>
+          <li><a href="the-team.html">The Team</a></li>
+          <li><a href="the-spin.html">The Spin</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Agency</h4>
+        <ul>
+          <li><a href="mailto:info@jenniferbett.com?subject=Careers%20at%20JBC">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a></li>
+          <li><a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Substack — Office Hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Jennifer Bett Communications® · JBC® © 2026. All rights reserved.</span>
+      <span>NY · LA · Working globally</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav shadow
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const closeBtn = document.getElementById('navClose');
+  const menu = document.getElementById('mobileMenu');
+  const setMenu = (open) => {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  closeBtn.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Intersection reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

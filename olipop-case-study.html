@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>OLIPOP — Case Study — JBC</title>
+<meta name="description" content="How JBC repositioned OLIPOP as the category-defining functional soda — 20B+ impressions, 3,000+ placements, and the Sleepy Girl Mocktail moment that broke through." />
+<style>
+  /* ---------- Design tokens ---------- */
+  :root {
+    --bg: #FFF6EB;
+    --ink: #0A0A0A;
+    --ink-2: #2B2B2B;
+    --muted: #6A6258;
+    --line: rgba(10,10,10,0.12);
+    --line-strong: rgba(10,10,10,0.22);
+    --cream-2: #F6E8D2;
+    --accent: #D64A1F;
+    --accent-ink: #8A2F14;
+    --pale: #FBF0DE;
+    --display: "Helvetica Neue", "Inter", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Fraunces", "EB Garamond", Georgia, serif;
+    --maxw: 1320px;
+    --gutter: clamp(20px, 4vw, 56px);
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+  }
+
+  /* ---------- Reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02";
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ---------- Utility bar ---------- */
+  .utility {
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .utility .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 36px;
+    gap: 16px;
+  }
+  .utility .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .utility .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  /* ---------- Main nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  .nav.scrolled { border-color: var(--line); background: rgba(255,246,235,0.92); backdrop-filter: saturate(160%) blur(8px); }
+  .nav .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding-block: 22px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo { display: block; width: 74px; height: auto; }
+  footer .logo { width: 86px; }
+
+  .mainnav { justify-self: center; display: flex; gap: 36px; }
+  .mainnav a {
+    font-size: 17px;
+    letter-spacing: -0.015em;
+    color: var(--ink-2);
+    position: relative;
+    padding: 4px 0;
+  }
+  .mainnav a::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -2px 0;
+    height: 1.5px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .mainnav a:hover { color: var(--ink); }
+  .mainnav a:hover::after { transform: scaleX(1); }
+  .mainnav a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+  .mainnav a[aria-current="page"]::after { transform: scaleX(1); background: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: transform .2s, background .2s, color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); background: var(--accent); border-color: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn.lg { padding: 16px 28px; font-size: 15px; }
+  .btn .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-size: 16px;
+    margin-left: 2px;
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Eyebrow + crumbs ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow .bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .crumbs {
+    display: inline-flex;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--muted); transition: color .2s; }
+  .crumbs a:hover { color: var(--ink); }
+  .crumbs span[aria-current] { color: var(--ink); }
+  .crumbs .sep { color: var(--line-strong); }
+
+  /* ---------- Case hero ---------- */
+  .case-hero {
+    padding-top: clamp(28px, 4vw, 48px);
+    padding-bottom: clamp(48px, 7vw, 96px);
+  }
+  .case-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+  }
+  .case-hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(54px, 7.6vw, 128px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin: 14px 0 0;
+  }
+  .case-hero h1 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .case-hero .client-mark {
+    display: inline-block;
+    font-family: var(--display);
+    font-size: clamp(14px, 1.1vw, 16px);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    padding: 6px 14px;
+    border: 1px solid var(--accent-ink);
+    border-radius: 999px;
+    background: rgba(214,74,31,0.06);
+    margin-bottom: 18px;
+  }
+  .case-hero .deck {
+    font-size: clamp(16px, 1.35vw, 20px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 540px;
+    margin-top: clamp(20px, 2.5vw, 36px);
+  }
+  .case-hero-img {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--pale) 0%, var(--cream-2) 100%);
+  }
+  .case-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10%;
+  }
+  .case-hero-img .tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: rgba(255,246,235,0.9);
+    padding: 6px 10px;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+
+  /* ---------- Meta strip (client info) ---------- */
+  .meta-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: clamp(40px, 5vw, 72px);
+  }
+  .meta-cell {
+    padding: 24px 20px;
+    border-right: 1px solid var(--line);
+  }
+  .meta-cell:last-child { border-right: none; }
+  .meta-cell .k {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meta-cell .v {
+    font-family: var(--display);
+    font-size: clamp(17px, 1.5vw, 20px);
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-top: 8px;
+  }
+
+  /* ---------- Key numbers band ---------- */
+  .numbers {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--cream-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .numbers .section-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(32px, 4vw, 56px);
+  }
+  .numbers .section-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 18px 0 0;
+  }
+  .numbers .section-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .numbers .section-head .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .num-card {
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .num-card .big {
+    font-family: var(--display);
+    font-size: clamp(44px, 5vw, 76px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+  .num-card .big em,
+  .num-card .big .plus {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 0.7em;
+  }
+  .num-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .num-card .footnote {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: auto;
+    padding-top: 10px;
+  }
+
+  /* ---------- Narrative sections ---------- */
+  .chapter {
+    padding-block: clamp(80px, 10vw, 140px);
+    border-bottom: 1px solid var(--line);
+  }
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+  }
+  .chapter-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 18px 0 0;
+  }
+  .chapter-head h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .chapter-body p {
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 1.4em;
+  }
+  .chapter-body p:last-child { margin-bottom: 0; }
+  .chapter-body p strong { color: var(--ink); font-weight: 600; }
+  .chapter-body .drop {
+    font-family: var(--display);
+    font-size: clamp(24px, 2.2vw, 32px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.4em;
+    padding-left: 16px;
+    border-left: 2px solid var(--accent);
+  }
+
+  /* ---------- Pillars ---------- */
+  .pillars {
+    margin-top: clamp(32px, 4vw, 48px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .pillar {
+    padding: 26px 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--pale);
+  }
+  .pillar .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .pillar h4 {
+    margin: 8px 0 10px;
+    font-family: var(--display);
+    font-size: clamp(20px, 1.7vw, 24px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .pillar p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  /* ---------- Sleepy Girl moment (spotlight) ---------- */
+  .spotlight {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 85% 50%, rgba(214,74,31,0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(214,74,31,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .spotlight-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+  }
+  .spotlight .eyebrow { color: rgba(255,246,235,0.7); }
+  .spotlight .eyebrow .bullet { background: var(--accent); }
+  .spotlight h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(44px, 6vw, 96px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 28px;
+  }
+  .spotlight h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .spotlight p {
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.55;
+    color: rgba(255,246,235,0.9);
+    max-width: 620px;
+    margin: 0 0 1.2em;
+  }
+  .spotlight .big-number {
+    font-family: var(--display);
+    font-size: clamp(96px, 13vw, 200px);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+  }
+  .spotlight .big-number em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 0.48em;
+    margin-left: 10px;
+  }
+  .spotlight .big-caption {
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.7);
+    max-width: 320px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Coverage logos ---------- */
+  .coverage {
+    padding-block: clamp(80px, 10vw, 140px);
+    border-bottom: 1px solid var(--line);
+  }
+  .coverage .header {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(32px, 4vw, 56px);
+  }
+  .coverage .header h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 18px 0 0;
+  }
+  .coverage .header h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .coverage .header .lede {
+    font-size: clamp(16px, 1.3vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0;
+  }
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .logo-grid .cell {
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.2vw, 32px);
+    color: var(--ink-2);
+    letter-spacing: -0.01em;
+    text-align: center;
+    transition: background .3s, color .3s;
+  }
+  .logo-grid .cell:hover { background: var(--cream-2); color: var(--ink); }
+  .logo-grid .cell .outlet-name {
+    font-family: var(--display);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(16px, 1.3vw, 20px);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .coverage .tease {
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- Pull quote ---------- */
+  .pull {
+    padding-block: clamp(96px, 12vw, 180px);
+    background: var(--cream-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .pull blockquote {
+    margin: 0;
+    max-width: 1100px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(32px, 4.4vw, 72px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .pull blockquote em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .pull cite {
+    display: block;
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* ---------- Next case ---------- */
+  .next-case {
+    padding-block: clamp(80px, 10vw, 140px);
+    border-bottom: 1px solid var(--line);
+  }
+  .next-case h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 3.8vw, 56px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 12px 0 32px;
+  }
+  .next-case h2 em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+  .next-case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .next-case-tile {
+    position: relative;
+    min-height: 320px;
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
+    background: var(--ink);
+    transition: transform .3s ease;
+  }
+  .next-case-tile:hover { transform: translateY(-3px); }
+  .next-case-tile img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform .5s ease;
+  }
+  .next-case-tile:hover img { transform: scale(1.04); }
+  .next-case-tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.75) 80%);
+  }
+  .next-case-tile > * { position: relative; z-index: 2; }
+  .next-case-tile .direction {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 10px;
+  }
+  .next-case-tile h3 {
+    font-family: var(--display);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin: 0 0 6px;
+    line-height: 1;
+  }
+  .next-case-tile p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 420px;
+    color: rgba(255,255,255,0.9);
+  }
+  .next-case-tile .arrow {
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .next-case-tile .arrow::after { content: "→"; transition: transform .25s ease; }
+  .next-case-tile:hover .arrow::after { transform: translateX(4px); }
+
+  /* ---------- Big CTA ---------- */
+  .cta-block {
+    padding-block: clamp(96px, 12vw, 180px);
+  }
+  .cta-block h2 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 104px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 40px;
+    max-width: 1040px;
+  }
+  .cta-block h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--accent); }
+  .cta-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ---------- Footer ---------- */
+  .site-foot {
+    background: var(--ink);
+    color: var(--bg);
+    padding-block: clamp(56px, 7vw, 96px);
+  }
+  .site-foot .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .site-foot h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.6);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .site-foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .site-foot a { opacity: 0.85; transition: opacity .2s, color .2s; }
+  .site-foot a:hover { opacity: 1; color: var(--accent); }
+  .site-foot img.logo { filter: invert(1) brightness(1.4); }
+  .foot-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,246,235,0.12);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Mobile nav toggle + overlay ---------- */
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: border-color .2s, background .2s;
+  }
+  .nav-toggle:hover { border-color: var(--ink); }
+  .nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s, opacity .25s;
+  }
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    transform: translateY(-100%);
+    transition: transform .35s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu-inner {
+    padding: 22px var(--gutter) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100%;
+  }
+  .mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-close {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .mobile-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+  .mobile-nav a {
+    font-family: var(--display);
+    font-size: clamp(34px, 8vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .mobile-nav a[aria-current="page"] { color: var(--accent); }
+  .mobile-menu-cta { align-self: flex-start; }
+  .mobile-menu-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  body.menu-open { overflow: hidden; }
+
+  /* ---------- Intersection reveals ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .mainnav { display: none; }
+    .nav .container { grid-template-columns: 1fr auto; gap: 16px; }
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+
+    .case-hero-grid,
+    .chapter-grid,
+    .numbers .section-head,
+    .coverage .header,
+    .spotlight-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .case-hero-img { aspect-ratio: 4 / 3; }
+    .next-case-grid { grid-template-columns: 1fr; }
+    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+    .logo-grid { grid-template-columns: repeat(3, 1fr); }
+    .pillars { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    :root { --gutter: 20px; }
+    .logo { width: 58px; }
+    .utility .container { min-height: 32px; }
+    .utility .badge { font-size: 10px; }
+
+    .case-hero h1 { font-size: 46px; }
+    .meta-strip { grid-template-columns: 1fr 1fr; }
+    .meta-cell:nth-child(2) { border-right: none; }
+    .meta-cell:nth-child(1),
+    .meta-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+
+    .numbers-grid { grid-template-columns: 1fr; }
+    .num-card { padding: 24px 22px; }
+
+    .spotlight .big-number { font-size: 96px; }
+
+    .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    .logo-grid .cell { min-height: 100px; font-size: 18px; padding: 16px; }
+
+    .pull blockquote { font-size: 32px; }
+
+    .cta-ctas { flex-direction: column; }
+    .cta-ctas .btn { width: 100%; justify-content: center; }
+    .cta-block h2 { font-size: 44px; }
+
+    .site-foot .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+    .foot-bottom { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 380px) {
+    .case-hero h1 { font-size: 40px; }
+    .spotlight h2 { font-size: 40px; }
+    .chapter-head h2 { font-size: 34px; }
+    .pull blockquote { font-size: 28px; }
+    .cta-block h2 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="utility" aria-label="Utility">
+  <div class="container">
+    <span class="badge"><span class="dot"></span>Observer's 50 Most Powerful PR Firms · 2026</span>
+  </div>
+</div>
+
+<!-- Main nav -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="JBC home">
+      <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <a href="our-work.html" aria-current="page">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn nav-cta">Work with us<span class="arrow">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-top">
+      <a href="index.html" class="brand" aria-label="JBC home">
+        <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+      </a>
+      <button class="mobile-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <a href="our-work.html" aria-current="page">Our Work</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="why-jbc.html">Why JBC</a>
+      <a href="the-team.html">The Team</a>
+      <a href="the-spin.html">The Spin</a>
+    </nav>
+    <a href="index.html#contact" class="btn lg mobile-menu-cta">Work with us<span class="arrow">→</span></a>
+    <div class="mobile-menu-meta">
+      <span>NY · LA · Working globally</span>
+      <a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- Case hero -->
+<section class="case-hero">
+  <div class="container">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="our-work.html">Our Work</a>
+      <span class="sep">/</span>
+      <span aria-current="page">OLIPOP</span>
+    </div>
+
+    <div class="case-hero-grid">
+      <div>
+        <span class="client-mark">OLIPOP</span>
+        <span class="eyebrow"><span class="bullet"></span>Food &amp; Beverage · 2023 — ongoing</span>
+        <h1>A new kind of soda, told as a new kind of <em>story</em>.</h1>
+        <p class="deck">Founded in 2018 by Ben Goodwin and David Lester, OLIPOP set out to reinvent a category owned by century-old incumbents. We built the narrative engine to match — securing business, brand, and consumer coverage in tandem, and turning cultural moments into category leadership.</p>
+      </div>
+      <div class="case-hero-img">
+        <span class="tag">The brief</span>
+        <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/3d310c36-d3ba-4739-89ad-eda9d2495772/04.24.25_BLOG___Introducing_sleek_cans_720x.png" alt="OLIPOP sleek cans" loading="eager">
+      </div>
+    </div>
+
+    <dl class="meta-strip">
+      <div class="meta-cell">
+        <div class="k">Client</div>
+        <div class="v">OLIPOP</div>
+      </div>
+      <div class="meta-cell">
+        <div class="k">Sector</div>
+        <div class="v">Food &amp; Beverage</div>
+      </div>
+      <div class="meta-cell">
+        <div class="k">Partnership</div>
+        <div class="v">2023 — Ongoing</div>
+      </div>
+      <div class="meta-cell">
+        <div class="k">Services</div>
+        <div class="v">Comms Strategy · Media Relations · Newsjacking · Positioning</div>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- Key numbers -->
+<section class="numbers">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>The scoreboard</span>
+        <h2>Business metrics. Not <em>vanity</em> ones.</h2>
+      </div>
+      <p class="lede">Every engagement runs on a shared scorecard — reach, share of voice, sentiment, and message pull-through. Here's what the OLIPOP partnership looks like by the numbers.</p>
+    </div>
+
+    <div class="numbers-grid">
+      <div class="num-card reveal">
+        <div class="big">20B<span class="plus">+</span></div>
+        <p>Total media impressions across 2025 to date.</p>
+        <div class="footnote">Q1 2025 · Muck Rack</div>
+      </div>
+      <div class="num-card reveal">
+        <div class="big">3,000<span class="plus">+</span></div>
+        <p>Placements secured since partnership kickoff.</p>
+        <div class="footnote">Partnership-to-date</div>
+      </div>
+      <div class="num-card reveal">
+        <div class="big">5B<span class="plus">+</span></div>
+        <p>Impressions in the first four months of working together.</p>
+        <div class="footnote">Launch phase</div>
+      </div>
+      <div class="num-card reveal">
+        <div class="big">115<em>×</em></div>
+        <p>Feature placements in the opening campaign window.</p>
+        <div class="footnote">Plus 285 consumer placements</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chapter: The Challenge -->
+<section class="chapter">
+  <div class="container">
+    <div class="chapter-grid reveal">
+      <div class="chapter-head">
+        <span class="eyebrow"><span class="bullet"></span>The challenge</span>
+        <h2>Rewrite a <em>category</em> dominated by incumbents.</h2>
+      </div>
+      <div class="chapter-body">
+        <p class="drop">How do you launch "a new kind of soda" into a shelf set defined by century-old brands with billion-dollar marketing budgets?</p>
+        <p>OLIPOP needed more than a product launch — it needed a category launch. The challenge was positioning a functional beverage in a way that spoke simultaneously to <strong>business press</strong> (where the investor story lived), <strong>lifestyle media</strong> (where the habit was formed), and <strong>health editors</strong> (where the science had to hold up).</p>
+        <p>Traditional PR playbooks treat those audiences sequentially. We needed to move them in parallel — and move them fast enough to stay ahead of the copycats that were certain to follow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chapter: The Approach -->
+<section class="chapter">
+  <div class="container">
+    <div class="chapter-grid reveal">
+      <div class="chapter-head">
+        <span class="eyebrow"><span class="bullet"></span>The approach</span>
+        <h2>Four pillars, <em>working</em> in lockstep.</h2>
+      </div>
+      <div class="chapter-body">
+        <p>We built an integrated media program designed to compound rather than layer. Business storytelling created credibility that lifestyle press could borrow from. Consumer placements created demand that business reporters could later reference. Every lane fed the next.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="num">01</span>
+            <h4>Business &amp; brand storytelling</h4>
+            <p>Positioning OLIPOP as the leader of a redefined category — founder profiles, category explainers, and investor-grade coverage in business press.</p>
+          </div>
+          <div class="pillar">
+            <span class="num">02</span>
+            <h4>Consumer lifestyle</h4>
+            <p>Simultaneous placements across food, wellness, and lifestyle media — building the habit and cultural footprint underneath the top-line business story.</p>
+          </div>
+          <div class="pillar">
+            <span class="num">03</span>
+            <h4>Cultural newsjacking</h4>
+            <p>Moving at the speed of the news cycle. When "Sleepy Girl Mocktail" broke, our team had OLIPOP in the conversation within hours, not weeks.</p>
+          </div>
+          <div class="pillar">
+            <span class="num">04</span>
+            <h4>Executive positioning</h4>
+            <p>Building Ben Goodwin into a category voice — speaking opportunities, podcast circuits, and the trades where the industry conversation actually happens.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Spotlight: Sleepy Girl Mocktail -->
+<section class="spotlight">
+  <div class="container">
+    <div class="spotlight-grid">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Cultural moment · 2024</span>
+        <h2>The <em>Sleepy Girl</em> moment.</h2>
+        <p>When the "Sleepy Girl Mocktail" trend broke across TikTok and cascaded into legacy media, our team moved in hours. We placed OLIPOP into the origin coverage, not the post-hoc roundup — and rode the wave into business, health, and lifestyle outlets simultaneously.</p>
+        <p>Most agencies would have filed a trend report. We turned a cultural moment into a quarter of category leadership.</p>
+      </div>
+      <div>
+        <div class="big-number">650M<em>+</em></div>
+        <div class="big-caption">Impressions attributed to the Sleepy Girl Mocktail newsjacking alone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Coverage -->
+<section class="coverage">
+  <div class="container">
+    <div class="header reveal">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Coverage highlights</span>
+        <h2>Tier-one press, <em>in</em> tandem.</h2>
+      </div>
+      <p class="lede">A selection of the outlets that have covered OLIPOP during the partnership — business, lifestyle, health, and culture, landing the same week.</p>
+    </div>
+
+    <div class="logo-grid reveal">
+      <div class="cell"><span class="outlet-name">The New York Times</span></div>
+      <div class="cell"><span class="outlet-name">Bloomberg</span></div>
+      <div class="cell"><span class="outlet-name">Wall Street Journal</span></div>
+      <div class="cell"><span class="outlet-name">Fast Company</span></div>
+      <div class="cell"><span class="outlet-name">Entrepreneur</span></div>
+      <div class="cell"><span class="outlet-name">Vogue</span></div>
+      <div class="cell"><span class="outlet-name">Women's Health</span></div>
+      <div class="cell"><span class="outlet-name">POPSUGAR</span></div>
+    </div>
+
+    <p class="tease">Plus 3,000+ additional placements across broadcast, trade, podcast, and newsletter.</p>
+  </div>
+</section>
+
+<!-- Pull quote -->
+<section class="pull">
+  <div class="container reveal">
+    <blockquote>
+      Any agency can get news on news. Only a <em>great</em> agency creates news when there isn't any — and turns the news there is into <em>category</em> leadership.
+    </blockquote>
+    <cite>— JBC's founding premise, applied</cite>
+  </div>
+</section>
+
+<!-- Next case -->
+<section class="next-case">
+  <div class="container">
+    <span class="eyebrow"><span class="bullet"></span>Keep reading</span>
+    <h2>More from <em>the</em> roster.</h2>
+    <div class="next-case-grid">
+      <a class="next-case-tile reveal" href="our-work.html">
+        <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1664238768490-B1V2EY165JVRYNXFT3QH/JBC+Case+Studies7.jpg?format=1500w" alt="Parachute" loading="lazy">
+        <div class="direction">← Previous case</div>
+        <h3>Parachute</h3>
+        <p>Eight years in partnership. Press that translates to revenue, retail footprint, and cultural cameos.</p>
+        <span class="arrow">Read case study</span>
+      </a>
+      <a class="next-case-tile reveal" href="our-work.html">
+        <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/bca89681-8b42-4bda-9c42-a540fdd88fb2/jbc-the-skimm.jpg?format=1500w" alt="theSkimm" loading="lazy">
+        <div class="direction">Next case →</div>
+        <h3>theSkimm</h3>
+        <p>A media company built into a social-impact force — through to a $40M exit.</p>
+        <span class="arrow">Read case study</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="contact">
+  <div class="container reveal">
+    <span class="eyebrow"><span class="bullet"></span>Let's talk</span>
+    <h2>Ready to rewrite<br>your <em>category</em>?</h2>
+    <div class="cta-ctas">
+      <a class="btn lg" href="mailto:info@jenniferbett.com">Talk to Us Today<span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a href="index.html" class="brand" aria-label="JBC home">
+          <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+        </a>
+        <p style="margin-top: 16px; max-width: 320px; color: rgba(255,246,235,0.7); font-size: 14px;">Jennifer Bett Communications. An independent, women-led strategic PR agency. Headquartered in New York &amp; Los Angeles.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="what-we-do.html">Services</a></li>
+          <li><a href="why-jbc.html">Why JBC</a></li>
+          <li><a href="the-team.html">Our Team</a></li>
+          <li><a href="the-spin.html">The Spin</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Agency</h4>
+        <ul>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a></li>
+          <li><a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Substack — Office Hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Jennifer Bett Communications® · JBC® © 2026. All rights reserved.</span>
+      <span>NY · LA · Working globally</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav shadow
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const closeBtn = document.getElementById('navClose');
+  const menu = document.getElementById('mobileMenu');
+  const setMenu = (open) => {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  closeBtn.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Intersection reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
