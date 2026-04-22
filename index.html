@@ -965,13 +965,33 @@
     transform: none;
   }
   .mobile-menu-inner {
-    padding: 96px 24px 48px;
+    padding: 20px 24px 48px;
     display: flex;
     flex-direction: column;
     gap: 32px;
     height: 100%;
     overflow-y: auto;
   }
+  .mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+  .mobile-menu-top .logo { width: 58px; }
+  .mobile-close {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .mobile-close:hover, .mobile-close:active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .mobile-nav {
     display: flex;
     flex-direction: column;
@@ -1019,7 +1039,7 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 1024px) {
     .mainnav { display: none; }
-    .nav .container { grid-template-columns: auto 1fr auto; }
+    .nav .container { grid-template-columns: 1fr auto; gap: 16px; }
     .nav-toggle { display: inline-flex; }
     .nav-cta { display: none; }
     .hero-sub { grid-template-columns: 1fr; }
@@ -1166,6 +1186,16 @@
 <!-- Mobile menu overlay -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <div class="mobile-menu-inner">
+    <div class="mobile-menu-top">
+      <a href="/" class="brand" aria-label="JBC home">
+        <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
+      </a>
+      <button class="mobile-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
     <nav class="mobile-nav" aria-label="Mobile primary">
       <a href="#work">Our Work</a>
       <a href="#services">What We Do</a>
@@ -1660,6 +1690,7 @@
 
   // Mobile menu toggle
   const toggle = document.getElementById('navToggle');
+  const closeBtn = document.getElementById('navClose');
   const menu = document.getElementById('mobileMenu');
   const setMenu = (open) => {
     menu.classList.toggle('open', open);
@@ -1669,6 +1700,7 @@
     document.body.classList.toggle('menu-open', open);
   };
   toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  closeBtn.addEventListener('click', () => setMenu(false));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
