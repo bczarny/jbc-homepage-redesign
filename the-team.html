@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>The Team — Jennifer Bett Communications</title>
-<meta name="description" content="Fifty expert publicists and specialized strategists — led by Jennifer Bett Meyer. An independent, women-led agency across New York and Los Angeles." />
+<meta name="description" content="Senior publicists and specialized strategists — led by Jennifer Bett Meyer and Melissa Duren Conner. An independent, women-led agency across New York and Los Angeles." />
 <style>
   /* ---------- Design tokens ---------- */
   :root {
@@ -778,38 +778,88 @@
   .site-foot {
     background: var(--ink);
     color: var(--bg);
-    padding-block: clamp(56px, 7vw, 96px);
+    padding-block: clamp(64px, 8vw, 112px) 32px;
   }
-  .site-foot .foot-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 40px;
-  }
-  .site-foot h4 {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,246,235,0.6);
-    margin: 0 0 14px;
-    font-weight: 500;
-  }
-  .site-foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .site-foot a { opacity: 0.85; transition: opacity .2s, color .2s; }
-  .site-foot a:hover { opacity: 1; color: var(--accent); }
-  .site-foot img.logo { filter: invert(1) brightness(1.4); }
-  .foot-bottom {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,246,235,0.12);
+  .site-foot a { color: var(--bg); text-decoration: none; transition: color .2s ease, opacity .2s ease; }
+  .site-foot a:hover { color: var(--accent); }
+  .foot-top {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,246,235,0.14);
+  }
+  .foot-eyebrow {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    margin-bottom: 20px;
+  }
+  .foot-mail-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 18px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(38px, 6vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 1;
+    color: var(--bg);
+  }
+  .foot-mail-link .arrow { font-size: 0.5em; transition: transform .3s ease; display: inline-block; line-height: 1; }
+  .foot-mail-link:hover { color: var(--accent); }
+  .foot-mail-link:hover .arrow { transform: translateX(6px); }
+  .foot-social { display: flex; gap: 14px; align-items: center; }
+  .foot-social a {
+    width: 42px; height: 42px; border-radius: 999px;
+    border: 1px solid rgba(255,246,235,0.25);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--bg);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .foot-social a:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+  .foot-social svg { width: 18px; height: 18px; }
+  .foot-nav {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    padding-block: 56px;
+  }
+  .foot-col h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    color: rgba(255,246,235,0.55);
+    font-weight: 500;
+  }
+  .foot-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .foot-col a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bg);
+  }
+  .foot-col-right { display: flex; justify-content: flex-end; }
+  .foot-col-right ul { align-items: flex-end; }
+  .foot-bottom {
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,246,235,0.14);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255,246,235,0.55);
+    color: rgba(255,246,235,0.5);
     flex-wrap: wrap;
   }
 
@@ -933,7 +983,8 @@
       align-items: start;
     }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .foot-top { flex-direction: column; align-items: flex-start; gap: 28px; padding-bottom: 40px; }
+    .foot-nav { padding-block: 40px; }
   }
   @media (max-width: 640px) {
     :root { --gutter: 20px; }
@@ -952,8 +1003,11 @@
     .careers .ctas { flex-direction: column; }
     .careers .ctas .btn { width: 100%; justify-content: center; }
 
-    .site-foot .foot-grid { grid-template-columns: 1fr; gap: 28px; }
-    .foot-bottom { flex-direction: column; gap: 8px; }
+    .foot-mail-link { font-size: 42px; gap: 12px; }
+    .foot-nav { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
+    .foot-col-right { justify-content: flex-start; }
+    .foot-col-right ul { align-items: flex-start; }
+    .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
   @media (max-width: 380px) {
     .page-hero h1 { font-size: 44px; }
@@ -1033,12 +1087,12 @@
     </div>
 
     <span class="eyebrow"><span class="bullet"></span>The JBC bench · NY &amp; LA</span>
-    <h1>Fifty publicists. <em>One</em> standard.</h1>
+    <h1>A senior bench. <em>One</em> standard.</h1>
 
     <div class="hero-lede reveal">
       <div class="k">The bench</div>
       <div>
-        <p>JBC is led by <strong>Jennifer Bett Meyer</strong> and built out of fifty expert publicists, category specialists, content leads, affiliate operators, and executive-speaking strategists — working shoulder-to-shoulder across New York and Los Angeles.</p>
+        <p>JBC is led by <strong>Jennifer Bett Meyer and Melissa Duren Conner</strong> and built out of expert publicists, category specialists, content leads, affiliate operators, and executive-speaking strategists — working shoulder-to-shoulder across New York and Los Angeles.</p>
         <p>Every account is staffed by senior practitioners who have <em>done the work</em> before. Founders don't get routed through a junior relay; the person pitching your story is the person who understands why it matters.</p>
       </div>
     </div>
@@ -1063,7 +1117,7 @@
         </div>
         <span class="role">President &amp; Founder</span>
         <h3>Jennifer Bett Meyer<span class="pronouns">she / her</span></h3>
-        <p>For over 18 years, Jennifer has led the communications strategy for category-defining consumer brands. A graduate of Wesleyan University, she began her career as an editor at Harper's Bazaar and Marie Claire before launching JBC in January 2014 to serve a founder-led client base that is now 80%+ women.</p>
+        <p>For over 18 years, Jennifer has led the communications strategy for category-defining consumer brands. A graduate of Wesleyan University, she began her career as an editor at Harper's Bazaar and Marie Claire before launching JBC in January 2014 to serve a founder-led roster across beauty, fashion, food, wellness, and lifestyle.</p>
       </article>
 
       <article class="leader-card reveal">
@@ -1081,7 +1135,7 @@
         </div>
         <span class="role">EVP &amp; Head of Growth</span>
         <h3>Libbey Baumgarten<span class="pronouns">she / her</span></h3>
-        <p>Libbey joined JBC in 2015 to build out its Social Impact, Health &amp; Wellness division. She now leads the agency's growth function — evaluating inbound brands against JBC's values-first filter and architecting the programs that win new partnerships.</p>
+        <p>Libbey joined JBC in 2015 to build out its Impact, Health &amp; Wellness division. She now leads the agency's growth function — evaluating inbound brands against JBC's values-first filter and architecting the programs that win new partnerships.</p>
       </article>
 
       <article class="leader-card reveal">
@@ -1109,11 +1163,6 @@
 
     <div class="roster-grid">
       <article class="person reveal">
-        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/fc427a55-bb4f-48be-9916-fe43245b5815/T33MA1E6B-U09BQQP6LN4-1fe7886c5cca-512.png?format=500w" alt="Arturo Diaz" loading="lazy"></div>
-        <span class="role">VP, Executive Speaking</span>
-        <h4>Arturo Diaz<span class="pronouns">he / him</span></h4>
-      </article>
-      <article class="person reveal">
         <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/67739ca3-6b29-4144-9749-2b2c0932c3f7/Sara%2BGanus.jpeg?format=500w" alt="Sara Ganus" loading="lazy"></div>
         <span class="role">SVP, Fashion</span>
         <h4>Sara Ganus<span class="pronouns">she / her</span></h4>
@@ -1124,19 +1173,24 @@
         <h4>Erin Curran<span class="pronouns">she / her</span></h4>
       </article>
       <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/297c7139-bf30-471a-8a31-b887459762ce/IMG_2554.jpg?format=500w" alt="Stephanie Davis" loading="lazy"></div>
+        <span class="role">Chief of Staff</span>
+        <h4>Stephanie Davis<span class="pronouns">she / her</span></h4>
+      </article>
+      <article class="person reveal">
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/fc427a55-bb4f-48be-9916-fe43245b5815/T33MA1E6B-U09BQQP6LN4-1fe7886c5cca-512.png?format=500w" alt="Arturo Diaz" loading="lazy"></div>
+        <span class="role">VP, Executive Speaking</span>
+        <h4>Arturo Diaz<span class="pronouns">he / him</span></h4>
+      </article>
+      <article class="person reveal">
         <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/68318add-0fba-431e-822e-416b12361b0e/BLAIR+DAWSON+HEADSHOT.jpg?format=500w" alt="Blair Dawson" loading="lazy"></div>
         <span class="role">Vice President, Food &amp; Beverage</span>
         <h4>Blair Dawson<span class="pronouns">she / her</span></h4>
       </article>
       <article class="person reveal">
         <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/f73122a8-7a89-4645-a61d-2900577107a7/T33MA1E6B-UC3MVLK88-7df0c24e71b7-512.png?format=500w" alt="Emily Tschirhart" loading="lazy"></div>
-        <span class="role">VP, Social Impact &amp; Wellness</span>
+        <span class="role">VP, Impact &amp; Wellness</span>
         <h4>Emily Tschirhart<span class="pronouns">she / her</span></h4>
-      </article>
-      <article class="person reveal">
-        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/76824ead-c431-46ab-840c-176bc487f8be/CHRISTINA+SONG+HEADSHOT.png?format=500w" alt="Christina Song" loading="lazy"></div>
-        <span class="role">Associate Vice President</span>
-        <h4>Christina Song<span class="pronouns">she / her</span></h4>
       </article>
       <article class="person reveal">
         <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/8fb1956b-95de-423d-923c-9e5ba094ccc3/IMG_2448.jpg?format=500w" alt="Maura Brannigan" loading="lazy"></div>
@@ -1154,9 +1208,9 @@
         <h4>Whitney Swaim<span class="pronouns">she / her</span></h4>
       </article>
       <article class="person reveal">
-        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/297c7139-bf30-471a-8a31-b887459762ce/IMG_2554.jpg?format=500w" alt="Stephanie Davis" loading="lazy"></div>
-        <span class="role">Chief of Staff</span>
-        <h4>Stephanie Davis<span class="pronouns">she / her</span></h4>
+        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/76824ead-c431-46ab-840c-176bc487f8be/CHRISTINA+SONG+HEADSHOT.png?format=500w" alt="Christina Song" loading="lazy"></div>
+        <span class="role">Associate Vice President</span>
+        <h4>Christina Song<span class="pronouns">she / her</span></h4>
       </article>
       <article class="person reveal">
         <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/de8c0337-f33b-4f67-adbb-abaa6b5a6d45/IMG_2573-2.jpg?format=500w" alt="Olivia Davis" loading="lazy"></div>
@@ -1209,8 +1263,8 @@
       </div>
       <div class="value-cell reveal">
         <span class="num">02</span>
-        <h3>80<em>%</em>+ female founders</h3>
-        <p>Our client base is heavily weighted toward women-led brands. Our bench, our reporter relationships, and our editorial lens are built for exactly that work.</p>
+        <h3>Senior on <em>every</em> account</h3>
+        <p>The person who won your pitch is the person on the Slack thread two years later. No junior handoffs, no bait-and-switch — the relationship stays with the lead who built it.</p>
       </div>
       <div class="value-cell reveal">
         <span class="num">03</span>
@@ -1292,14 +1346,14 @@
 
     <div class="stats-grid">
       <div class="stat-card reveal">
-        <div class="big">50<em>+</em></div>
-        <p>Expert publicists, specialists, and strategists across New York and Los Angeles.</p>
+        <div class="big">NY + LA</div>
+        <p>Senior publicists, specialists, and strategists working shoulder-to-shoulder across both coasts.</p>
         <div class="footnote">Senior on every account</div>
       </div>
       <div class="stat-card reveal">
-        <div class="big">80<em>%</em></div>
-        <p>Of JBC's client base is female-founded — a specialization, not a talking point.</p>
-        <div class="footnote">Women-led focus</div>
+        <div class="big">100<em>s</em></div>
+        <p>Of founder-led consumer brands served since 2014 — across beauty, fashion, food, wellness, and lifestyle.</p>
+        <div class="footnote">Deep category range</div>
       </div>
       <div class="stat-card reveal">
         <div class="big">2014</div>
@@ -1340,45 +1394,45 @@
 <!-- Footer -->
 <footer class="site-foot">
   <div class="container">
-    <div class="foot-grid">
-      <div class="foot-col">
-        <a href="index.html" class="brand" aria-label="JBC home">
-          <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
-        </a>
-        <p style="margin-top: 16px; max-width: 320px; color: rgba(255,246,235,0.7); font-size: 14px;">Jennifer Bett Communications. An independent, women-led strategic PR agency. Headquartered in New York &amp; Los Angeles.</p>
+    <div class="foot-top">
+      <div class="foot-mail">
+        <span class="foot-eyebrow">Email us</span>
+        <a class="foot-mail-link" href="mailto:info@jbc-pr.com">info@jbc-pr.com<span class="arrow">→</span></a>
       </div>
+      <div class="foot-social" aria-label="Social links">
+        <a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/jenniferbettcommunications" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.2c0-1 .3-1.7 1.8-1.7H17V2.3c-.3 0-1.3-.1-2.5-.1C11.9 2.2 10 3.7 10 6.7V9.5H7V13h3v9h3.5z"/></svg>
+        </a>
+        <a href="mailto:info@jbc-pr.com" aria-label="Email us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-nav">
       <div class="foot-col">
-        <h4>Explore</h4>
+        <h4>About</h4>
         <ul>
           <li><a href="our-work.html">Our Work</a></li>
           <li><a href="what-we-do.html">What We Do</a></li>
           <li><a href="why-jbc.html">Why JBC</a></li>
-          <li><a href="the-team.html">The Team</a></li>
           <li><a href="the-spin.html">The Spin</a></li>
+          <li><a href="the-team.html">The Team</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h4>Agency</h4>
+      <div class="foot-col foot-col-right">
         <ul>
-          <li><a href="mailto:info@jenniferbett.com?subject=Careers%20at%20JBC">Careers</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
+          <li><a href="mailto:info@jbc-pr.com?subject=Careers%20at%20JBC">Careers</a></li>
+          <li><a href="mailto:info@jbc-pr.com">Contact</a></li>
           <li><a href="#">Terms &amp; Privacy</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Say hi</h4>
-        <ul>
-          <li><a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a></li>
-          <li><a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Substack — Office Hours</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>Jennifer Bett Communications® · JBC® © 2026. All rights reserved.</span>
-      <span>NY · LA · Working globally</span>
+      <span>Jennifer Bett Communications® | jbc® © 2026 All Rights Reserved</span>
+      <span>NY · LA</span>
     </div>
   </div>
 </footer>

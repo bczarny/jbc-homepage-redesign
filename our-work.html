@@ -711,38 +711,88 @@
   .site-foot {
     background: var(--ink);
     color: var(--bg);
-    padding-block: clamp(56px, 7vw, 96px);
+    padding-block: clamp(64px, 8vw, 112px) 32px;
   }
-  .site-foot .foot-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 40px;
-  }
-  .site-foot h4 {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,246,235,0.6);
-    margin: 0 0 14px;
-    font-weight: 500;
-  }
-  .site-foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .site-foot a { opacity: 0.85; transition: opacity .2s, color .2s; }
-  .site-foot a:hover { opacity: 1; color: var(--accent); }
-  .site-foot img.logo { filter: invert(1) brightness(1.4); }
-  .foot-bottom {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,246,235,0.12);
+  .site-foot a { color: var(--bg); text-decoration: none; transition: color .2s ease, opacity .2s ease; }
+  .site-foot a:hover { color: var(--accent); }
+  .foot-top {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,246,235,0.14);
+  }
+  .foot-eyebrow {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.55);
+    margin-bottom: 20px;
+  }
+  .foot-mail-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 18px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(38px, 6vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 1;
+    color: var(--bg);
+  }
+  .foot-mail-link .arrow { font-size: 0.5em; transition: transform .3s ease; display: inline-block; line-height: 1; }
+  .foot-mail-link:hover { color: var(--accent); }
+  .foot-mail-link:hover .arrow { transform: translateX(6px); }
+  .foot-social { display: flex; gap: 14px; align-items: center; }
+  .foot-social a {
+    width: 42px; height: 42px; border-radius: 999px;
+    border: 1px solid rgba(255,246,235,0.25);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--bg);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .foot-social a:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+  .foot-social svg { width: 18px; height: 18px; }
+  .foot-nav {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    padding-block: 56px;
+  }
+  .foot-col h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    color: rgba(255,246,235,0.55);
+    font-weight: 500;
+  }
+  .foot-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .foot-col a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bg);
+  }
+  .foot-col-right { display: flex; justify-content: flex-end; }
+  .foot-col-right ul { align-items: flex-end; }
+  .foot-bottom {
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,246,235,0.14);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255,246,235,0.55);
+    color: rgba(255,246,235,0.5);
     flex-wrap: wrap;
   }
 
@@ -866,7 +916,8 @@
 
     .section-head { grid-template-columns: 1fr; gap: 20px; align-items: start; }
 
-    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .foot-top { flex-direction: column; align-items: flex-start; gap: 28px; padding-bottom: 40px; }
+    .foot-nav { padding-block: 40px; }
   }
   @media (max-width: 640px) {
     :root { --gutter: 20px; }
@@ -895,8 +946,11 @@
     .cta-ctas .btn { width: 100%; justify-content: center; }
     .cta-block h2 { font-size: 44px; }
 
-    .site-foot .foot-grid { grid-template-columns: 1fr; gap: 28px; }
-    .foot-bottom { flex-direction: column; gap: 8px; }
+    .foot-mail-link { font-size: 42px; gap: 12px; }
+    .foot-nav { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
+    .foot-col-right { justify-content: flex-start; }
+    .foot-col-right ul { align-items: flex-start; }
+    .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
   @media (max-width: 380px) {
     .page-hero h1 { font-size: 44px; }
@@ -977,8 +1031,8 @@
     <h1>Brands we've<br><em>helped</em> scale.</h1>
 
     <div class="lede-row reveal">
-      <p>Forty-plus founder-led partnerships across consumer. Every one chosen because we believed in the founder, the category, and the ability of earned media to move the business — not just fill a clipbook.</p>
-      <p class="meta">13 featured · 40+ active · NY &amp; LA</p>
+      <p>Hundreds of founder-led partnerships across consumer. Every one chosen because we believed in the founder, the category, and the ability of earned media to move the business — not just fill a clipbook.</p>
+      <p class="meta">11 featured · Hundreds served · NY &amp; LA</p>
     </div>
 
     <div class="hero-stats reveal">
@@ -1047,9 +1101,9 @@
       <a class="feat reveal" href="#" aria-label="theSkimm case study">
         <img class="feat-img" src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/bca89681-8b42-4bda-9c42-a540fdd88fb2/jbc-the-skimm.jpg?format=1500w" alt="theSkimm" loading="lazy">
         <div class="feat-body">
-          <span class="chip">Social Impact</span>
+          <span class="chip">Impact</span>
           <h3>theSkimm</h3>
-          <p>Built a media company into a social-impact force — through to acquisition.</p>
+          <p>Built a media company into an impact force — through to acquisition.</p>
           <div class="feat-stats">
             <div><strong>9.4B+</strong><span>Impressions since 2022</span></div>
             <div><strong>Exit</strong><span>Acq. by Everyday Health · 2025</span></div>
@@ -1066,13 +1120,13 @@
   <div class="container">
     <div class="filter" role="toolbar" aria-label="Filter work by sector">
       <span class="label">Sector</span>
-      <button class="chip-btn" data-filter="all" aria-pressed="true">All <span class="count">13</span></button>
+      <button class="chip-btn" data-filter="all" aria-pressed="true">All <span class="count">11</span></button>
       <button class="chip-btn" data-filter="fashion" aria-pressed="false">Fashion &amp; Retail <span class="count">3</span></button>
       <button class="chip-btn" data-filter="home" aria-pressed="false">Home &amp; Design <span class="count">2</span></button>
-      <button class="chip-btn" data-filter="beauty" aria-pressed="false">Beauty <span class="count">2</span></button>
-      <button class="chip-btn" data-filter="health" aria-pressed="false">Health &amp; Wellness <span class="count">2</span></button>
+      <button class="chip-btn" data-filter="beauty" aria-pressed="false">Beauty <span class="count">1</span></button>
+      <button class="chip-btn" data-filter="health" aria-pressed="false">Health &amp; Wellness <span class="count">1</span></button>
       <button class="chip-btn" data-filter="food" aria-pressed="false">Food &amp; Beverage <span class="count">2</span></button>
-      <button class="chip-btn" data-filter="social" aria-pressed="false">Social Impact <span class="count">2</span></button>
+      <button class="chip-btn" data-filter="social" aria-pressed="false">Impact <span class="count">2</span></button>
     </div>
   </div>
 </div>
@@ -1081,7 +1135,7 @@
 <section class="grid-wrap" id="all-work">
   <div class="container">
     <div class="grid-meta">
-      <span>Showing <em id="visibleCount">13</em> of 13 partnerships</span>
+      <span>Showing <em id="visibleCount">11</em> of 11 partnerships</span>
       <span>Most recent first</span>
     </div>
 
@@ -1126,11 +1180,11 @@
           <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/bca89681-8b42-4bda-9c42-a540fdd88fb2/jbc-the-skimm.jpg?format=1500w" alt="theSkimm" loading="lazy">
         </div>
         <div class="card-meta">
-          <span class="sector">Social Impact</span>
+          <span class="sector">Impact</span>
           <span>2022 — 2025</span>
         </div>
         <h3>theSkimm</h3>
-        <p>Built a media company into a social-impact force — through to a $40M exit.</p>
+        <p>Built a media company into an impact force — through to a $40M exit.</p>
         <div class="card-stat">
           <strong>9.4B+</strong>
           <span>Impressions since 2022</span>
@@ -1143,7 +1197,7 @@
           <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/61d3bb5c-9bde-494c-8eaf-9e8674347655/sloomoo_tile.png?format=1500w" alt="Sloomoo Institute" loading="lazy">
         </div>
         <div class="card-meta">
-          <span class="sector">Social Impact</span>
+          <span class="sector">Impact</span>
           <span>2020 — ongoing</span>
         </div>
         <h3>Sloomoo Institute</h3>
@@ -1208,102 +1262,68 @@
 
       <a class="card reveal" data-sector="fashion" href="#">
         <div class="card-media">
-          <div class="placeholder" aria-hidden="true">Vuori</div>
+          <div class="placeholder" aria-hidden="true">Tecovas</div>
         </div>
         <div class="card-meta">
           <span class="sector">Fashion &amp; Retail</span>
-          <span>2021 — 2024</span>
+          <span>2023 — ongoing</span>
         </div>
-        <h3>Vuori</h3>
-        <p>Performance apparel told as a lifestyle story — retail expansion coverage, founder profiles, and the SoftBank round.</p>
+        <h3>Tecovas</h3>
+        <p>Handmade western boots repositioned for a national audience — retail expansion coverage, founder storytelling, and the category's modern reference point.</p>
         <div class="card-stat">
-          <strong>$5.5B</strong>
-          <span>Valuation at 2024 raise</span>
+          <strong>100+</strong>
+          <span>Retail stores · 2026</span>
         </div>
         <span class="card-cta">Read case study</span>
       </a>
 
       <a class="card reveal" data-sector="beauty" href="#">
         <div class="card-media">
-          <div class="placeholder" aria-hidden="true">Saie</div>
+          <div class="placeholder" aria-hidden="true">Dermalogica</div>
         </div>
         <div class="card-meta">
           <span class="sector">Beauty</span>
-          <span>2020 — ongoing</span>
-        </div>
-        <h3>Saie</h3>
-        <p>Clean-beauty brand built into a prestige-adjacent player via founder-led narratives and product-led press.</p>
-        <div class="card-stat">
-          <strong>Sephora</strong>
-          <span>National rollout · 2023</span>
-        </div>
-        <span class="card-cta">Read case study</span>
-      </a>
-
-      <a class="card reveal" data-sector="beauty" href="#">
-        <div class="card-media">
-          <div class="placeholder" aria-hidden="true">Merit</div>
-        </div>
-        <div class="card-meta">
-          <span class="sector">Beauty</span>
-          <span>2021 — ongoing</span>
-        </div>
-        <h3>Merit Beauty</h3>
-        <p>Founder-led clean cosmetics given a voice in legacy beauty media — not just the DTC echo chamber.</p>
-        <div class="card-stat">
-          <strong>Allure Best of Beauty</strong>
-          <span>3 years running</span>
-        </div>
-        <span class="card-cta">Read case study</span>
-      </a>
-
-      <a class="card reveal" data-sector="health" href="#">
-        <div class="card-media">
-          <div class="placeholder" aria-hidden="true">Bobbie</div>
-        </div>
-        <div class="card-meta">
-          <span class="sector">Health &amp; Wellness</span>
           <span>2022 — ongoing</span>
         </div>
-        <h3>Bobbie</h3>
-        <p>Mom-founded infant formula made into a policy conversation during the 2022 shortage — and a household name after.</p>
+        <h3>Dermalogica</h3>
+        <p>Professional skincare reintroduced to the consumer — editorial coverage, derm-backed messaging, and the brand's return to the beauty conversation.</p>
         <div class="card-stat">
-          <strong>Time 100</strong>
-          <span>Most Influential Companies · 2023</span>
+          <strong>Allure</strong>
+          <span>Best of Beauty recognition</span>
         </div>
         <span class="card-cta">Read case study</span>
       </a>
 
       <a class="card reveal" data-sector="health" href="#">
         <div class="card-media">
-          <div class="placeholder" aria-hidden="true">Hatch</div>
+          <div class="placeholder" aria-hidden="true">Midi Health</div>
         </div>
         <div class="card-meta">
           <span class="sector">Health &amp; Wellness</span>
-          <span>2019 — ongoing</span>
+          <span>2023 — ongoing</span>
         </div>
-        <h3>Hatch</h3>
-        <p>Maternity wellness built into a lifestyle category — founder story, celebrity earned, and the Hatch Mama standard.</p>
+        <h3>Midi Health</h3>
+        <p>Built midlife women's health into a national conversation — founder thought leadership, category education, and coverage across consumer and business press.</p>
         <div class="card-stat">
-          <strong>Nordstrom</strong>
-          <span>Anchor retail partner · 2024</span>
+          <strong>Series B</strong>
+          <span>Press-supported fundraise</span>
         </div>
         <span class="card-cta">Read case study</span>
       </a>
 
       <a class="card reveal" data-sector="food" href="#">
         <div class="card-media">
-          <div class="placeholder" aria-hidden="true">Graza</div>
+          <div class="placeholder" aria-hidden="true">AIR COMPANY</div>
         </div>
         <div class="card-meta">
           <span class="sector">Food &amp; Beverage</span>
-          <span>2022 — ongoing</span>
+          <span>2021 — ongoing</span>
         </div>
-        <h3>Graza</h3>
-        <p>Squeezable olive oil positioned as a pantry essential — kitchen press, chef partnerships, and the squeeze-bottle as icon.</p>
+        <h3>AIR COMPANY</h3>
+        <p>Carbon-negative spirits made into a climate story — business, lifestyle, and sustainability press for a category-creating brand.</p>
         <div class="card-stat">
-          <strong>Bon Appétit</strong>
-          <span>Cover story · 2023</span>
+          <strong>Fast Company</strong>
+          <span>Most Innovative Companies</span>
         </div>
         <span class="card-cta">Read case study</span>
       </a>
@@ -1404,45 +1424,45 @@
 <!-- Footer -->
 <footer class="site-foot">
   <div class="container">
-    <div class="foot-grid">
-      <div class="foot-col">
-        <a href="index.html" class="brand" aria-label="JBC home">
-          <img class="logo" src="jbc-logo-trimmed.png" alt="JBC">
-        </a>
-        <p style="margin-top: 16px; max-width: 320px; color: rgba(255,246,235,0.7); font-size: 14px;">Jennifer Bett Communications. An independent, women-led strategic PR agency. Headquartered in New York &amp; Los Angeles.</p>
+    <div class="foot-top">
+      <div class="foot-mail">
+        <span class="foot-eyebrow">Email us</span>
+        <a class="foot-mail-link" href="mailto:info@jbc-pr.com">info@jbc-pr.com<span class="arrow">→</span></a>
       </div>
+      <div class="foot-social" aria-label="Social links">
+        <a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/jenniferbettcommunications" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.2c0-1 .3-1.7 1.8-1.7H17V2.3c-.3 0-1.3-.1-2.5-.1C11.9 2.2 10 3.7 10 6.7V9.5H7V13h3v9h3.5z"/></svg>
+        </a>
+        <a href="mailto:info@jbc-pr.com" aria-label="Email us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-nav">
       <div class="foot-col">
-        <h4>Explore</h4>
+        <h4>About</h4>
         <ul>
           <li><a href="our-work.html">Our Work</a></li>
-          <li><a href="what-we-do.html">Services</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
           <li><a href="why-jbc.html">Why JBC</a></li>
-          <li><a href="the-team.html">Our Team</a></li>
           <li><a href="the-spin.html">The Spin</a></li>
+          <li><a href="the-team.html">The Team</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h4>Agency</h4>
+      <div class="foot-col foot-col-right">
         <ul>
           <li><a href="#">Careers</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
+          <li><a href="mailto:info@jbc-pr.com">Contact</a></li>
           <li><a href="#">Terms &amp; Privacy</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Say hi</h4>
-        <ul>
-          <li><a href="mailto:info@jenniferbett.com">info@jenniferbett.com</a></li>
-          <li><a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Substack — Office Hours</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>Jennifer Bett Communications® · JBC® © 2026. All rights reserved.</span>
-      <span>NY · LA · Working globally</span>
+      <span>Jennifer Bett Communications® | jbc® © 2026 All Rights Reserved</span>
+      <span>NY · LA</span>
     </div>
   </div>
 </footer>
