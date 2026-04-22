@@ -253,7 +253,7 @@
   }
   .leaders {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
   .leader-card {
@@ -910,7 +910,6 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 1100px) {
     .leaders { grid-template-columns: 1fr 1fr; }
-    .leader-card:nth-child(3) { grid-column: 1 / -1; }
     .roster-grid { grid-template-columns: repeat(3, 1fr); }
     .values-grid { grid-template-columns: repeat(2, 1fr); }
     .news-grid { grid-template-columns: repeat(3, 1fr); }
@@ -944,7 +943,6 @@
 
     .page-hero h1 { font-size: 52px; }
     .leaders { grid-template-columns: 1fr; }
-    .leader-card:nth-child(3) { grid-column: auto; }
     .roster-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .values-grid { grid-template-columns: 1fr; }
     .value-cell { min-height: 0; border-right: none; }
@@ -1085,6 +1083,15 @@
         <h3>Libbey Baumgarten<span class="pronouns">she / her</span></h3>
         <p>Libbey joined JBC in 2015 to build out its Social Impact, Health &amp; Wellness division. She now leads the agency's growth function — evaluating inbound brands against JBC's values-first filter and architecting the programs that win new partnerships.</p>
       </article>
+
+      <article class="leader-card reveal">
+        <div class="portrait">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/776cb05d-1ade-4cab-87dd-98f869da4ad3/Screen+Shot+2025-06-24+at+1.22.20+PM.png?format=750w" alt="Ilana Rubin Dvir" loading="lazy">
+        </div>
+        <span class="role">EVP, Head of Strategy</span>
+        <h3>Ilana Rubin Dvir<span class="pronouns">she / her</span></h3>
+        <p>As Head of Strategy, Ilana shapes how JBC translates brand priorities into media outcomes. She partners with founders and executives across the roster to define narrative architecture, category positioning, and the newsjacking frameworks that keep clients ahead of the cycle.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1101,11 +1108,6 @@
     </div>
 
     <div class="roster-grid">
-      <article class="person reveal">
-        <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/776cb05d-1ade-4cab-87dd-98f869da4ad3/Screen+Shot+2025-06-24+at+1.22.20+PM.png?format=500w" alt="Ilana Rubin Dvir" loading="lazy"></div>
-        <span class="role">EVP, Head of Strategy</span>
-        <h4>Ilana Rubin Dvir<span class="pronouns">she / her</span></h4>
-      </article>
       <article class="person reveal">
         <div class="avatar"><img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/fc427a55-bb4f-48be-9916-fe43245b5815/T33MA1E6B-U09BQQP6LN4-1fe7886c5cca-512.png?format=500w" alt="Arturo Diaz" loading="lazy"></div>
         <span class="role">VP, Executive Speaking</span>
