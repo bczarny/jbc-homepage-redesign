@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1530 1120" role="img" aria-label="JBC">
+  <!-- j: black -->
+  <rect x="175" y="90" width="90" height="90" fill="#0a0a0a"/>
+  <path d="M220,255 L220,945 C220,1035 155,1040 95,1005"
+        fill="none" stroke="#0a0a0a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- b: gray -->
+  <path d="M410,90 L410,960"
+        fill="none" stroke="#a7a7a7" stroke-width="40" stroke-linecap="round"/>
+  <circle cx="610" cy="720" r="250" fill="none" stroke="#a7a7a7" stroke-width="40"/>
+
+  <!-- c: black (open on the right, ~75deg gap) -->
+  <path d="M1440,540 A275,275 0 1,0 1440,900"
+        fill="none" stroke="#0a0a0a" stroke-width="40" stroke-linecap="round"/>
+</svg>

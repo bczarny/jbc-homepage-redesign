@@ -282,116 +282,132 @@
   }
   .rule { height: 1px; background: var(--line); margin-top: 12px; }
 
-  /* ---------- Featured work (bento hero) ---------- */
+  /* ---------- Featured work (horizontal-split) ---------- */
   .featured {
     padding-top: clamp(48px, 6vw, 96px);
   }
   .featured-grid {
     display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-top: clamp(32px, 4vw, 56px);
   }
   .feat {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 440px;
-    padding: 28px;
-    border-radius: var(--radius-lg);
-    color: #fff;
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    border-radius: var(--radius-md);
     overflow: hidden;
-    background: var(--ink);
-    transition: transform .35s ease;
+    background: var(--pale);
+    min-height: 360px;
+    color: var(--ink);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
   }
-  .feat:hover { transform: translateY(-3px); }
-  .feat::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(180deg, rgba(10,10,10,0.05) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0.88) 100%);
+  .feat:hover { transform: translateY(-4px); }
+  .feat.half {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+    grid-template-rows: 240px auto;
+    min-height: auto;
   }
-  .feat .feat-img {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  .feat-media {
+    position: relative;
+    overflow: hidden;
+    background: var(--cream-2);
+    min-height: 240px;
+  }
+  .feat-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    transition: transform .6s ease;
+    transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .4s;
+    filter: saturate(1.05) contrast(1.02);
   }
-  .feat:hover .feat-img { transform: scale(1.03); }
-  .feat .feat-body { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 14px; }
+  .feat:hover .feat-media img { transform: scale(1.04); }
+  .feat .feat-body {
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+  .feat.half .feat-body {
+    padding: 24px 28px 28px;
+    justify-content: flex-start;
+  }
   .feat .chip {
     align-self: flex-start;
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
+    font-size: 10px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    padding: 6px 10px;
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 999px;
-    color: rgba(255,255,255,0.92);
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    color: var(--muted);
+    background: transparent;
   }
   .feat h3 {
     margin: 0;
     font-family: var(--display);
-    font-size: clamp(32px, 3.4vw, 52px);
+    font-size: clamp(30px, 2.8vw, 44px);
     font-weight: 500;
     letter-spacing: -0.035em;
     line-height: 1;
   }
+  .feat.half h3 {
+    font-size: clamp(26px, 2.2vw, 32px);
+  }
   .feat p {
     margin: 0;
     font-size: 15px;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.92);
-    max-width: 520px;
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 460px;
   }
   .feat .feat-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 28px;
     padding-top: 14px;
-    border-top: 1px solid rgba(255,255,255,0.18);
+    border-top: 1px solid rgba(10,10,10,0.1);
+    margin-top: 4px;
   }
+  .feat .feat-stats div { display: flex; flex-direction: column; gap: 4px; }
   .feat .feat-stats strong {
     display: block;
-    font-size: clamp(22px, 2.2vw, 30px);
+    font-family: var(--display);
     font-weight: 500;
-    letter-spacing: -0.03em;
+    font-size: 22px;
+    letter-spacing: -0.02em;
     line-height: 1;
   }
   .feat .feat-stats span {
     display: block;
-    margin-top: 4px;
+    margin-top: 0;
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.72);
+    color: var(--muted);
   }
   .feat .feat-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 6px;
+    margin-top: 4px;
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--ink);
   }
   .feat .feat-cta::after {
     content: "→";
-    transition: transform .25s ease;
+    transition: transform .2s;
+    display: inline-block;
   }
   .feat:hover .feat-cta::after { transform: translateX(4px); }
-  .feat.lead { grid-row: span 2; min-height: 620px; }
 
   /* ---------- Filter bar ---------- */
   .filter-wrap {
@@ -707,83 +723,67 @@
   .cta-block h2 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--accent); }
   .cta-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  /* ---------- Footer ---------- */
+  /* ---------- Footer (3-column, logo-anchored) ---------- */
   .site-foot {
     background: var(--ink);
     color: var(--bg);
-    padding-block: clamp(64px, 8vw, 112px) 32px;
+    padding-block: clamp(72px, 9vw, 120px) 28px;
   }
   .site-foot a { color: var(--bg); text-decoration: none; transition: color .2s ease, opacity .2s ease; }
   .site-foot a:hover { color: var(--accent); }
-  .foot-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 32px;
-    padding-bottom: 56px;
+  .foot-cols {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    padding-bottom: clamp(48px, 6vw, 80px);
     border-bottom: 1px solid rgba(255,246,235,0.14);
   }
-  .foot-eyebrow {
-    display: block;
+  .foot-brand { display: flex; flex-direction: column; gap: 22px; }
+  .foot-brand .logo { display: block; width: 96px; height: auto; }
+  .foot-brand .tagline {
+    font-family: var(--display);
+    font-size: 16px;
+    line-height: 1.45;
+    color: rgba(255,246,235,0.75);
+    max-width: 340px;
+    margin: 0;
+  }
+  .foot-brand .tagline em { font-family: var(--serif); font-style: italic; color: var(--bg); font-weight: 400; }
+  .foot-brand .cities {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: rgba(255,246,235,0.55);
-    margin-bottom: 20px;
   }
-  .foot-mail-link {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 18px;
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(38px, 6vw, 80px);
-    letter-spacing: -0.035em;
-    line-height: 1;
-    color: var(--bg);
-  }
-  .foot-mail-link .arrow { font-size: 0.5em; transition: transform .3s ease; display: inline-block; line-height: 1; }
-  .foot-mail-link:hover { color: var(--accent); }
-  .foot-mail-link:hover .arrow { transform: translateX(6px); }
-  .foot-social { display: flex; gap: 14px; align-items: center; }
+  .foot-social { display: flex; gap: 12px; align-items: center; margin-top: 4px; }
   .foot-social a {
-    width: 42px; height: 42px; border-radius: 999px;
-    border: 1px solid rgba(255,246,235,0.25);
+    width: 40px; height: 40px; border-radius: 999px;
+    border: 1px solid rgba(255,246,235,0.22);
     display: inline-flex; align-items: center; justify-content: center;
     color: var(--bg);
     transition: background .2s ease, color .2s ease, border-color .2s ease;
   }
   .foot-social a:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
-  .foot-social svg { width: 18px; height: 18px; }
-  .foot-nav {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
-    padding-block: 56px;
-  }
+  .foot-social svg { width: 17px; height: 17px; }
   .foot-col h4 {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin: 0 0 24px;
+    margin: 0 0 22px;
     color: rgba(255,246,235,0.55);
     font-weight: 500;
   }
   .foot-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
   .foot-col a {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: var(--display);
+    font-size: 17px;
+    letter-spacing: -0.015em;
     color: var(--bg);
   }
-  .foot-col-right { display: flex; justify-content: flex-end; }
-  .foot-col-right ul { align-items: flex-end; }
   .foot-bottom {
     padding-top: 28px;
-    border-top: 1px solid rgba(255,246,235,0.14);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -901,10 +901,14 @@
     .nav-toggle { display: inline-flex; }
     .nav-cta { display: none; }
 
-    .featured-grid {
+    .featured-grid { grid-template-columns: 1fr; }
+    .feat, .feat.half {
+      grid-column: auto;
       grid-template-columns: 1fr;
+      grid-template-rows: 280px auto;
+      min-height: auto;
     }
-    .feat.lead { grid-row: auto; min-height: 440px; }
+    .feat .feat-body { padding: 28px 28px 32px; justify-content: flex-start; }
 
     .page-hero .lede-row { grid-template-columns: 1fr; gap: 24px; }
     .page-hero .meta { text-align: left; }
@@ -916,8 +920,7 @@
 
     .section-head { grid-template-columns: 1fr; gap: 20px; align-items: start; }
 
-    .foot-top { flex-direction: column; align-items: flex-start; gap: 28px; padding-bottom: 40px; }
-    .foot-nav { padding-block: 40px; }
+    .foot-cols { grid-template-columns: 1fr; gap: 48px; padding-bottom: 40px; }
   }
   @media (max-width: 640px) {
     :root { --gutter: 20px; }
@@ -938,19 +941,19 @@
     .impact-grid { grid-template-columns: 1fr; gap: 16px; }
     .impact-card { padding: 24px 22px; }
 
-    .feat { padding: 22px; min-height: 380px; }
-    .feat h3 { font-size: 36px; }
+    .feat, .feat.half { grid-template-rows: 220px auto; }
+    .feat .feat-body { padding: 22px 22px 26px; }
+    .feat h3, .feat.half h3 { font-size: 28px; }
+    .feat p { font-size: 14.5px; }
     .feat .feat-stats { gap: 18px; }
 
     .cta-ctas { flex-direction: column; }
     .cta-ctas .btn { width: 100%; justify-content: center; }
     .cta-block h2 { font-size: 44px; }
 
-    .foot-mail-link { font-size: 42px; gap: 12px; }
-    .foot-nav { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
-    .foot-col-right { justify-content: flex-start; }
-    .foot-col-right ul { align-items: flex-start; }
-    .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; font-size: 10.5px; }
+    .foot-brand .logo { width: 80px; }
+    .foot-col a { font-size: 16px; }
   }
   @media (max-width: 380px) {
     .page-hero h1 { font-size: 44px; }
@@ -1068,25 +1071,29 @@
     <div class="rule"></div>
 
     <div class="featured-grid">
-      <a class="feat lead reveal" href="olipop-case-study.html" aria-label="OLIPOP case study">
-        <img class="feat-img" src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/7357e862-c5f2-4570-9075-7284d12a0d54/Olipop+Cover.png?format=1500w" alt="OLIPOP" loading="lazy">
+      <a class="feat reveal" href="olipop-case-study.html" aria-label="OLIPOP case study">
+        <div class="feat-media">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/7357e862-c5f2-4570-9075-7284d12a0d54/Olipop+Cover.png?format=1500w" alt="OLIPOP" loading="lazy">
+        </div>
         <div class="feat-body">
-          <span class="chip">Food &amp; Beverage</span>
+          <span class="chip">Food &amp; Beverage · 2023 — ongoing</span>
           <h3>OLIPOP</h3>
           <p>Repositioned a functional soda as the category leader through a four-month storytelling sprint and newsjacking off the "Sleepy Girl Mocktail" moment.</p>
           <div class="feat-stats">
             <div><strong>20B+</strong><span>Impressions · 2025</span></div>
-            <div><strong>3,000+</strong><span>Placements · partnership-to-date</span></div>
-            <div><strong>$1.85B</strong><span>Valuation at last raise</span></div>
+            <div><strong>3,000+</strong><span>Placements to date</span></div>
+            <div><strong>$1.85B</strong><span>Valuation · last raise</span></div>
           </div>
           <span class="feat-cta">Read the case study</span>
         </div>
       </a>
 
-      <a class="feat reveal" href="#" aria-label="Parachute case study">
-        <img class="feat-img" src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1664238768490-B1V2EY165JVRYNXFT3QH/JBC+Case+Studies7.jpg?format=1500w" alt="Parachute" loading="lazy">
+      <a class="feat half reveal" href="#" aria-label="Parachute case study">
+        <div class="feat-media">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1664238768490-B1V2EY165JVRYNXFT3QH/JBC+Case+Studies7.jpg?format=1500w" alt="Parachute" loading="lazy">
+        </div>
         <div class="feat-body">
-          <span class="chip">Home &amp; Design</span>
+          <span class="chip">Home &amp; Design · 2017 — ongoing</span>
           <h3>Parachute</h3>
           <p>Eight years in partnership. Press that translates to revenue, retail footprint, and "And Just Like That" cameos.</p>
           <div class="feat-stats">
@@ -1097,15 +1104,17 @@
         </div>
       </a>
 
-      <a class="feat reveal" href="#" aria-label="theSkimm case study">
-        <img class="feat-img" src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/bca89681-8b42-4bda-9c42-a540fdd88fb2/jbc-the-skimm.jpg?format=1500w" alt="theSkimm" loading="lazy">
+      <a class="feat half reveal" href="#" aria-label="theSkimm case study">
+        <div class="feat-media">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/bca89681-8b42-4bda-9c42-a540fdd88fb2/jbc-the-skimm.jpg?format=1500w" alt="theSkimm" loading="lazy">
+        </div>
         <div class="feat-body">
-          <span class="chip">Impact</span>
+          <span class="chip">Impact · 2022 — 2025</span>
           <h3>theSkimm</h3>
           <p>Built a media company into an impact force — through to acquisition.</p>
           <div class="feat-stats">
             <div><strong>9.4B+</strong><span>Impressions since 2022</span></div>
-            <div><strong>Exit</strong><span>Acq. by Everyday Health · 2025</span></div>
+            <div><strong>Exit</strong><span>Acq. · 2025</span></div>
           </div>
           <span class="feat-cta">Read the case study</span>
         </div>
@@ -1423,24 +1432,26 @@
 <!-- Footer -->
 <footer class="site-foot">
   <div class="container">
-    <div class="foot-top">
-      <div class="foot-mail">
-        <span class="foot-eyebrow">Email us</span>
-        <a class="foot-mail-link" href="mailto:info@jbc-pr.com">info@jbc-pr.com<span class="arrow">→</span></a>
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <img class="logo" src="jbc-logo-white.webp" alt="JBC">
+        <p class="tagline">Strategic PR for <em>founder-led</em> consumer brands. NY &amp; LA · working globally.</p>
+        <span class="cities">NY · LA · est. 2014</span>
+        <div class="foot-social" aria-label="Social links">
+          <a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/jenniferbettcommunications" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.2c0-1 .3-1.7 1.8-1.7H17V2.3c-.3 0-1.3-.1-2.5-.1C11.9 2.2 10 3.7 10 6.7V9.5H7V13h3v9h3.5z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@jbc_pr" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.43 0-2.59-1.13-2.59-2.55s1.16-2.55 2.59-2.55c.27 0 .53.04.77.12V9.76a5.63 5.63 0 0 0-.77-.05A5.66 5.66 0 0 0 4.2 15.37a5.66 5.66 0 0 0 5.66 5.66 5.66 5.66 0 0 0 5.66-5.66V9.01a7.44 7.44 0 0 0 4.33 1.38V7.3s-2.14.13-3.25-1.48z"/></svg>
+          </a>
+          <a href="mailto:info@jbc-pr.com" aria-label="Email us">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="foot-social" aria-label="Social links">
-        <a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://www.facebook.com/jenniferbettcommunications" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.2c0-1 .3-1.7 1.8-1.7H17V2.3c-.3 0-1.3-.1-2.5-.1C11.9 2.2 10 3.7 10 6.7V9.5H7V13h3v9h3.5z"/></svg>
-        </a>
-        <a href="mailto:info@jbc-pr.com" aria-label="Email us">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="foot-nav">
       <div class="foot-col">
         <h4>About</h4>
         <ul>
@@ -1451,17 +1462,19 @@
           <li><a href="the-team.html">The Team</a></li>
         </ul>
       </div>
-      <div class="foot-col foot-col-right">
+      <div class="foot-col">
+        <h4>Company</h4>
         <ul>
           <li><a href="#">Careers</a></li>
           <li><a href="mailto:info@jbc-pr.com">Contact</a></li>
+          <li><a href="#">Press inquiries</a></li>
           <li><a href="#">Terms &amp; Privacy</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>Jennifer Bett Communications® | jbc® © 2026 All Rights Reserved</span>
-      <span>NY · LA</span>
+      <span>Jennifer Bett Communications® · jbc® © 2026 All Rights Reserved</span>
+      <span>Observer's 50 Most Powerful PR Firms · 2026</span>
     </div>
   </div>
 </footer>

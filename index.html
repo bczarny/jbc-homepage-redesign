@@ -843,6 +843,294 @@
     color: rgba(255,246,235,0.55);
   }
 
+  /* ---------- Latest from The Spin ---------- */
+  .spin-promo {
+    padding-block: clamp(96px, 12vw, 160px);
+    border-top: 1px solid var(--line);
+  }
+  .spin-promo .spin-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+    padding-bottom: clamp(32px, 4vw, 56px);
+    border-bottom: 1px solid var(--line);
+  }
+  .spin-promo .spin-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 18px 0 0;
+  }
+  .spin-promo .spin-head h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+  .spin-promo .spin-head .all-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+  .spin-promo .spin-head .all-link::after {
+    content: "→";
+    transition: transform .2s;
+  }
+  .spin-promo .spin-head .all-link:hover::after { transform: translateX(4px); }
+
+  .spin-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(28px, 4vw, 56px);
+    margin-top: clamp(32px, 4vw, 56px);
+  }
+  .spin-feat {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .spin-feat:hover { transform: translateY(-3px); }
+  .spin-feat .media {
+    position: relative;
+    aspect-ratio: 21 / 10;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--cream-2);
+  }
+  .spin-feat .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.2,.8,.2,1);
+  }
+  .spin-feat:hover .media img { transform: scale(1.03); }
+  .spin-feat .tag-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .spin-feat .tag-row .cat { color: var(--accent); }
+  .spin-feat .tag-row .sep { width: 12px; height: 1px; background: var(--line-strong); }
+  .spin-feat h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .spin-feat h3 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .spin-feat .dek {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 560px;
+  }
+  .spin-feat .read-more {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .spin-feat .read-more::after { content: "→"; transition: transform .2s; }
+  .spin-feat:hover .read-more::after { transform: translateX(4px); }
+
+  .spin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .spin-list .item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    transition: padding-left .25s ease;
+  }
+  .spin-list .item:first-child { border-top: none; padding-top: 0; }
+  .spin-list .item:last-child { padding-bottom: 0; }
+  .spin-list .item:hover { padding-left: 8px; }
+  .spin-list .tag-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .spin-list .tag-row .cat { color: var(--accent); }
+  .spin-list .tag-row .sep { width: 10px; height: 1px; background: var(--line-strong); }
+  .spin-list h4 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 1.6vw, 22px);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .spin-list h4 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+
+  /* ---------- Instagram feed promo ---------- */
+  .ig-promo {
+    padding-block: clamp(96px, 12vw, 160px);
+    border-top: 1px solid var(--line);
+  }
+  .ig-promo .ig-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+    padding-bottom: clamp(32px, 4vw, 56px);
+    border-bottom: 1px solid var(--line);
+  }
+  .ig-promo .ig-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin: 18px 0 0;
+  }
+  .ig-promo .ig-head h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+  .ig-promo .ig-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    padding-bottom: 8px;
+  }
+  .ig-promo .ig-handle {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ig-promo .ig-handle strong { color: var(--ink); font-weight: 500; }
+  .ig-promo .ig-follow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ig-promo .ig-follow::after {
+    content: "→";
+    transition: transform .2s;
+  }
+  .ig-promo .ig-follow:hover::after { transform: translateX(4px); }
+
+  .ig-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: clamp(32px, 4vw, 56px);
+  }
+  .ig-tile {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .ig-tile:hover { transform: translateY(-4px); }
+  .ig-tile.t1 { background: linear-gradient(140deg, var(--pale) 0%, var(--cream-2) 100%); }
+  .ig-tile.t2 { background: linear-gradient(160deg, var(--cream-2) 0%, #E8D6B6 100%); }
+  .ig-tile.t3 { background: linear-gradient(140deg, #EADDC3 0%, var(--pale) 100%); }
+  .ig-tile.t4 { background: linear-gradient(155deg, var(--pale) 0%, #EEDEC0 100%); }
+  .ig-tile.t5 { background: linear-gradient(140deg, #F1E4CC 0%, var(--cream-2) 100%); }
+  .ig-tile.t6 { background: linear-gradient(160deg, var(--cream-2) 0%, #EAD9BF 100%); }
+  .ig-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .ig-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+  }
+  .ig-tile:hover .ig-icon { background: var(--accent); }
+  .ig-icon svg { width: 15px; height: 15px; }
+  .ig-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(255,246,235,0.75);
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .ig-caption {
+    font-family: var(--display);
+    font-size: clamp(17px, 1.5vw, 21px);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 16px 0 auto;
+    max-width: 280px;
+  }
+  .ig-caption em { font-family: var(--serif); font-style: italic; color: var(--accent-ink); font-weight: 400; }
+  .ig-caption .tag { color: var(--accent); font-weight: 500; }
+  .ig-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 14px;
+    border-top: 1px solid rgba(10,10,10,0.1);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ig-footer .view {
+    color: var(--ink);
+    transition: color .2s;
+  }
+  .ig-footer .view::after { content: " →"; transition: transform .2s; display: inline-block; }
+  .ig-tile:hover .ig-footer .view::after { transform: translateX(3px); }
+
   /* ---------- Big CTA ---------- */
   .cta-block {
     padding-block: clamp(100px, 12vw, 180px);
@@ -862,84 +1150,76 @@
   .cta-block h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent-ink); }
   .cta-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  /* ---------- Footer ---------- */
+  /* ---------- Footer (3-column, logo-anchored) ---------- */
   footer.site-foot {
     background: var(--ink);
     color: var(--bg);
-    padding-block: clamp(64px, 8vw, 112px) 32px;
+    padding-block: clamp(72px, 9vw, 120px) 28px;
     font-size: 14px;
   }
   footer.site-foot a { color: var(--bg); text-decoration: none; transition: color .2s ease, opacity .2s ease; }
   footer.site-foot a:hover { color: var(--accent); }
-  .foot-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 32px;
-    padding-bottom: 56px;
+  .foot-cols {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    padding-bottom: clamp(48px, 6vw, 80px);
     border-bottom: 1px solid rgba(255,246,235,0.14);
   }
-  .foot-eyebrow {
+  .foot-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .foot-brand .logo {
     display: block;
+    width: 96px;
+    height: auto;
+  }
+  .foot-brand .tagline {
+    font-family: var(--display);
+    font-size: 16px;
+    line-height: 1.45;
+    color: rgba(255,246,235,0.75);
+    max-width: 340px;
+    margin: 0;
+  }
+  .foot-brand .tagline em { font-family: var(--serif); font-style: italic; color: var(--bg); font-weight: 400; }
+  .foot-brand .cities {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: rgba(255,246,235,0.55);
-    margin-bottom: 20px;
   }
-  .foot-mail-link {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 18px;
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(38px, 6vw, 80px);
-    letter-spacing: -0.035em;
-    line-height: 1;
-    color: var(--bg);
-  }
-  .foot-mail-link .arrow { font-size: 0.5em; transition: transform .3s ease; display: inline-block; line-height: 1; }
-  .foot-mail-link:hover { color: var(--accent); }
-  .foot-mail-link:hover .arrow { transform: translateX(6px); }
-  .foot-social { display: flex; gap: 14px; align-items: center; }
+  .foot-social { display: flex; gap: 12px; align-items: center; margin-top: 4px; }
   .foot-social a {
-    width: 42px; height: 42px; border-radius: 999px;
-    border: 1px solid rgba(255,246,235,0.25);
+    width: 40px; height: 40px; border-radius: 999px;
+    border: 1px solid rgba(255,246,235,0.22);
     display: inline-flex; align-items: center; justify-content: center;
     color: var(--bg);
     transition: background .2s ease, color .2s ease, border-color .2s ease;
   }
   .foot-social a:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
-  .foot-social svg { width: 18px; height: 18px; }
-  .foot-nav {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
-    padding-block: 56px;
-  }
+  .foot-social svg { width: 17px; height: 17px; }
   .foot-col h4 {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin: 0 0 24px;
+    margin: 0 0 22px;
     color: rgba(255,246,235,0.55);
     font-weight: 500;
   }
   .foot-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
   .foot-col a {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: var(--display);
+    font-size: 17px;
+    letter-spacing: -0.015em;
     color: var(--bg);
   }
-  .foot-col-right { display: flex; justify-content: flex-end; }
-  .foot-col-right ul { align-items: flex-end; }
   .foot-bottom {
     padding-top: 28px;
-    border-top: 1px solid rgba(255,246,235,0.14);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1097,10 +1377,14 @@
     .wwd-hero { aspect-ratio: 16 / 10; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .wwd-feature { grid-template-columns: 1fr; }
+    .spin-grid { grid-template-columns: 1fr; gap: 48px; }
+    .spin-promo .spin-head { grid-template-columns: 1fr; gap: 16px; align-items: start; }
+    .ig-promo .ig-head { grid-template-columns: 1fr; gap: 20px; align-items: start; }
+    .ig-promo .ig-meta { align-items: flex-start; padding-bottom: 0; }
+    .ig-grid { grid-template-columns: repeat(2, 1fr); }
     .wwd-head-row { grid-template-columns: 1fr; gap: 12px; }
     .wwd-head-row .meta { text-align: left; }
-    .foot-top { flex-direction: column; align-items: flex-start; gap: 28px; padding-bottom: 40px; }
-    .foot-nav { padding-block: 40px; }
+    .foot-cols { grid-template-columns: 1fr; gap: 48px; padding-bottom: 40px; }
   }
   @media (max-width: 640px) {
     body { font-size: 16px; }
@@ -1172,16 +1456,22 @@
 
     /* CTA */
     .cta-block { padding-block: 72px; }
+    .spin-promo { padding-block: 72px; }
+    .spin-feat h3 { font-size: 26px; }
+    .spin-feat .dek { font-size: 15px; }
+    .spin-list .item { padding: 18px 0; }
+    .spin-list h4 { font-size: 18px; }
+    .ig-promo { padding-block: 72px; }
+    .ig-grid { grid-template-columns: 1fr; gap: 14px; }
+    .ig-caption { font-size: 18px; }
     .cta-block h2 { font-size: 52px; }
     .cta-ctas { width: 100%; flex-direction: column; }
     .cta-ctas .btn { width: 100%; justify-content: center; }
 
     /* Footer */
-    .foot-mail-link { font-size: 42px; gap: 12px; }
-    .foot-nav { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
-    .foot-col-right { justify-content: flex-start; }
-    .foot-col-right ul { align-items: flex-start; }
     .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; font-size: 10.5px; }
+    .foot-brand .logo { width: 80px; }
+    .foot-col a { font-size: 16px; }
   }
   @media (max-width: 380px) {
     .hero h1 { font-size: 46px; }
@@ -1569,17 +1859,6 @@
       <p class="lede">Founded as the antidote to traditional PR, our senior bench of publicists and specialized strategists shares a common theme: <strong>we have the best stories to tell — and we tell them fast.</strong></p>
     </div>
 
-    <div class="wwd-intro reveal">
-      <div class="wwd-intro-copy">
-        <p>JBC serves as a strategic communications partner to leading organizations across the full range of consumer sectors. We build programs that create true consumer affinity and thought leadership — not one-off placements, but a consistent drumbeat of coverage that compounds into category leadership.</p>
-        <p>Every engagement starts with the brand's objectives and works backward: the audiences that matter, the narratives that move them, and the outlets, stages, and moments where those narratives land hardest.</p>
-        <p><strong>Senior-led, fully integrated, and accountable to one thing: your results.</strong></p>
-      </div>
-      <figure class="wwd-hero">
-        <img src="https://cdn.prod.website-files.com/69e93468c3ff620dd6c2fe3c/69ea5fed3110ed75d0c36041_jbc-office-cropped.webp" alt="JBC team at work" loading="lazy">
-      </figure>
-    </div>
-
     <div class="wwd-sectors reveal">
       <span class="label">Sectors we serve</span>
       <span class="chip">Fashion &amp; Retail</span>
@@ -1694,6 +1973,171 @@
   </div>
 </section>
 
+<!-- Latest from The Spin -->
+<section class="spin-promo" id="spin-promo">
+  <div class="container reveal">
+    <div class="spin-head">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>The Spin · Latest thinking</span>
+        <h2>What we're <em>writing</em> about.</h2>
+      </div>
+      <a class="all-link" href="the-spin.html">All posts</a>
+    </div>
+
+    <div class="spin-grid">
+      <a class="spin-feat" href="spin-article.html">
+        <div class="media">
+          <img src="https://images.squarespace-cdn.com/content/v1/6317958f1f6f0d04d95a494f/1776716665871-SYZPKGTHOAD8NQHYDFZJ/image2.png?format=1500w" alt="PR agency red flags brands should avoid" loading="lazy">
+        </div>
+        <div class="tag-row">
+          <span class="cat">PR Strategy</span>
+          <span class="sep"></span>
+          <span>Apr 20, 2026</span>
+          <span class="sep"></span>
+          <span>5 min read</span>
+        </div>
+        <h3>PR agency <em>red flags</em> brands should avoid.</h3>
+        <p class="dek">The questions founders should ask in a pitch — and the boilerplate answers that should make you walk away. Hiring the wrong agency isn't a cost issue, it's a 12-month setback.</p>
+        <span class="read-more">Read the piece</span>
+      </a>
+
+      <div class="spin-list">
+        <a class="item" href="the-spin.html">
+          <div class="tag-row">
+            <span class="cat">Strategy Guide</span>
+            <span class="sep"></span>
+            <span>Apr 6, 2026</span>
+          </div>
+          <h4>The PR planning checklist every brand needs.</h4>
+        </a>
+        <a class="item" href="the-spin.html">
+          <div class="tag-row">
+            <span class="cat">Strategy Guide</span>
+            <span class="sep"></span>
+            <span>Apr 3, 2026</span>
+          </div>
+          <h4>Creating a <em>media-ready</em> brand positioning.</h4>
+        </a>
+        <a class="item" href="the-spin.html">
+          <div class="tag-row">
+            <span class="cat">Strategy Guide</span>
+            <span class="sep"></span>
+            <span>Mar 24, 2026</span>
+          </div>
+          <h4>How to measure PR success (and actually prove ROI).</h4>
+        </a>
+        <a class="item" href="the-spin.html">
+          <div class="tag-row">
+            <span class="cat">Strategy Guide</span>
+            <span class="sep"></span>
+            <span>Mar 23, 2026</span>
+          </div>
+          <h4>How to build a PR strategy that drives growth.</h4>
+        </a>
+        <a class="item" href="the-spin.html">
+          <div class="tag-row">
+            <span class="cat">What Is PR</span>
+            <span class="sep"></span>
+            <span>Mar 19, 2026</span>
+          </div>
+          <h4>What makes a <em>successful</em> PR campaign?</h4>
+        </a>
+        <a class="item" href="the-spin.html">
+          <div class="tag-row">
+            <span class="cat">Agency News</span>
+            <span class="sep"></span>
+            <span>Mar 17, 2026</span>
+          </div>
+          <h4>JBC makes Observer's Power List.</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram feed promo -->
+<section class="ig-promo" id="instagram">
+  <div class="container reveal">
+    <div class="ig-head">
+      <div>
+        <span class="eyebrow"><span class="bullet"></span>Instagram · @jbettcomm</span>
+        <h2>What we're <em>sharing</em> now.</h2>
+      </div>
+      <div class="ig-meta">
+        <a class="ig-follow" href="https://instagram.com/jbettcomm" target="_blank" rel="noopener">Follow on Instagram</a>
+      </div>
+    </div>
+
+    <div class="ig-grid">
+      <a class="ig-tile t1" href="https://www.instagram.com/jbettcomm/p/DXe2KIolpzy/" target="_blank" rel="noopener">
+        <div class="ig-top">
+          <span class="ig-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="ig-badge">Trend Forecast</span>
+        </div>
+        <p class="ig-caption"><em>April 2026</em> Trend Forecast — a monthly snapshot of the cultural shifts shaping consumer behavior.</p>
+        <div class="ig-footer"><span>Apr 23, 2026</span><span class="view">View post</span></div>
+      </a>
+
+      <a class="ig-tile t2" href="https://www.instagram.com/jbettcomm/p/DXed-IHjxu1/" target="_blank" rel="noopener">
+        <div class="ig-top">
+          <span class="ig-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="ig-badge">Press Spotlight</span>
+        </div>
+        <p class="ig-caption"><span class="tag">@cbsnews</span> × <span class="tag">@megababe</span> — body-acceptance advocate on her decision to take GLP-1 weight loss drugs.</p>
+        <div class="ig-footer"><span>Apr 23, 2026</span><span class="view">View post</span></div>
+      </a>
+
+      <a class="ig-tile t3" href="https://www.instagram.com/jbettcomm/p/DXb_a0TD1Yt/" target="_blank" rel="noopener">
+        <div class="ig-top">
+          <span class="ig-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="ig-badge">Press Spotlight</span>
+        </div>
+        <p class="ig-caption"><span class="tag">@thatsit</span> in <em>Forbes</em> — how one founder is rethinking the category from the pantry up.</p>
+        <div class="ig-footer"><span>Apr 22, 2026</span><span class="view">View post</span></div>
+      </a>
+
+      <a class="ig-tile t4" href="https://www.instagram.com/jbettcomm/reel/DXaCeVMD15x/" target="_blank" rel="noopener">
+        <div class="ig-top">
+          <span class="ig-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="ig-badge">Reel</span>
+        </div>
+        <p class="ig-caption"><em>Fashion-filled day</em> with <span class="tag">@maddie.reed</span> — on set, on the street, on the feed.</p>
+        <div class="ig-footer"><span>Apr 22, 2026</span><span class="view">Watch reel</span></div>
+      </a>
+
+      <a class="ig-tile t5" href="https://www.instagram.com/jbettcomm/p/DXZkKFSjzVu/" target="_blank" rel="noopener">
+        <div class="ig-top">
+          <span class="ig-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="ig-badge">Press Spotlight</span>
+        </div>
+        <p class="ig-caption"><span class="tag">@joinsunfish</span> in <em>Fast Company</em> — why corporate partnerships are the new product launch.</p>
+        <div class="ig-footer"><span>Apr 21, 2026</span><span class="view">View post</span></div>
+      </a>
+
+      <a class="ig-tile t6" href="https://www.instagram.com/jbettcomm/p/DXWuIHYD1d-/" target="_blank" rel="noopener">
+        <div class="ig-top">
+          <span class="ig-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="ig-badge">Press Spotlight</span>
+        </div>
+        <p class="ig-caption"><span class="tag">@truebotanicals</span> × <em>Forbes</em> — clean beauty finds its next chapter in retail.</p>
+        <div class="ig-footer"><span>Apr 20, 2026</span><span class="view">View post</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-block" id="contact">
   <div class="container reveal">
@@ -1708,24 +2152,26 @@
 <!-- Footer -->
 <footer class="site-foot">
   <div class="container">
-    <div class="foot-top">
-      <div class="foot-mail">
-        <span class="foot-eyebrow">Email us</span>
-        <a class="foot-mail-link" href="mailto:info@jbc-pr.com">info@jbc-pr.com<span class="arrow">→</span></a>
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <img class="logo" src="jbc-logo-white.webp" alt="JBC">
+        <p class="tagline">Strategic PR for <em>founder-led</em> consumer brands. NY &amp; LA · working globally.</p>
+        <span class="cities">NY · LA · est. 2014</span>
+        <div class="foot-social" aria-label="Social links">
+          <a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/jenniferbettcommunications" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.2c0-1 .3-1.7 1.8-1.7H17V2.3c-.3 0-1.3-.1-2.5-.1C11.9 2.2 10 3.7 10 6.7V9.5H7V13h3v9h3.5z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@jbc_pr" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.43 0-2.59-1.13-2.59-2.55s1.16-2.55 2.59-2.55c.27 0 .53.04.77.12V9.76a5.63 5.63 0 0 0-.77-.05A5.66 5.66 0 0 0 4.2 15.37a5.66 5.66 0 0 0 5.66 5.66 5.66 5.66 0 0 0 5.66-5.66V9.01a7.44 7.44 0 0 0 4.33 1.38V7.3s-2.14.13-3.25-1.48z"/></svg>
+          </a>
+          <a href="mailto:info@jbc-pr.com" aria-label="Email us">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="foot-social" aria-label="Social links">
-        <a href="https://instagram.com/jbettcomm" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://www.facebook.com/jenniferbettcommunications" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.2c0-1 .3-1.7 1.8-1.7H17V2.3c-.3 0-1.3-.1-2.5-.1C11.9 2.2 10 3.7 10 6.7V9.5H7V13h3v9h3.5z"/></svg>
-        </a>
-        <a href="mailto:info@jbc-pr.com" aria-label="Email us">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="foot-nav">
       <div class="foot-col">
         <h4>About</h4>
         <ul>
@@ -1736,17 +2182,19 @@
           <li><a href="the-team.html">The Team</a></li>
         </ul>
       </div>
-      <div class="foot-col foot-col-right">
+      <div class="foot-col">
+        <h4>Company</h4>
         <ul>
           <li><a href="#">Careers</a></li>
           <li><a href="mailto:info@jbc-pr.com">Contact</a></li>
+          <li><a href="#">Press inquiries</a></li>
           <li><a href="#">Terms &amp; Privacy</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>Jennifer Bett Communications® | jbc® © 2026 All Rights Reserved</span>
-      <span>NY · LA</span>
+      <span>Jennifer Bett Communications® · jbc® © 2026 All Rights Reserved</span>
+      <span>Observer's 50 Most Powerful PR Firms · 2026</span>
     </div>
   </div>
 </footer>
