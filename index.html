@@ -259,13 +259,20 @@
     width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
   }
 
+  .hero-split {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: clamp(16px, 2vw, 32px);
+    align-items: center;
+  }
+  .hero-text { display: flex; flex-direction: column; }
   .hero h1 {
     font-family: var(--display);
     font-weight: 500;
-    font-size: clamp(54px, 9.4vw, 156px);
+    font-size: clamp(54px, 7.2vw, 120px);
     line-height: 0.92;
     letter-spacing: -0.045em;
-    margin: 26px 0 0;
+    margin: 22px 0 0;
   }
   .hero h1 em {
     font-style: italic;
@@ -275,12 +282,35 @@
     color: var(--accent-ink);
   }
   .hero-sub {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: clamp(24px, 5vw, 80px);
-    align-items: end;
-    margin-top: clamp(36px, 5vw, 64px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: clamp(28px, 3.5vw, 44px);
+    max-width: 500px;
   }
+  .hero-collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    aspect-ratio: 1 / 1.1;
+  }
+  .hero-collage .tile {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--cream-2);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .hero-collage .tile:hover { transform: translateY(-3px); }
+  .hero-collage .tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.02);
+    transition: transform .6s cubic-bezier(.2,.8,.2,1);
+  }
+  .hero-collage .tile:hover img { transform: scale(1.04); }
+  .hero-collage .tall { grid-row: span 2; }
   .hero-sub p {
     font-size: clamp(18px, 1.45vw, 22px);
     line-height: 1.4;
@@ -660,33 +690,34 @@
   .testimonials { padding-block: clamp(80px, 10vw, 140px); }
   .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     margin-top: 32px;
   }
   .tst {
     border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 36px;
-    background: var(--bg);
+    border-radius: var(--radius-md);
+    padding: 22px 24px;
+    background: var(--cream-2);
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    min-height: 300px;
+    gap: 14px;
   }
   .tst .mark {
     font-family: var(--serif);
     font-style: italic;
     color: var(--accent);
-    font-size: 42px;
-    line-height: 0.8;
+    font-size: 32px;
+    line-height: 0.6;
+    margin-bottom: 2px;
   }
   .tst blockquote {
     margin: 0;
     font-family: var(--display);
-    font-size: clamp(20px, 1.7vw, 24px);
-    letter-spacing: -0.015em;
-    line-height: 1.35;
+    font-size: 15.5px;
+    letter-spacing: -0.01em;
+    line-height: 1.42;
+    color: var(--ink);
   }
   .tst blockquote em {
     font-style: italic;
@@ -696,28 +727,25 @@
   }
   .tst footer {
     margin-top: auto;
-    padding-top: 20px;
+    padding-top: 14px;
     border-top: 1px solid var(--line);
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
+    flex-direction: column;
+    gap: 2px;
   }
   .tst .name {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
+    letter-spacing: -0.01em;
   }
   .tst .role {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: 10px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
-    text-align: right;
     line-height: 1.4;
   }
-  .tst.editor { background: var(--cream-2); }
-  .tst.editor .mark { color: var(--ink); }
 
   /* ---------- What We Do ---------- */
   .what-we-do {
@@ -1422,7 +1450,8 @@
     .nav .container { grid-template-columns: 1fr auto; gap: 16px; }
     .nav-toggle { display: inline-flex; }
     .nav-cta { display: none; }
-    .hero-sub { grid-template-columns: 1fr; }
+    .hero-split { grid-template-columns: 1fr; gap: 40px; }
+    .hero-collage { aspect-ratio: 1 / 0.8; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .stats .stat:nth-child(2) { border-right: none; }
     .stats .stat:nth-child(1), .stats .stat:nth-child(2) { border-bottom: 1px solid var(--line); }
@@ -1438,7 +1467,7 @@
     }
     .case-body { padding: 28px 28px 32px; justify-content: flex-start; }
     .why-grid { grid-template-columns: 1fr; }
-    .testimonial-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
     .wwd-intro { grid-template-columns: 1fr; gap: 32px; }
     .wwd-hero { aspect-ratio: 16 / 10; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1505,8 +1534,9 @@
     .case-body .lede { font-size: 14.5px; }
 
     /* Testimonials */
-    .tst { padding: 28px 22px; }
-    .tst blockquote { font-size: 22px; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .tst { padding: 20px 22px; }
+    .tst blockquote { font-size: 15.5px; }
 
     /* Statement / pull quote */
     .statement blockquote { font-size: 34px; letter-spacing: -0.025em; }
@@ -1573,7 +1603,7 @@
       </div>
       <h3>JBC on the <em>Observer</em> PR Power List.</h3>
     </div>
-    <span class="obs-read">Read the listing</span>
+    <span class="obs-read">Read why here</span>
   </div>
 </a>
 
@@ -1629,14 +1659,22 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <span class="eyebrow"><span class="bullet"></span>Independent · Women-led</span>
-    <h1>Bold thinking.<br><em>Bigger results.</em></h1>
-
-    <div class="hero-sub">
-      <p>We're a strategic PR agency for founder-led consumer brands — the one that makes news when there isn't any, and measures every inch of impact when we do.</p>
-      <div class="hero-ctas">
-        <a class="btn lg" href="contact.html">Start a conversation →</a>
-        <a class="btn lg ghost" href="#work">See the work</a>
+    <div class="hero-split">
+      <div class="hero-text">
+        <span class="eyebrow"><span class="bullet"></span>Independent · Women-led</span>
+        <h1>Bold thinking.<br><em>Bigger results.</em></h1>
+        <div class="hero-sub">
+          <p>We're a strategic PR agency for founder-led consumer brands — the one that makes news when there isn't any, and measures every inch of impact when we do.</p>
+          <div class="hero-ctas">
+            <a class="btn lg" href="contact.html">Start a conversation →</a>
+            <a class="btn lg ghost" href="#work">See the work</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-collage">
+        <div class="tile tall"><img src="olipop-hero.png" alt="OLIPOP" loading="eager"></div>
+        <div class="tile"><img src="fashionphile-hero.webp" alt="FASHIONPHILE" loading="eager"></div>
+        <div class="tile"><img src="realeactives-hero.webp" alt="Reale Actives" loading="eager"></div>
       </div>
     </div>
 
@@ -1871,39 +1909,83 @@
     </div>
 
     <div class="testimonial-grid reveal">
+      <!-- 1. Fast Company -->
+      <div class="tst editor">
+        <span class="mark">"</span>
+        <blockquote>I've been writing stories about JBC's portfolio of brands for nearly a decade. The team is <em>unfailingly helpful</em> — and always brings me something worth covering.</blockquote>
+        <footer>
+          <span class="name">Liz Segran</span>
+          <span class="role">Senior Staff Writer · Fast Company</span>
+        </footer>
+      </div>
+
+      <!-- 2. Who What Wear -->
+      <div class="tst editor">
+        <span class="mark">"</span>
+        <blockquote>Working with JBC is a <em>breath of fresh air</em>. They partner with really innovative brands — responsive, talented, and they know what they're doing.</blockquote>
+        <footer>
+          <span class="name">Bobby Schuessler</span>
+          <span class="role">Market Director · Who What Wear</span>
+        </footer>
+      </div>
+
+      <!-- 3. BBG Ventures -->
+      <div class="tst">
+        <span class="mark">"</span>
+        <blockquote>From messaging to target outlets to talking points, there is no one I'd rather work with for PR. <em>JBC is pitch perfect.</em></blockquote>
+        <footer>
+          <span class="name">Nisha Dua</span>
+          <span class="role">Managing Partner &amp; Co-founder · BBG Ventures</span>
+        </footer>
+      </div>
+
+      <!-- 4. THE YES -->
+      <div class="tst">
+        <span class="mark">"</span>
+        <blockquote>JBC is the <em>best PR firm</em> I've ever worked with. The press we got led to enormous growth and success of our business.</blockquote>
+        <footer>
+          <span class="name">Julie Bornstein</span>
+          <span class="role">Founder · THE YES (acq. Pinterest)</span>
+        </footer>
+      </div>
+
+      <!-- 5. Sloomoo Institute -->
+      <div class="tst">
+        <span class="mark">"</span>
+        <blockquote>Working with JBC has been <em>transformative</em>. They're unwavering partners who don't just deliver big ideas — they uncover the stories that truly matter.</blockquote>
+        <footer>
+          <span class="name">Karen Robinovitz</span>
+          <span class="role">Co-founder · Sloomoo Institute</span>
+        </footer>
+      </div>
+
+      <!-- 6. Dorsey -->
       <div class="tst">
         <span class="mark">"</span>
         <blockquote>The <em>best investment</em> we've made at Dorsey was hiring JBC as our communications partner. They're the best in the industry.</blockquote>
         <footer>
           <span class="name">Meg Strachan</span>
-          <span class="role">Founder &amp; CEO<br>Dorsey</span>
+          <span class="role">Founder &amp; CEO · Dorsey</span>
         </footer>
       </div>
 
+      <!-- 7. theSkimm -->
       <div class="tst">
         <span class="mark">"</span>
-        <blockquote>From messaging to target outlets to talking points, all under a strategic umbrella, there is no one I'd rather work with for PR. <em>JBC is pitch perfect.</em></blockquote>
+        <blockquote>JBC is a group of <em>phenomenal leaders</em> who give you candid opinions, expert guidance, and actionable insights to move your brand forward.</blockquote>
         <footer>
-          <span class="name">Nisha Dua</span>
-          <span class="role">Managing Partner &amp; Co-founder<br>BBG Ventures</span>
+          <span class="name">Danielle Weisberg</span>
+          <span class="role">Co-founder &amp; Co-CEO · theSkimm</span>
         </footer>
       </div>
 
-      <div class="tst editor">
+      <!-- 8. Hedley & Bennett -->
+      <div class="tst">
         <span class="mark">"</span>
-        <blockquote>The team understands how to present a compelling story tailored to the outlet they're pitching. I never feel like I'm getting a canned PR pitch — but a <em>smart, interesting story</em> that will grab our audience.</blockquote>
+        <blockquote>With JBC, it feels like my team just got bigger. Thoughtful, data-driven, and there's always a why behind it. Working with JBC is <em>utterly effortless</em>.</blockquote>
         <footer>
-          <span class="name">Lindsay Stanberry</span>
-          <span class="role">Former Executive Editor<br>Fortune</span>
-        </footer>
-      </div>
-
-      <div class="tst editor">
-        <span class="mark">"</span>
-        <blockquote>JBC represents some of the best and most innovative brands and people in the industry. <em>Creative, collaborative, thoughtful</em> — and always a joy.</blockquote>
-        <footer>
-          <span class="name">Sade Strehlke</span>
-          <span class="role">Former Editor-in-Chief<br>POPSUGAR</span>
+          <span class="name">Ellen Bennett</span>
+          <span class="role">Founder &amp; Co-CEO · Hedley &amp; Bennett</span>
         </footer>
       </div>
     </div>
