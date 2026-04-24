@@ -54,23 +54,97 @@
     padding-inline: var(--gutter);
   }
 
-  /* ---------- Utility bar ---------- */
-  .utility {
+  /* ---------- Observer feature strip (replaces utility bar) ---------- */
+  .observer-feature {
+    display: block;
     background: var(--ink);
     color: var(--bg);
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    padding-block: 20px;
+    transition: background .2s ease;
   }
-  .utility .container {
-    display: flex;
-    justify-content: space-between;
+  .observer-feature:hover { background: #141414; }
+  .observer-feature .container {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    gap: 28px;
     align-items: center;
-    min-height: 36px;
-    gap: 16px;
   }
-  .utility .badge { display: inline-flex; align-items: center; gap: 8px; }
-  .utility .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .obs-thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: var(--radius-sm);
+    display: block;
+  }
+  .obs-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .obs-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.6);
+  }
+  .obs-eyebrow .dot {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .obs-eyebrow .pub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: var(--bg);
+  }
+  .obs-body h3 {
+    margin: 2px 0 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 1.8vw, 24px);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--bg);
+  }
+  .obs-body h3 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .obs-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background .2s, color .2s, transform .2s;
+  }
+  .obs-read::after {
+    content: "→";
+    transition: transform .2s ease;
+    display: inline-block;
+  }
+  .observer-feature:hover .obs-read { background: var(--bg); color: var(--ink); }
+  .observer-feature:hover .obs-read::after { transform: translateX(3px); }
 
   /* ---------- Main nav ---------- */
   .nav {
@@ -809,16 +883,37 @@
     .prose blockquote { font-size: 22px; }
     .subscribe h2 { font-size: 32px; }
   }
+  @media (max-width: 640px) {
+    .observer-feature { padding-block: 14px; }
+    .observer-feature .container { grid-template-columns: 48px 1fr; gap: 16px; }
+    .obs-thumb { width: 48px; height: 48px; }
+    .obs-body h3 { font-size: 16px; }
+    .obs-read {
+      grid-column: 1 / -1;
+      justify-self: start;
+      padding: 10px 16px;
+      font-size: 10px;
+    }
+  }
 </style>
 </head>
 <body>
 
-<!-- Utility bar -->
-<div class="utility" aria-label="Utility">
+<!-- Observer feature strip -->
+<a class="observer-feature" href="https://observer.com/list/observer-pr-power-list-2026/#32-jennifer-bett-communications" target="_blank" rel="noopener" aria-label="JBC featured on Observer's PR Power List 2026">
   <div class="container">
-    <span class="badge"><span class="dot"></span>Observer's 50 Most Powerful PR Firms · 2026</span>
+    <img class="obs-thumb" src="observer-power-list-2026.jpg" alt="">
+    <div class="obs-body">
+      <div class="obs-eyebrow">
+        <span class="dot"></span>
+        <span class="pub">Observer</span>
+        <span>· Featured · 2026</span>
+      </div>
+      <h3>JBC on the <em>Observer</em> PR Power List.</h3>
+    </div>
+    <span class="obs-read">Read the listing</span>
   </div>
-</div>
+</a>
 
 <!-- Main nav -->
 <header class="nav" id="nav">

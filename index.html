@@ -53,31 +53,97 @@
     padding-inline: var(--gutter);
   }
 
-  /* ---------- Utility top bar ---------- */
-  .utility {
+  /* ---------- Observer feature strip (replaces utility bar) ---------- */
+  .observer-feature {
+    display: block;
     background: var(--ink);
     color: var(--bg);
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    padding-block: 20px;
+    transition: background .2s ease;
   }
-  .utility .container {
-    display: flex;
-    justify-content: space-between;
+  .observer-feature:hover { background: #141414; }
+  .observer-feature .container {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    gap: 28px;
     align-items: center;
-    min-height: 36px;
-    gap: 16px;
   }
-  .utility a { opacity: 0.8; transition: opacity .2s; }
-  .utility a:hover { opacity: 1; }
-  .utility .badge {
+  .obs-thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: var(--radius-sm);
+    display: block;
+  }
+  .obs-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .obs-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.6);
+  }
+  .obs-eyebrow .dot {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .obs-eyebrow .pub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: -0.01em;
     color: var(--bg);
   }
-  .utility .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-  .utility .right { display: flex; gap: 18px; align-items: center; }
+  .obs-body h3 {
+    margin: 2px 0 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 1.8vw, 24px);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--bg);
+  }
+  .obs-body h3 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .obs-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background .2s, color .2s, transform .2s;
+  }
+  .obs-read::after {
+    content: "→";
+    transition: transform .2s ease;
+    display: inline-block;
+  }
+  .observer-feature:hover .obs-read { background: var(--bg); color: var(--ink); }
+  .observer-feature:hover .obs-read::after { transform: translateX(3px); }
 
   /* ---------- Main nav ---------- */
   .nav {
@@ -192,81 +258,6 @@
   .eyebrow .bullet {
     width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
   }
-
-  .hero-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
-  }
-  .hero-award {
-    display: grid;
-    grid-template-columns: 84px 1fr;
-    gap: 14px;
-    align-items: center;
-    padding: 10px 18px 10px 10px;
-    background: var(--pale);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    max-width: 380px;
-    transition: transform .25s ease, border-color .2s;
-  }
-  .hero-award:hover { transform: translateY(-2px); border-color: var(--line-strong); }
-  .hero-award .award-img {
-    width: 84px;
-    height: 84px;
-    border-radius: var(--radius-sm);
-    object-fit: cover;
-    object-position: center 25%;
-    display: block;
-  }
-  .hero-award .award-body {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 0;
-  }
-  .hero-award .award-eyebrow {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .hero-award .award-eyebrow .pub {
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    text-transform: none;
-    margin-right: 4px;
-  }
-  .hero-award .award-title {
-    font-family: var(--display);
-    font-weight: 500;
-    font-size: 15px;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: var(--ink);
-  }
-  .hero-award .award-title em {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--accent-ink);
-    font-weight: 400;
-  }
-  .hero-award .award-read {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-top: 4px;
-  }
-  .hero-award .award-read::after { content: " →"; display: inline-block; transition: transform .2s; }
-  .hero-award:hover .award-read::after { transform: translateX(3px); }
 
   .hero h1 {
     font-family: var(--display);
@@ -1465,9 +1456,17 @@
     body { font-size: 16px; }
     :root { --gutter: 20px; }
 
-    /* Utility bar — center the single badge on mobile */
-    .utility { font-size: 10px; letter-spacing: 0.14em; }
-    .utility .container { justify-content: center; padding-block: 4px; }
+    /* Observer feature strip — stack on mobile */
+    .observer-feature { padding-block: 14px; }
+    .observer-feature .container { grid-template-columns: 48px 1fr; gap: 16px; }
+    .obs-thumb { width: 48px; height: 48px; }
+    .obs-body h3 { font-size: 16px; }
+    .obs-read {
+      grid-column: 1 / -1;
+      justify-self: start;
+      padding: 10px 16px;
+      font-size: 10px;
+    }
 
     /* Nav — smaller logo, hide brand tag */
     .logo { width: 58px; }
@@ -1477,10 +1476,6 @@
     /* Hero — tighter padding, smaller type */
     .hero { padding-top: 32px; padding-bottom: 40px; }
     .hero h1 { font-size: 52px; letter-spacing: -0.035em; margin-top: 18px; }
-    .hero-top { flex-direction: column; gap: 18px; }
-    .hero-award { max-width: 100%; grid-template-columns: 72px 1fr; padding: 10px 14px 10px 10px; }
-    .hero-award .award-img { width: 72px; height: 72px; }
-    .hero-award .award-title { font-size: 14px; }
     .hero-sub { margin-top: 28px; gap: 22px; }
     .hero-sub p { font-size: 16.5px; line-height: 1.45; }
     .hero-ctas { width: 100%; gap: 10px; }
@@ -1566,12 +1561,21 @@
 </head>
 <body>
 
-<!-- Utility bar -->
-<div class="utility" aria-label="Utility">
+<!-- Observer feature strip -->
+<a class="observer-feature" href="https://observer.com/list/observer-pr-power-list-2026/#32-jennifer-bett-communications" target="_blank" rel="noopener" aria-label="JBC featured on Observer's PR Power List 2026">
   <div class="container">
-    <span class="badge"><span class="dot"></span>Observer's 50 Most Powerful PR Firms · 2026</span>
+    <img class="obs-thumb" src="observer-power-list-2026.jpg" alt="">
+    <div class="obs-body">
+      <div class="obs-eyebrow">
+        <span class="dot"></span>
+        <span class="pub">Observer</span>
+        <span>· Featured · 2026</span>
+      </div>
+      <h3>JBC on the <em>Observer</em> PR Power List.</h3>
+    </div>
+    <span class="obs-read">Read the listing</span>
   </div>
-</div>
+</a>
 
 <!-- Main nav -->
 <header class="nav" id="nav">
@@ -1625,17 +1629,7 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <div class="hero-top">
-      <span class="eyebrow"><span class="bullet"></span>Independent · Women-led</span>
-      <a class="hero-award" href="https://observer.com/list/observer-pr-power-list-2026/#32-jennifer-bett-communications" target="_blank" rel="noopener" aria-label="Observer PR Power List 2026 — Jennifer Bett Communications">
-        <img class="award-img" src="observer-power-list-2026.jpg" alt="JBC leadership featured on Observer's PR Power List 2026" loading="lazy">
-        <div class="award-body">
-          <span class="award-eyebrow"><span class="pub">Observer</span> · 2026</span>
-          <span class="award-title"><em>PR Power List</em></span>
-          <span class="award-read">Read the listing</span>
-        </div>
-      </a>
-    </div>
+    <span class="eyebrow"><span class="bullet"></span>Independent · Women-led</span>
     <h1>Bold thinking.<br><em>Bigger results.</em></h1>
 
     <div class="hero-sub">
