@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Why JBC — The Difference — Jennifer Bett Communications</title>
-<meta name="description" content="An independent, women-led strategic PR agency shaping — not just navigating — the future of media relations. Founder-led brands. DEI. Newsjacking. Office Hours." />
+<title>Contact — Let's Connect — Jennifer Bett Communications</title>
+<meta name="description" content="Get in touch with JBC. Offices in New York and Los Angeles. Form, map, and direct email — pick whichever way works for you." />
 <style>
   /* ---------- Design tokens ---------- */
   :root {
@@ -833,6 +833,265 @@
     .pull blockquote { font-size: 28px; }
     .cta-block h2 { font-size: 38px; }
   }
+
+  /* ---------- Contact page ---------- */
+  .contact-hero { padding-top: clamp(28px, 4vw, 48px); padding-bottom: clamp(32px, 5vw, 64px); }
+  .contact-hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(60px, 8.4vw, 144px);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    margin: 14px 0 0;
+    max-width: 14ch;
+  }
+  .contact-hero h1 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .contact-hero .lede-row {
+    margin-top: clamp(28px, 3.5vw, 44px);
+    padding-top: clamp(28px, 3.5vw, 44px);
+    border-top: 1px solid var(--line);
+  }
+  .contact-hero .lede-row p {
+    font-size: clamp(18px, 1.6vw, 26px);
+    line-height: 1.4;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 100%;
+  }
+
+  /* Contact grid — form + direct contact side-by-side */
+  .contact-main { padding-block: clamp(40px, 5vw, 80px); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  .contact-form-card {
+    padding: clamp(28px, 4vw, 48px);
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+  .contact-form-card h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 0 0 10px;
+  }
+  .contact-form-card h2 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .contact-form-card .sub {
+    font-size: 15px;
+    color: var(--ink-2);
+    margin: 0 0 28px;
+    line-height: 1.5;
+  }
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .contact-form .full { grid-column: span 2; }
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-family: var(--display);
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    padding: 12px 14px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    transition: border-color .2s ease, background .2s ease;
+    width: 100%;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+  .contact-form textarea { resize: vertical; min-height: 140px; font-family: inherit; }
+  .contact-form .submit-row {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .contact-form button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform .2s, background .2s;
+  }
+  .contact-form button[type="submit"]:hover { transform: translateY(-1px); background: var(--accent); border-color: var(--accent); }
+
+  /* Direct contact column */
+  .contact-direct { display: flex; flex-direction: column; gap: 28px; }
+  .direct-card {
+    padding: 24px 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .direct-card .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .direct-card h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .direct-card a {
+    font-family: var(--display);
+    font-size: 17px;
+    color: var(--accent-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color .2s;
+  }
+  .direct-card a:hover { color: var(--accent); }
+  .direct-card p {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Offices section with maps */
+  .offices {
+    padding-block: clamp(80px, 10vw, 140px);
+    background: var(--cream-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .offices-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+    padding-bottom: clamp(40px, 5vw, 64px);
+  }
+  .offices-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(44px, 6vw, 88px);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 14px 0 0;
+  }
+  .offices-head h2 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .offices-head .lede { font-size: clamp(16px, 1.3vw, 19px); color: var(--ink-2); line-height: 1.5; max-width: 520px; margin: 0; }
+
+  .offices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 3vw, 40px);
+  }
+  .office-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform .3s ease;
+  }
+  .office-card:hover { transform: translateY(-3px); }
+  .office-map {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border: 0;
+    display: block;
+    filter: grayscale(0.3) contrast(1.05);
+  }
+  .office-body {
+    padding: 24px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .office-body .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .office-body h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(26px, 2.4vw, 36px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 0;
+  }
+  .office-body h3 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .office-body .addr {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .office-body .addr strong { color: var(--ink); font-weight: 500; }
+  .office-body .dirs {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .office-body .dirs::after { content: "→"; transition: transform .2s; }
+  .office-body .dirs:hover::after { transform: translateX(3px); }
+
+  @media (max-width: 1024px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .offices-grid { grid-template-columns: 1fr; }
+    .offices-head { grid-template-columns: 1fr; align-items: start; gap: 20px; }
+    .contact-hero .lede-row { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media (max-width: 640px) {
+    .contact-hero h1 { font-size: 52px; }
+    .contact-form { grid-template-columns: 1fr; }
+    .contact-form .full { grid-column: auto; }
+    .contact-form .submit-row { grid-column: auto; }
+    .offices { padding-block: 72px; }
+  }
 </style>
 </head>
 <body>
@@ -853,11 +1112,11 @@
     <nav class="mainnav" aria-label="Primary">
       <a href="our-work.html">Our Work</a>
       <a href="what-we-do.html">What We Do</a>
-      <a href="why-jbc.html" aria-current="page">Why JBC</a>
+      <a href="why-jbc.html">Why JBC</a>
       <a href="the-team.html">The Team</a>
       <a href="the-spin.html">The Spin</a>
     </nav>
-    <a href="contact.html" class="btn nav-cta">Work with us<span class="arrow">→</span></a>
+    <a href="contact.html" class="btn nav-cta" aria-current="page">Work with us<span class="arrow">→</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
@@ -881,7 +1140,7 @@
     <nav class="mobile-nav" aria-label="Mobile primary">
       <a href="our-work.html">Our Work</a>
       <a href="what-we-do.html">What We Do</a>
-      <a href="why-jbc.html" aria-current="page">Why JBC</a>
+      <a href="why-jbc.html">Why JBC</a>
       <a href="the-team.html">The Team</a>
       <a href="the-spin.html">The Spin</a>
     </nav>
@@ -894,211 +1153,120 @@
 </div>
 
 <!-- Page hero -->
-<section class="page-hero">
+<section class="contact-hero">
   <div class="container">
     <div class="crumbs" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
       <span class="sep">/</span>
-      <span aria-current="page">Why JBC</span>
+      <span aria-current="page">Contact</span>
     </div>
 
-    <span class="eyebrow"><span class="bullet"></span>The JBC difference</span>
-    <h1>Not just <em>navigating</em> the future — shaping it.</h1>
+    <span class="eyebrow"><span class="bullet"></span>Let's connect</span>
+    <h1>Let's <em>talk</em>.</h1>
 
-    <div class="hero-lede reveal">
-      <div class="k">Our premise</div>
+    <div class="lede-row reveal">
+      <p>Whether you're launching, repositioning, or scaling, we'd love to hear more about your brand and where you want the press cycle to take you. Fill out the form or email us directly at <a href="mailto:info@jbc-pr.com" style="color: var(--accent-ink); text-decoration: underline; text-underline-offset: 3px;">info@jbc-pr.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Form + direct contact -->
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-form-card reveal">
+        <h2>Start the <em>conversation</em>.</h2>
+        <p class="sub">Complete the form below and give us a few details about you and as much background as possible on what you're looking for so that we can start the right conversation.</p>
+
+        <form class="contact-form" method="post" action="mailto:info@jbc-pr.com" enctype="text/plain">
+          <label class="full">Name
+            <input type="text" name="name" placeholder="Your full name" required>
+          </label>
+          <label>Company
+            <input type="text" name="company" placeholder="Your company/brand" required>
+          </label>
+          <label>Title
+            <input type="text" name="title" placeholder="Your role" required>
+          </label>
+          <label class="full">Email
+            <input type="email" name="email" placeholder="Your work email" required>
+          </label>
+          <label class="full">Tell us more
+            <textarea name="message" rows="5" placeholder="… and how you're hoping to work with us." required></textarea>
+          </label>
+          <div class="submit-row">
+            <button type="submit">Send message<span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="contact-direct">
+        <div class="direct-card reveal">
+          <span class="k">Email us directly</span>
+          <h3>For new business</h3>
+          <a href="mailto:info@jbc-pr.com">info@jbc-pr.com</a>
+          <p>Complete the form or drop us an email with how we can start the conversation.</p>
+        </div>
+        <div class="direct-card reveal">
+          <span class="k">Want to join us?</span>
+          <h3>Career opportunities</h3>
+          <a href="mailto:careers@jbc-pr.com">careers@jbc-pr.com</a>
+          <p>Looking for a new opportunity? Take a peek at life at JBC on the <a href="join-us.html" style="color: var(--ink);">Join Us page</a>.</p>
+        </div>
+        <div class="direct-card reveal">
+          <span class="k">Office Hours</span>
+          <h3>Free, monthly, on the record</h3>
+          <a href="mailto:officehours@jbc-pr.com">officehours@jbc-pr.com</a>
+          <p>Founders and early-stage leaders — book a thirty-minute slot to talk through the story before you hire anyone.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Offices -->
+<section class="offices">
+  <div class="container">
+    <div class="offices-head reveal">
       <div>
-        <p>At JBC, we recognize that media relations is evolving rapidly, reflecting the changing ways in which audiences consume information. As traditional news cycles shift towards a more <em>dynamic</em> landscape, we're committed to adapting our strategies to meet these new challenges and opportunities.</p>
-        <p>Our innovative approach elevates us beyond mere information dissemination; we are <strong>storytellers at the forefront</strong> of brand visibility and community connection. By harnessing strategic storytelling tailored to diverse platforms, we ensure that each message resonates deeply with target audiences while aligning seamlessly with our clients' core values and objectives.</p>
+        <span class="eyebrow"><span class="bullet"></span>Where we work</span>
+        <h2>Two coasts. <em>One</em> team.</h2>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Principles band -->
-<section class="principles">
-  <div class="container">
-    <div class="principles-grid">
-      <div class="principle reveal">
-        <span class="k">01 · Point of view</span>
-        <h3>Storytelling at the <em>speed</em> of culture.</h3>
-        <p>Traditional news cycles have fractured. We build programs that move with the platforms audiences actually live on — not the ones the press release was written for.</p>
-      </div>
-      <div class="principle reveal">
-        <span class="k">02 · Posture</span>
-        <h3>Consumer affinity over noise.</h3>
-        <p>Visibility is easy. Affinity is compounding. Every placement, partnership, and piece of content ladders to a measurable lift in how the brand is understood.</p>
-      </div>
-      <div class="principle reveal">
-        <span class="k">03 · Practice</span>
-        <h3>Aligned with your <em>values</em>.</h3>
-        <p>Brand objectives get you a strategy. Brand values get you the right strategy. We scope to both from kickoff — and the work reflects it.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Differentiators -->
-<section class="diff">
-  <div class="container">
-    <div class="diff-head reveal">
-      <div>
-        <span class="eyebrow"><span class="bullet"></span>What makes us different</span>
-        <h2>Four things you <em>won't</em> find elsewhere.</h2>
-      </div>
-      <p class="lede">Most PR agencies sell a service mix. JBC sells a worldview — a specific take on who deserves the loudest microphone, how we earn the right to wield it, and what to do with the news cycle once we have it.</p>
+      <p class="lede">Headquarters in Flatiron, a second home in Beverly Hills — and publicists who work shoulder-to-shoulder across both.</p>
     </div>
 
-    <!-- 01 Founder-first specialization -->
-    <article class="diff-row reveal">
-      <span class="tag">01 · Focus</span>
-      <h3>Built for <em>founder-led</em> brands.</h3>
-      <div class="body">
-        <p><strong>The best stories start with the founder.</strong> JBC was built to translate founder expertise — the point of view, the conviction, the category insight — into narratives that move category perception. We're specialized to do that work, not to fit a founder story into a template built for a corporate brief.</p>
-        <p>Our bench, our book, and our reporter relationships are weighted toward moving founder-led consumer brands from overlooked to essential. We partner with executives and category leaders who are actually building something — and we show up to pitch the story, not the product.</p>
-      </div>
-    </article>
-
-    <!-- 02 DEI -->
-    <article class="diff-row reveal">
-      <span class="tag">02 · Lens</span>
-      <h3>DEI is not a <em>chapter</em>.</h3>
-      <div class="body">
-        <p>Everything we do is viewed through a DEI lens — from pitch strategy to spokesperson selection to the outlets we put on the A-list for every brand. That isn't a quarterly add-on; it's a structural filter that runs through the way we staff accounts, prep executives, and measure whose stories get amplified.</p>
-        <p>We back it up internally with strategic hires and an ongoing <strong>monthly educational series</strong> that keeps the full team sharpened on evolving best practices across race, gender, class, and ability. The goal: a team that doesn't need to be asked to do the work — it's already in the scope.</p>
-      </div>
-    </article>
-
-    <!-- 03 Newsjacking -->
-    <article class="diff-row reveal">
-      <span class="tag">03 · Speed</span>
-      <h3>Newsjacking &amp; <em>trend</em> forecasting.</h3>
-      <div class="body">
-        <p>JBC has its pulse on the news cycle. We don't just react to what's happening — we <strong>decode, synthesize, and predict</strong>. Our analytical reporting turns the chaos of a news day into a clear map of where a brand's voice belongs, where it doesn't, and which trend curves are worth betting on 48 hours before the rest of the category notices.</p>
-        <p>That same rigor runs as a forward-looking service: quarterly trend briefs, monthly category scans, and real-time Slack-speed flag-ups when a cultural moment opens a window to insert the brand meaningfully. Speed without strategy is noise. Strategy without speed is a press release. We run both.</p>
-      </div>
-    </article>
-
-    <!-- 04 Office Hours -->
-    <article class="diff-row reveal">
-      <span class="tag">04 · Generosity</span>
-      <h3><em>Office Hours</em> — free, monthly.</h3>
-      <div class="body">
-        <p>Once a month, JBC opens the doors. <strong>Office Hours</strong> is a free session for founders and early-stage brand leaders to ask the PR questions they can't ask anywhere else — how to think about a launch, how to prep for a first profile, when to escalate a crisis, and what the agency pitch-deck promises actually mean in practice.</p>
-        <p>We do it because the right advice at the right moment shapes a category. Book a slot at <a href="mailto:officehours@jbc-pr.com" style="color:var(--accent-ink); text-decoration: underline; text-underline-offset: 3px;">officehours@jbc-pr.com</a>, or subscribe to the <em>Office Hours</em> newsletter on Substack to keep up with the weekly read on where the news cycle is headed.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- Pull quote -->
-<section class="pull">
-  <div class="container reveal">
-    <blockquote>
-      We're not just <em>navigating</em> the future of media relations — we're <em>shaping</em> it.
-    </blockquote>
-    <cite>— The JBC Difference</cite>
-  </div>
-</section>
-
-<!-- Office Hours / Substack spotlight -->
-<section class="spotlight">
-  <div class="container">
-    <div class="spotlight-grid">
-      <div class="reveal">
-        <span class="eyebrow"><span class="bullet"></span>Open door · Office Hours</span>
-        <h2>A seat at the <em>table</em>, before you ever hire us.</h2>
-        <p>Office Hours started as a single Zoom window on a Friday afternoon and a founder asking the hardest question in the book: "Is this story worth telling yet?" Today it's an open monthly session — candid, unpaid, and deliberately low-friction — for the founders the traditional PR world tends to reach last.</p>
-        <p>The companion <em>Office Hours</em> Substack is where we publish our read on the week — the stories the team is tracking, the cultural cues we think are about to break, and the unglamorous tactical notes on what it actually looks like to ship a program inside a news cycle that never stops moving.</p>
-        <div class="ctas">
-          <a class="btn" href="mailto:officehours@jbc-pr.com">Book a session<span class="arrow">→</span></a>
-          <a class="btn ghost" href="#">Read the Substack<span class="arrow">→</span></a>
+    <div class="offices-grid">
+      <article class="office-card reveal">
+        <iframe
+          class="office-map"
+          src="https://www.google.com/maps?q=37+West+20th+Street,+Suite+601,+New+York,+NY+10011&amp;z=15&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="New York office map"
+          allowfullscreen></iframe>
+        <div class="office-body">
+          <span class="k">New York · HQ</span>
+          <h3>New York <em>office</em>.</h3>
+          <p class="addr"><strong>37 W. 20th St., Suite #601</strong><br>New York, NY 10011</p>
+          <a class="dirs" href="https://maps.google.com/?q=37+West+20th+Street,+Suite+601,+New+York,+NY+10011" target="_blank" rel="noopener">Get directions</a>
         </div>
-      </div>
-      <div class="spotlight-side reveal">
-        <div class="spot-card">
-          <span class="num">A</span>
-          <h4>30 minutes. On the house.</h4>
-          <p>One founder, one JBC senior lead, one agenda — whatever's keeping you up at night. No pitch deck on either side.</p>
+      </article>
+
+      <article class="office-card reveal">
+        <iframe
+          class="office-map"
+          src="https://www.google.com/maps?q=407+N.+Maple+Drive,+Beverly+Hills,+CA+90210&amp;z=15&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Los Angeles office map"
+          allowfullscreen></iframe>
+        <div class="office-body">
+          <span class="k">Los Angeles</span>
+          <h3>Los Angeles <em>office</em>.</h3>
+          <p class="addr"><strong>407 N. Maple Dr., Ground Floor</strong><br>Beverly Hills, CA 90210</p>
+          <a class="dirs" href="https://maps.google.com/?q=407+N.+Maple+Drive,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener">Get directions</a>
         </div>
-        <div class="spot-card">
-          <span class="num">B</span>
-          <h4>A weekly read on the cycle</h4>
-          <p>The <em>Office Hours</em> Substack distills what our desk is tracking into the shortest possible briefing — trend cues, breaking windows, and what to do with them.</p>
-        </div>
-        <div class="spot-card">
-          <span class="num">C</span>
-          <h4>Community on the record</h4>
-          <p>Past readers include founders, operators, and media-side leaders — the same people who end up in the bylines we pitch into.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Stats band -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-head reveal">
-      <span class="eyebrow"><span class="bullet"></span>The JBC bench</span>
-      <h2>Independent, women-led, <em>built</em> for this moment.</h2>
-    </div>
-
-    <div class="stats-grid">
-      <div class="stat-card reveal">
-        <div class="big">2014</div>
-        <p>Founded on the premise that PR should create consumer affinity, not noise.</p>
-        <div class="footnote">Independent · women-led</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="big">NY + LA</div>
-        <p>A senior bench of publicists and strategists working shoulder-to-shoulder across both coasts.</p>
-        <div class="footnote">One team, one scorecard</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="big">6</div>
-        <p>Category sectors with over a decade of reporter relationships behind us.</p>
-        <div class="footnote">Shortcut the ramp</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="big">0</div>
-        <p>Outsourced divisions — Affiliate, Influencer, Content, and Executive Speaking all live in-house.</p>
-        <div class="footnote">No middlemen</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Marquee -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Founder-Led</span>
-    <span>DEI Lens</span>
-    <span>Newsjacking</span>
-    <span>Trend Forecasting</span>
-    <span>Office Hours</span>
-    <span>Independent</span>
-    <span>Women-Led</span>
-    <span>In-House</span>
-    <!-- duplicate for seamless loop -->
-    <span>Founder-Led</span>
-    <span>DEI Lens</span>
-    <span>Newsjacking</span>
-    <span>Trend Forecasting</span>
-    <span>Office Hours</span>
-    <span>Independent</span>
-    <span>Women-Led</span>
-    <span>In-House</span>
-  </div>
-</div>
-
-<!-- CTA -->
-<section class="cta-block" id="contact">
-  <div class="container reveal">
-    <span class="eyebrow"><span class="bullet"></span>Let's talk</span>
-    <h2>If this sounds like the <em>right</em> kind of loud — let's talk.</h2>
-    <div class="cta-ctas">
-      <a class="btn lg" href="contact.html">Talk to us today<span class="arrow">→</span></a>
+      </article>
     </div>
   </div>
 </section>

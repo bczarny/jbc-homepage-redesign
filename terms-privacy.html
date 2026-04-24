@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Why JBC — The Difference — Jennifer Bett Communications</title>
-<meta name="description" content="An independent, women-led strategic PR agency shaping — not just navigating — the future of media relations. Founder-led brands. DEI. Newsjacking. Office Hours." />
+<title>Terms &amp; Privacy — Jennifer Bett Communications</title>
+<meta name="description" content="Terms of Service and Privacy Policy for Jennifer Bett Communications." />
 <style>
   /* ---------- Design tokens ---------- */
   :root {
@@ -833,6 +833,113 @@
     .pull blockquote { font-size: 28px; }
     .cta-block h2 { font-size: 38px; }
   }
+
+  /* ---------- Terms & Privacy page ---------- */
+  .terms-hero { padding-top: clamp(28px, 4vw, 48px); padding-bottom: clamp(32px, 5vw, 64px); }
+  .terms-hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(48px, 6.4vw, 112px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin: 14px 0 0;
+    max-width: 16ch;
+  }
+  .terms-hero h1 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .terms-hero .sub {
+    margin-top: 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .legal {
+    padding-block: clamp(48px, 6vw, 96px);
+    border-top: 1px solid var(--line);
+  }
+  .legal-wrap {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: start;
+  }
+  .legal-toc {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .legal-toc .toc-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    padding-bottom: 14px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .legal-toc a {
+    color: var(--ink-2);
+    padding: 4px 0;
+    transition: color .2s, padding-left .2s;
+  }
+  .legal-toc a:hover { color: var(--accent); padding-left: 6px; }
+
+  .legal-body { max-width: 760px; }
+  .legal-body h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: clamp(40px, 5vw, 72px) 0 14px;
+    padding-top: clamp(24px, 3vw, 40px);
+    border-top: 1px solid var(--line);
+  }
+  .legal-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  .legal-body h2 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .legal-body h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin: 28px 0 10px;
+    color: var(--ink);
+  }
+  .legal-body p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin: 0 0 1em;
+  }
+  .legal-body p strong { color: var(--ink); font-weight: 500; }
+  .legal-body ul {
+    padding-left: 20px;
+    margin: 0 0 1em;
+  }
+  .legal-body ul li {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin-bottom: 8px;
+  }
+  .legal-body a {
+    color: var(--accent-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal-body a:hover { color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .legal-wrap { grid-template-columns: 1fr; }
+    .legal-toc { position: static; }
+  }
 </style>
 </head>
 <body>
@@ -853,7 +960,7 @@
     <nav class="mainnav" aria-label="Primary">
       <a href="our-work.html">Our Work</a>
       <a href="what-we-do.html">What We Do</a>
-      <a href="why-jbc.html" aria-current="page">Why JBC</a>
+      <a href="why-jbc.html">Why JBC</a>
       <a href="the-team.html">The Team</a>
       <a href="the-spin.html">The Spin</a>
     </nav>
@@ -881,7 +988,7 @@
     <nav class="mobile-nav" aria-label="Mobile primary">
       <a href="our-work.html">Our Work</a>
       <a href="what-we-do.html">What We Do</a>
-      <a href="why-jbc.html" aria-current="page">Why JBC</a>
+      <a href="why-jbc.html">Why JBC</a>
       <a href="the-team.html">The Team</a>
       <a href="the-spin.html">The Spin</a>
     </nav>
@@ -894,211 +1001,110 @@
 </div>
 
 <!-- Page hero -->
-<section class="page-hero">
+<section class="terms-hero">
   <div class="container">
     <div class="crumbs" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
       <span class="sep">/</span>
-      <span aria-current="page">Why JBC</span>
+      <span aria-current="page">Terms &amp; Privacy</span>
     </div>
 
-    <span class="eyebrow"><span class="bullet"></span>The JBC difference</span>
-    <h1>Not just <em>navigating</em> the future — shaping it.</h1>
-
-    <div class="hero-lede reveal">
-      <div class="k">Our premise</div>
-      <div>
-        <p>At JBC, we recognize that media relations is evolving rapidly, reflecting the changing ways in which audiences consume information. As traditional news cycles shift towards a more <em>dynamic</em> landscape, we're committed to adapting our strategies to meet these new challenges and opportunities.</p>
-        <p>Our innovative approach elevates us beyond mere information dissemination; we are <strong>storytellers at the forefront</strong> of brand visibility and community connection. By harnessing strategic storytelling tailored to diverse platforms, we ensure that each message resonates deeply with target audiences while aligning seamlessly with our clients' core values and objectives.</p>
-      </div>
-    </div>
+    <span class="eyebrow"><span class="bullet"></span>Terms &amp; privacy</span>
+    <h1>Terms of service <em>&amp;</em> privacy policy.</h1>
+    <div class="sub">Last updated · April 2026</div>
   </div>
 </section>
 
-<!-- Principles band -->
-<section class="principles">
+<!-- Legal body -->
+<section class="legal">
   <div class="container">
-    <div class="principles-grid">
-      <div class="principle reveal">
-        <span class="k">01 · Point of view</span>
-        <h3>Storytelling at the <em>speed</em> of culture.</h3>
-        <p>Traditional news cycles have fractured. We build programs that move with the platforms audiences actually live on — not the ones the press release was written for.</p>
-      </div>
-      <div class="principle reveal">
-        <span class="k">02 · Posture</span>
-        <h3>Consumer affinity over noise.</h3>
-        <p>Visibility is easy. Affinity is compounding. Every placement, partnership, and piece of content ladders to a measurable lift in how the brand is understood.</p>
-      </div>
-      <div class="principle reveal">
-        <span class="k">03 · Practice</span>
-        <h3>Aligned with your <em>values</em>.</h3>
-        <p>Brand objectives get you a strategy. Brand values get you the right strategy. We scope to both from kickoff — and the work reflects it.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="legal-wrap">
+      <nav class="legal-toc" aria-label="On this page">
+        <span class="toc-label">On this page</span>
+        <a href="#introduction">Introduction</a>
+        <a href="#privacy">Privacy policy</a>
+        <a href="#ip-rights">Intellectual property</a>
+        <a href="#general">General provisions</a>
+        <a href="#information">Information we collect</a>
+        <a href="#use">How we use it</a>
+        <a href="#sharing">Sharing &amp; disclosure</a>
+        <a href="#third-party">Third-party services</a>
+        <a href="#rights">Your rights</a>
+        <a href="#contact-legal">Contact</a>
+      </nav>
 
-<!-- Differentiators -->
-<section class="diff">
-  <div class="container">
-    <div class="diff-head reveal">
-      <div>
-        <span class="eyebrow"><span class="bullet"></span>What makes us different</span>
-        <h2>Four things you <em>won't</em> find elsewhere.</h2>
-      </div>
-      <p class="lede">Most PR agencies sell a service mix. JBC sells a worldview — a specific take on who deserves the loudest microphone, how we earn the right to wield it, and what to do with the news cycle once we have it.</p>
-    </div>
+      <div class="legal-body">
+        <h2 id="introduction">Introduction</h2>
+        <p>Welcome to <a href="https://www.jenniferbett.com">www.jenniferbett.com</a> (the "Website"). The Website is provided to you by <strong>Jennifer Bett Communications, LLC</strong> ("JBC", "us", "we" or "our"). Our address is 37 West 20th Street, New York, NY 10011.</p>
+        <p>Access to and use of this Website is subject to the terms, conditions, and notices and our Privacy Policy (the "Terms"). You should read these Terms prior to using the Website. We may change the Terms by posting them here. Your continued use of our Website is deemed acceptance of any updated Terms.</p>
 
-    <!-- 01 Founder-first specialization -->
-    <article class="diff-row reveal">
-      <span class="tag">01 · Focus</span>
-      <h3>Built for <em>founder-led</em> brands.</h3>
-      <div class="body">
-        <p><strong>The best stories start with the founder.</strong> JBC was built to translate founder expertise — the point of view, the conviction, the category insight — into narratives that move category perception. We're specialized to do that work, not to fit a founder story into a template built for a corporate brief.</p>
-        <p>Our bench, our book, and our reporter relationships are weighted toward moving founder-led consumer brands from overlooked to essential. We partner with executives and category leaders who are actually building something — and we show up to pitch the story, not the product.</p>
-      </div>
-    </article>
+        <h2 id="privacy">Privacy</h2>
+        <p>The privacy of your personal data is important to us. Please see our Privacy Policy below.</p>
 
-    <!-- 02 DEI -->
-    <article class="diff-row reveal">
-      <span class="tag">02 · Lens</span>
-      <h3>DEI is not a <em>chapter</em>.</h3>
-      <div class="body">
-        <p>Everything we do is viewed through a DEI lens — from pitch strategy to spokesperson selection to the outlets we put on the A-list for every brand. That isn't a quarterly add-on; it's a structural filter that runs through the way we staff accounts, prep executives, and measure whose stories get amplified.</p>
-        <p>We back it up internally with strategic hires and an ongoing <strong>monthly educational series</strong> that keeps the full team sharpened on evolving best practices across race, gender, class, and ability. The goal: a team that doesn't need to be asked to do the work — it's already in the scope.</p>
-      </div>
-    </article>
+        <h2 id="ip-rights">Intellectual <em>property</em> rights.</h2>
+        <p>Our Website and all information, images, photographs, and other content displayed on our Website ("Materials") are protected by certain rights. These rights may include patents, rights to inventions, copyright, database rights, performer's property rights, moral rights, trademarks and service marks, business names and domain names, goodwill, rights in designs, and all other intellectual property and proprietary rights, in each case whether registered or unregistered ("Rights"). These Rights either belong directly to us or our clients or are licensed to us. We expressly reserve all Rights in and to our Website and the Materials.</p>
+        <p>You may not:</p>
+        <ul>
+          <li>remove any copyright or other proprietary notices contained in the Materials;</li>
+          <li>use any Materials in any manner that may infringe any of our Rights or third-party Rights; or</li>
+          <li>reproduce or modify the Materials in any way without our prior written consent.</li>
+        </ul>
 
-    <!-- 03 Newsjacking -->
-    <article class="diff-row reveal">
-      <span class="tag">03 · Speed</span>
-      <h3>Newsjacking &amp; <em>trend</em> forecasting.</h3>
-      <div class="body">
-        <p>JBC has its pulse on the news cycle. We don't just react to what's happening — we <strong>decode, synthesize, and predict</strong>. Our analytical reporting turns the chaos of a news day into a clear map of where a brand's voice belongs, where it doesn't, and which trend curves are worth betting on 48 hours before the rest of the category notices.</p>
-        <p>That same rigor runs as a forward-looking service: quarterly trend briefs, monthly category scans, and real-time Slack-speed flag-ups when a cultural moment opens a window to insert the brand meaningfully. Speed without strategy is noise. Strategy without speed is a press release. We run both.</p>
-      </div>
-    </article>
+        <h2 id="general">General provisions &amp; applicable law.</h2>
+        <p>You may not assign, sub-license, or otherwise transfer any of your rights under these Terms.</p>
+        <p>If any provision of these Terms is found to be invalid for any reason, the invalidity of that provision will not affect the remaining provisions, which will remain in full force and effect.</p>
+        <p>Our failure to exercise any right or remedy under these Terms does not constitute a waiver of that right or remedy. These Terms are governed by the laws of the State of New York.</p>
 
-    <!-- 04 Office Hours -->
-    <article class="diff-row reveal">
-      <span class="tag">04 · Generosity</span>
-      <h3><em>Office Hours</em> — free, monthly.</h3>
-      <div class="body">
-        <p>Once a month, JBC opens the doors. <strong>Office Hours</strong> is a free session for founders and early-stage brand leaders to ask the PR questions they can't ask anywhere else — how to think about a launch, how to prep for a first profile, when to escalate a crisis, and what the agency pitch-deck promises actually mean in practice.</p>
-        <p>We do it because the right advice at the right moment shapes a category. Book a slot at <a href="mailto:officehours@jbc-pr.com" style="color:var(--accent-ink); text-decoration: underline; text-underline-offset: 3px;">officehours@jbc-pr.com</a>, or subscribe to the <em>Office Hours</em> newsletter on Substack to keep up with the weekly read on where the news cycle is headed.</p>
-      </div>
-    </article>
-  </div>
-</section>
+        <h2 id="information">Information <em>we</em> collect.</h2>
+        <p>We collect information by which you may be personally identified, such as name, postal address, email address, telephone number, and any other identifier by which you may be contacted online or offline ("personal information"). The legal basis for collecting and processing personal information is as necessary for providing Services or information that you have requested. In certain circumstances, the legal basis for our collection and processing of your information may also be your provision of consent.</p>
 
-<!-- Pull quote -->
-<section class="pull">
-  <div class="container reveal">
-    <blockquote>
-      We're not just <em>navigating</em> the future of media relations — we're <em>shaping</em> it.
-    </blockquote>
-    <cite>— The JBC Difference</cite>
-  </div>
-</section>
+        <h3>How we collect your information</h3>
+        <p>We collect your information directly from you when you provide it to us or from third parties you authorize to provide us with information about you.</p>
 
-<!-- Office Hours / Substack spotlight -->
-<section class="spotlight">
-  <div class="container">
-    <div class="spotlight-grid">
-      <div class="reveal">
-        <span class="eyebrow"><span class="bullet"></span>Open door · Office Hours</span>
-        <h2>A seat at the <em>table</em>, before you ever hire us.</h2>
-        <p>Office Hours started as a single Zoom window on a Friday afternoon and a founder asking the hardest question in the book: "Is this story worth telling yet?" Today it's an open monthly session — candid, unpaid, and deliberately low-friction — for the founders the traditional PR world tends to reach last.</p>
-        <p>The companion <em>Office Hours</em> Substack is where we publish our read on the week — the stories the team is tracking, the cultural cues we think are about to break, and the unglamorous tactical notes on what it actually looks like to ship a program inside a news cycle that never stops moving.</p>
-        <div class="ctas">
-          <a class="btn" href="mailto:officehours@jbc-pr.com">Book a session<span class="arrow">→</span></a>
-          <a class="btn ghost" href="#">Read the Substack<span class="arrow">→</span></a>
-        </div>
-      </div>
-      <div class="spotlight-side reveal">
-        <div class="spot-card">
-          <span class="num">A</span>
-          <h4>30 minutes. On the house.</h4>
-          <p>One founder, one JBC senior lead, one agenda — whatever's keeping you up at night. No pitch deck on either side.</p>
-        </div>
-        <div class="spot-card">
-          <span class="num">B</span>
-          <h4>A weekly read on the cycle</h4>
-          <p>The <em>Office Hours</em> Substack distills what our desk is tracking into the shortest possible briefing — trend cues, breaking windows, and what to do with them.</p>
-        </div>
-        <div class="spot-card">
-          <span class="num">C</span>
-          <h4>Community on the record</h4>
-          <p>Past readers include founders, operators, and media-side leaders — the same people who end up in the bylines we pitch into.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <h3>Information you provide to us</h3>
+        <p>The information we collect may include information that you provide by filling out the contact form on our Site or obtaining our Services or records and copies of your correspondence (including email addresses), if you contact us. By filling out the "Contact Us" form on the Website, you provide us with your personal information, which we use to respond to your inquiry.</p>
 
-<!-- Stats band -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-head reveal">
-      <span class="eyebrow"><span class="bullet"></span>The JBC bench</span>
-      <h2>Independent, women-led, <em>built</em> for this moment.</h2>
-    </div>
+        <h2 id="use">How we <em>use</em> your information.</h2>
+        <p>We use the information that we collect about you or that you provide to us, including any personal information:</p>
+        <ul>
+          <li>To present our Website and its contents to you.</li>
+          <li>To provide you with information, products, or services that you request from us.</li>
+          <li>To fulfill any other purpose for which you provide it.</li>
+          <li>To carry out our obligations and enforce our rights arising from any contracts entered into between you and us.</li>
+          <li>To notify you about changes to our Website or any services we offer or provide through it.</li>
+        </ul>
 
-    <div class="stats-grid">
-      <div class="stat-card reveal">
-        <div class="big">2014</div>
-        <p>Founded on the premise that PR should create consumer affinity, not noise.</p>
-        <div class="footnote">Independent · women-led</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="big">NY + LA</div>
-        <p>A senior bench of publicists and strategists working shoulder-to-shoulder across both coasts.</p>
-        <div class="footnote">One team, one scorecard</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="big">6</div>
-        <p>Category sectors with over a decade of reporter relationships behind us.</p>
-        <div class="footnote">Shortcut the ramp</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="big">0</div>
-        <p>Outsourced divisions — Affiliate, Influencer, Content, and Executive Speaking all live in-house.</p>
-        <div class="footnote">No middlemen</div>
-      </div>
-    </div>
-  </div>
-</section>
+        <h2 id="sharing">Sharing &amp; disclosure.</h2>
+        <p>We may disclose aggregated information about our users, and information that does not identify any individual, without restriction. We may disclose personal information that we collect or that you provide as described in this privacy policy:</p>
+        <ul>
+          <li>To our subsidiaries and affiliates.</li>
+          <li>To contractors, service providers, and other third parties we use to support our business.</li>
+          <li>To a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets.</li>
+          <li>To fulfill the purpose for which you provide it, such as providing Services.</li>
+          <li>For any other purpose disclosed by us when you provide the information.</li>
+          <li>With your consent.</li>
+        </ul>
+        <p>We may also disclose your personal information:</p>
+        <ul>
+          <li>To comply with any court order, law, or legal process, including to respond to any government or regulatory request.</li>
+          <li>To enforce agreements to which you and we are a party.</li>
+          <li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of our employees, customers, or others.</li>
+        </ul>
 
-<!-- Marquee -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Founder-Led</span>
-    <span>DEI Lens</span>
-    <span>Newsjacking</span>
-    <span>Trend Forecasting</span>
-    <span>Office Hours</span>
-    <span>Independent</span>
-    <span>Women-Led</span>
-    <span>In-House</span>
-    <!-- duplicate for seamless loop -->
-    <span>Founder-Led</span>
-    <span>DEI Lens</span>
-    <span>Newsjacking</span>
-    <span>Trend Forecasting</span>
-    <span>Office Hours</span>
-    <span>Independent</span>
-    <span>Women-Led</span>
-    <span>In-House</span>
-  </div>
-</div>
+        <h2 id="third-party">Third-party <em>disclosures</em>.</h2>
+        <p>We use certain third-party services who may receive your information to the extent necessary to provide their services or perform their functions as described, including:</p>
+        <ul>
+          <li><strong>Google Analytics</strong> — for analytics. <a href="https://support.google.com/analytics" target="_blank" rel="noopener">Learn more</a></li>
+          <li><strong>MailChimp</strong> — for marketing automation. <a href="https://mailchimp.com/legal/privacy/" target="_blank" rel="noopener">Learn more</a></li>
+          <li><strong>Survey Monkey</strong> — for survey services for our clients. <a href="https://www.surveymonkey.com/mp/legal/privacy/" target="_blank" rel="noopener">Learn more</a></li>
+        </ul>
 
-<!-- CTA -->
-<section class="cta-block" id="contact">
-  <div class="container reveal">
-    <span class="eyebrow"><span class="bullet"></span>Let's talk</span>
-    <h2>If this sounds like the <em>right</em> kind of loud — let's talk.</h2>
-    <div class="cta-ctas">
-      <a class="btn lg" href="contact.html">Talk to us today<span class="arrow">→</span></a>
+        <h2 id="rights">Your <em>rights</em>.</h2>
+        <p>Depending on your jurisdiction, you may have rights regarding your personal information, including the right to access, correct, or delete the personal information we hold about you. To exercise any of these rights, please contact us at the email address below.</p>
+
+        <h2 id="contact-legal">Contact us.</h2>
+        <p>If you have any questions about these Terms or our Privacy Policy, or if you would like to exercise any of your rights, please contact us at <a href="mailto:info@jbc-pr.com">info@jbc-pr.com</a> or by mail at the address above.</p>
+      </div>
     </div>
   </div>
 </section>
