@@ -1,0 +1,1707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>JBC Brand Guidelines — Design System Reference</title>
+<meta name="description" content="Brand and style guidelines for Jennifer Bett Communications — color, typography, voice, components, and layout patterns for web, decks, and proposals." />
+<style>
+  :root {
+    --bg: #FFF6EB;
+    --ink: #0A0A0A;
+    --ink-2: #2B2B2B;
+    --muted: #6A6258;
+    --line: rgba(10,10,10,0.12);
+    --line-strong: rgba(10,10,10,0.22);
+    --cream-2: #F6E8D2;
+    --pale: #FBF0DE;
+    --accent: #D64A1F;
+    --accent-ink: #8A2F14;
+    --display: "Helvetica Neue", "Inter", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Fraunces", "EB Garamond", Georgia, serif;
+    --maxw: 1280px;
+    --gutter: clamp(20px, 4vw, 56px);
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ======== Guide shell ======== */
+  .guide-head {
+    padding-block: clamp(48px, 7vw, 96px) clamp(32px, 4vw, 56px);
+    border-bottom: 1px solid var(--line);
+  }
+  .guide-head .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .guide-head .k::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .guide-head h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(48px, 7vw, 112px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    margin: 16px 0 20px;
+    max-width: 14ch;
+  }
+  .guide-head h1 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .guide-head p {
+    font-size: clamp(18px, 1.3vw, 22px);
+    color: var(--ink-2);
+    max-width: 760px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .guide-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .guide-meta span strong { color: var(--ink); font-weight: 500; margin-right: 8px; }
+
+  /* ======== TOC ======== */
+  .toc {
+    padding-block: 32px;
+    border-bottom: 1px solid var(--line);
+    background: var(--pale);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: saturate(140%) blur(6px);
+  }
+  .toc-list {
+    display: flex;
+    gap: clamp(14px, 1.6vw, 28px);
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .toc-list a {
+    color: var(--ink-2);
+    padding: 4px 0;
+    transition: color .2s;
+  }
+  .toc-list a:hover { color: var(--accent); }
+  .toc-list .toc-num {
+    color: var(--accent);
+    margin-right: 6px;
+  }
+
+  /* ======== Sections ======== */
+  .section {
+    padding-block: clamp(64px, 9vw, 120px);
+    border-top: 1px solid var(--line);
+  }
+  .section:first-of-type { border-top: none; }
+  .section-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: end;
+    margin-bottom: clamp(32px, 4vw, 56px);
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 10px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .section-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(36px, 4.6vw, 64px);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin: 0 0 10px;
+  }
+  .section-head h2 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 640px;
+  }
+
+  .sub-head {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: clamp(32px, 4vw, 56px) 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ======== Color swatches ======== */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #fff;
+  }
+  .swatch .chip {
+    height: 120px;
+    width: 100%;
+  }
+  .swatch .meta {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .swatch .name {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .swatch .token {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .swatch .hex {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+    margin-top: 6px;
+  }
+  .swatch .use {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.4;
+    margin-top: 6px;
+  }
+
+  /* ======== Typography specimens ======== */
+  .type-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .type-row:last-child { border-bottom: 1px solid var(--line); }
+  .type-row .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .type-row .meta strong { color: var(--ink); display: block; margin-bottom: 4px; font-weight: 500; }
+  .type-row .spec { color: var(--ink); }
+
+  .display-spec-1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(52px, 7vw, 104px);
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+  .display-spec-1 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .display-spec-2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 72px);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+  .display-spec-2 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .display-spec-3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .display-spec-3 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .display-spec-4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .body-spec {
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 640px;
+  }
+  .body-spec em { font-family: var(--serif); font-style: italic; color: var(--accent-ink); font-weight: 400; }
+
+  .mono-spec {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .accent-spec {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(32px, 4vw, 56px);
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  /* ======== Accent word rule ======== */
+  .accent-rule {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .accent-rule .card {
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--pale);
+  }
+  .accent-rule .card .k {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .accent-rule .card.good .k { color: #186b3a; }
+  .accent-rule .card.good .k::before {
+    content: "✓";
+    width: 20px; height: 20px;
+    background: #186b3a;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .accent-rule .card.bad { background: #FAE8E2; border-color: rgba(214,74,31,0.25); }
+  .accent-rule .card.bad .k { color: var(--accent-ink); }
+  .accent-rule .card.bad .k::before {
+    content: "✗";
+    width: 20px; height: 20px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .accent-rule .card p {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin: 0 0 12px;
+  }
+  .accent-rule .card p em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .accent-rule .card .note {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ======== Voice pairs ======== */
+  .voice-rows { display: flex; flex-direction: column; gap: 16px; }
+  .voice-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .voice-row .side {
+    padding: 20px 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .voice-row .side.ok { background: var(--pale); }
+  .voice-row .side.no { background: #FAE8E2; border-color: rgba(214,74,31,0.25); }
+  .voice-row .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .voice-row .side.ok .label { color: #186b3a; }
+  .voice-row .side.no .label { color: var(--accent-ink); }
+  .voice-row .text {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ======== Logo ======== */
+  .logo-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .logo-panel {
+    padding: 64px 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    border: 1px solid var(--line);
+  }
+  .logo-panel.light { background: var(--bg); }
+  .logo-panel.dark { background: var(--ink); border-color: var(--ink); }
+  .logo-panel img { max-width: 180px; height: auto; }
+  .logo-caption {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .logo-caption strong { color: var(--ink); font-weight: 500; }
+
+  /* ======== Grid / spacing diagram ======== */
+  .grid-diagram {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .diagram-card {
+    padding: 28px 32px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--pale);
+  }
+  .diagram-card .k {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-bottom: 8px;
+  }
+  .diagram-card h4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+  }
+  .diagram-card p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 640px;
+  }
+  .diagram-card code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent-ink);
+  }
+
+  .breakpoints {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .bp {
+    padding: 18px 20px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .bp .size {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+  .bp .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ======== Components showcase ======== */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+    align-items: start;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+  }
+  .comp-row:last-child { border-bottom: 1px solid var(--line); }
+  .comp-row .comp-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .comp-row .comp-meta .k {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .comp-row .comp-meta h4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .comp-row .comp-meta p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .comp-row .comp-demo {
+    padding: 32px;
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    min-height: 100px;
+  }
+  .comp-row .comp-demo.dark {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg);
+  }
+
+  /* Button patterns */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    font-family: var(--display);
+    cursor: pointer;
+    transition: transform .2s, background .2s;
+  }
+  .btn:hover { transform: translateY(-1px); background: var(--accent); border-color: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn.lg { padding: 16px 28px; font-size: 15px; }
+  .comp-demo.dark .btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+  .comp-demo.dark .btn.ghost { background: transparent; color: var(--bg); border-color: var(--bg); }
+
+  /* Eyebrows */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow .bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+  /* Chip */
+  .chip-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    color: var(--ink-2);
+  }
+  .chip-pill.dark { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+
+  /* Category tag */
+  .cat-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Mini card patterns */
+  .demo-card-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    max-width: 640px;
+  }
+  .demo-card-split .img-side {
+    background: linear-gradient(140deg, #EDD9C4 0%, #D9BFA4 100%);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink);
+    font-size: 20px;
+  }
+  .demo-card-split .body-side {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+  }
+  .demo-card-split .body-side .s {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .demo-card-split .body-side h5 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .demo-card-split .body-side p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .demo-card-split .body-side .cta {
+    margin-top: 4px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .demo-testimonial {
+    padding: 28px 30px;
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .demo-testimonial .mark {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 48px;
+    line-height: 0.5;
+    color: var(--accent);
+  }
+  .demo-testimonial blockquote {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .demo-testimonial blockquote em { font-family: var(--serif); font-style: italic; color: var(--accent-ink); font-weight: 400; }
+  .demo-testimonial footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .demo-testimonial footer .name { color: var(--ink); }
+
+  .service-card {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .service-card .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+  }
+  .service-card h5 {
+    margin: 4px 0 4px;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .service-card h5 .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .service-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .service-card .link {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ======== Iconography ======== */
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .icon-cell {
+    padding: 24px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+  }
+  .icon-cell .ring {
+    width: 48px; height: 48px;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-cell svg { width: 20px; height: 20px; }
+  .icon-cell .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ======== Imagery ======== */
+  .image-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .image-card {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--pale);
+  }
+  .image-card .ph {
+    aspect-ratio: 16/10;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(140deg, #EDD9C4 0%, #D9BFA4 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .image-card h4 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+  .image-card p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  /* ======== Motion notes ======== */
+  .motion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .motion-card {
+    padding: 20px 22px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .motion-card .k {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .motion-card h5 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: -0.015em;
+  }
+  .motion-card p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .motion-card code {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--pale);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent-ink);
+  }
+
+  /* ======== Application guidance ======== */
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .app-card {
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--pale);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .app-card h4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .app-card h4 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .app-card ul {
+    margin: 0; padding-left: 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .app-card ul li { margin-bottom: 6px; }
+  .app-card ul li strong { color: var(--ink); font-weight: 500; }
+
+  /* ======== Footer of guide ======== */
+  .guide-foot {
+    padding-block: clamp(48px, 6vw, 80px);
+    background: var(--ink);
+    color: var(--bg);
+    border-top: 1px solid var(--ink);
+  }
+  .guide-foot p {
+    max-width: 600px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,246,235,0.72);
+    margin: 0;
+  }
+  .guide-foot h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 14px 0 14px;
+  }
+  .guide-foot h3 em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; }
+  .guide-foot a { color: var(--bg); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .accent-rule { grid-template-columns: 1fr; }
+    .voice-row { grid-template-columns: 1fr; }
+    .logo-panels { grid-template-columns: 1fr; }
+    .comp-row { grid-template-columns: 1fr; gap: 20px; }
+    .app-grid { grid-template-columns: 1fr; }
+    .image-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .type-row { grid-template-columns: 1fr; gap: 12px; }
+    .section-head { grid-template-columns: 1fr; gap: 14px; align-items: start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<header class="guide-head">
+  <div class="container">
+    <span class="k">JBC · Brand Guidelines</span>
+    <h1>The JBC <em>system</em>.</h1>
+    <p>The design system behind the refreshed JBC website — and a reference for any JBC-branded work: Webflow builds, capabilities decks, proposals, client one-pagers, keynotes, and client handoffs. Use this as the source of truth.</p>
+    <div class="guide-meta">
+      <span><strong>Version</strong>v1.0</span>
+      <span><strong>Updated</strong>April 2026</span>
+      <span><strong>Owner</strong>JBC design</span>
+      <span><strong>Covers</strong>Web · Print · Deck</span>
+    </div>
+  </div>
+</header>
+
+<!-- Table of contents -->
+<nav class="toc" aria-label="Table of contents">
+  <div class="container">
+    <div class="toc-list">
+      <a href="#voice"><span class="toc-num">01</span>Voice &amp; tone</a>
+      <a href="#logo"><span class="toc-num">02</span>Logo</a>
+      <a href="#color"><span class="toc-num">03</span>Color</a>
+      <a href="#typography"><span class="toc-num">04</span>Typography</a>
+      <a href="#grid"><span class="toc-num">05</span>Grid &amp; spacing</a>
+      <a href="#components"><span class="toc-num">06</span>Components</a>
+      <a href="#imagery"><span class="toc-num">07</span>Imagery</a>
+      <a href="#icons"><span class="toc-num">08</span>Iconography</a>
+      <a href="#motion"><span class="toc-num">09</span>Motion</a>
+      <a href="#applications"><span class="toc-num">10</span>Applications</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 01 · VOICE & TONE -->
+<section class="section" id="voice">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">01 · Voice &amp; tone</span>
+      <div>
+        <h2>Editorial. Confident. <em>Direct</em>.</h2>
+        <p>JBC writes the way it pitches — with a point of view, in plain language, without the industry bloat. The voice is an agency of humans talking to humans, not a deck talking to a committee.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Principles</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+      <div>
+        <h4 style="font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin: 0 0 8px;">Confident, not cocky.</h4>
+        <p style="font-size: 15px; color: var(--ink-2); line-height: 1.55; margin: 0;">JBC has a real point of view — the writing reflects that. Short declaratives, periods on headlines, no hedging. "Bold thinking. Bigger results." not "Maybe you're looking for..."</p>
+      </div>
+      <div>
+        <h4 style="font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin: 0 0 8px;">Editorial, not salesy.</h4>
+        <p style="font-size: 15px; color: var(--ink-2); line-height: 1.55; margin: 0;">Read the copy aloud. If it sounds like a sales page, cut it. JBC is a PR firm — we write the way editors write. Specific verbs, real metrics, no superlatives without proof.</p>
+      </div>
+      <div>
+        <h4 style="font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin: 0 0 8px;">Human, not corporate.</h4>
+        <p style="font-size: 15px; color: var(--ink-2); line-height: 1.55; margin: 0;">"We" and "you." Contractions are fine. Em-dashes are encouraged. One real sentence beats three hedged ones.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">The italic-serif accent</div>
+    <p style="color: var(--ink-2); line-height: 1.6; max-width: 760px; font-size: 16px; margin-bottom: 24px;">One of the most distinctive JBC brand moves: most headlines contain a single word in italic serif (Fraunces) in accent red. It carries the emphasis. Never more than one per headline, never a full phrase.</p>
+
+    <div class="accent-rule">
+      <div class="card good">
+        <span class="k">Use it like this</span>
+        <p>Bold thinking. <em>Bigger</em> results.</p>
+        <p class="note">One word — the key word — carries the italic serif treatment.</p>
+      </div>
+      <div class="card good">
+        <span class="k">And like this</span>
+        <p>What we're <em>writing</em> about.</p>
+        <p class="note">Works for verbs, nouns, modifiers — whatever gets the most weight.</p>
+      </div>
+      <div class="card bad">
+        <span class="k">Don't do this</span>
+        <p><em>Bold</em> <em>thinking</em>. <em>Bigger</em> <em>results</em>.</p>
+        <p class="note">Italicizing everything erases the emphasis.</p>
+      </div>
+      <div class="card bad">
+        <span class="k">Or this</span>
+        <p>Bold thinking. <em>Bigger results</em>.</p>
+        <p class="note">Full phrases in italic become decoration, not accent.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Copy conventions</div>
+    <div class="voice-rows">
+      <div class="voice-row">
+        <div class="side ok">
+          <span class="label">Do</span>
+          <p class="text">Sentence case headlines with a period. "Not a bigger agency. A better one."</p>
+        </div>
+        <div class="side no">
+          <span class="label">Don't</span>
+          <p class="text">Title Case Every Word. Or drop the period entirely.</p>
+        </div>
+      </div>
+      <div class="voice-row">
+        <div class="side ok">
+          <span class="label">Do</span>
+          <p class="text">Specific verbs: "repositioned," "built," "earned," "translated."</p>
+        </div>
+        <div class="side no">
+          <span class="label">Don't</span>
+          <p class="text">Vague verbs: "leveraged," "utilized," "drove synergies."</p>
+        </div>
+      </div>
+      <div class="voice-row">
+        <div class="side ok">
+          <span class="label">Do</span>
+          <p class="text">Mono ALL-CAPS eyebrows for metadata only (category, date, section label).</p>
+        </div>
+        <div class="side no">
+          <span class="label">Don't</span>
+          <p class="text">ALL-CAPS for headlines or body copy. It reads like shouting.</p>
+        </div>
+      </div>
+      <div class="voice-row">
+        <div class="side ok">
+          <span class="label">Do</span>
+          <p class="text">Proof points with real numbers: "20B+ impressions," "52% of attributable revenue."</p>
+        </div>
+        <div class="side no">
+          <span class="label">Don't</span>
+          <p class="text">Unsupported superlatives: "industry-leading," "best-in-class," "world-class."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · LOGO -->
+<section class="section" id="logo">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">02 · Logo</span>
+      <div>
+        <h2>Two <em>wordmarks</em>. One mark.</h2>
+        <p>JBC has a single wordmark rendered in two versions — dark for cream backgrounds, cream for dark backgrounds. Never apply effects, outlines, or color treatments beyond these two.</p>
+      </div>
+    </div>
+
+    <div class="logo-panels">
+      <div>
+        <div class="logo-panel light">
+          <img src="jbc-logo-trimmed.png" alt="JBC wordmark, dark">
+        </div>
+        <div class="logo-caption"><strong>Dark wordmark</strong> · <code style="font-family: var(--mono); font-size: 11px; background: var(--pale); padding: 2px 6px; border-radius: 4px;">jbc-logo-trimmed.png</code></div>
+        <p style="font-size: 14px; color: var(--ink-2); margin-top: 8px; line-height: 1.5;">Use on cream (`#FFF6EB`), pale, or any light background. This is the default lockup for nav, mobile menu, favicons.</p>
+      </div>
+      <div>
+        <div class="logo-panel dark">
+          <img src="jbc-logo-white.webp" alt="JBC wordmark, cream">
+        </div>
+        <div class="logo-caption"><strong>Cream wordmark</strong> · <code style="font-family: var(--mono); font-size: 11px; background: var(--pale); padding: 2px 6px; border-radius: 4px;">jbc-logo-white.webp</code></div>
+        <p style="font-size: 14px; color: var(--ink-2); margin-top: 8px; line-height: 1.5;">Use on ink (`#0A0A0A`) and dark photography. Standard for the footer.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Clearspace &amp; minimum size</div>
+    <p style="color: var(--ink-2); line-height: 1.6; max-width: 760px; margin-bottom: 20px;">Leave clearspace equal to the height of the "b" in "jbc" around all sides of the wordmark. Minimum size: 48px wide in digital applications, 0.75" in print. Don't reproduce below those.</p>
+
+    <div class="sub-head">What not to do</div>
+    <ul style="max-width: 700px; color: var(--ink-2); line-height: 1.7; padding-left: 22px; margin: 12px 0 0;">
+      <li>Don't stretch, skew, or rotate the wordmark.</li>
+      <li>Don't add drop shadows, strokes, gradients, or color.</li>
+      <li>Don't place over low-contrast photography — use a solid cream or ink band instead.</li>
+      <li>Don't recreate the wordmark in another typeface.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 03 · COLOR -->
+<section class="section" id="color">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">03 · Color</span>
+      <div>
+        <h2>Cream, ink, and the <em>accent</em>.</h2>
+        <p>The palette is warm and restrained. Cream and ink carry 90% of the surface area; accent red is reserved for the italic-serif word, the bullet, and hover states. Two neutrals fill in the mid-tones.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Core palette</div>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="chip" style="background: #FFF6EB;"></div>
+        <div class="meta">
+          <span class="name">Cream</span>
+          <span class="token">--bg</span>
+          <span class="hex">#FFF6EB · RGB 255, 246, 235</span>
+          <span class="use">Primary surface. Body background, card fills, mobile menu.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #0A0A0A;"></div>
+        <div class="meta">
+          <span class="name">Ink</span>
+          <span class="token">--ink</span>
+          <span class="hex">#0A0A0A · RGB 10, 10, 10</span>
+          <span class="use">Primary text, primary button, dark section fills (scorecard, WWD, footer).</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #D64A1F;"></div>
+        <div class="meta">
+          <span class="name">Accent</span>
+          <span class="token">--accent</span>
+          <span class="hex">#D64A1F · RGB 214, 74, 31</span>
+          <span class="use">Italic serif words, hover states, bullet dots, category tags on light.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #8A2F14;"></div>
+        <div class="meta">
+          <span class="name">Accent ink</span>
+          <span class="token">--accent-ink</span>
+          <span class="hex">#8A2F14 · RGB 138, 47, 20</span>
+          <span class="use">Inline links, italic serif emphasis in body copy, deeper accent variant.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-head">Neutral &amp; supporting tones</div>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="chip" style="background: #F6E8D2;"></div>
+        <div class="meta">
+          <span class="name">Cream 2</span>
+          <span class="token">--cream-2</span>
+          <span class="hex">#F6E8D2</span>
+          <span class="use">Warmer band / section divider (Why JBC, Offices).</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #FBF0DE;"></div>
+        <div class="meta">
+          <span class="name">Pale</span>
+          <span class="token">--pale</span>
+          <span class="hex">#FBF0DE</span>
+          <span class="use">Card fill (case study, Spin teaser, principles).</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #2B2B2B;"></div>
+        <div class="meta">
+          <span class="name">Ink 2</span>
+          <span class="token">--ink-2</span>
+          <span class="hex">#2B2B2B</span>
+          <span class="use">Body copy. Softer than pure ink for long reads.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #6A6258;"></div>
+        <div class="meta">
+          <span class="name">Muted</span>
+          <span class="token">--muted</span>
+          <span class="hex">#6A6258</span>
+          <span class="use">Eyebrows, mono metadata, captions.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: rgba(10,10,10,0.12);"></div>
+        <div class="meta">
+          <span class="name">Line</span>
+          <span class="token">--line</span>
+          <span class="hex">rgba(10,10,10,0.12)</span>
+          <span class="use">Hairlines, card borders, dividers.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: rgba(10,10,10,0.22);"></div>
+        <div class="meta">
+          <span class="name">Line strong</span>
+          <span class="token">--line-strong</span>
+          <span class="hex">rgba(10,10,10,0.22)</span>
+          <span class="use">Ghost button borders, breadcrumb separators.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-head">Usage rules</div>
+    <ul style="max-width: 720px; color: var(--ink-2); line-height: 1.7; padding-left: 22px; margin: 12px 0 0;">
+      <li><strong>Accent is earned.</strong> Reserved for one italic-serif word per headline, the bullet dot on eyebrows, and red hover states.</li>
+      <li><strong>Never use accent for body copy.</strong> For inline italic emphasis in body copy, use accent-ink (`#8A2F14`).</li>
+      <li><strong>Large dark sections (ink) alternate with cream sections</strong> to create rhythm — scorecard and What We Do live on dark; everything else is cream.</li>
+      <li><strong>Pale and cream 2 are subtle band variants</strong> — use to separate sections within a cream stretch without going dark.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 · TYPOGRAPHY -->
+<section class="section" id="typography">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">04 · Typography</span>
+      <div>
+        <h2>Three families. <em>One</em> voice.</h2>
+        <p>Helvetica Neue carries the display and body. Fraunces shows up only as the italic-serif accent. IBM Plex Mono handles every eyebrow, caption, stat label, and metadata line.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Families</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px;">
+      <div style="padding: 28px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--pale);">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 12px;">Display &amp; Body</div>
+        <div style="font-family: var(--display); font-weight: 500; font-size: 40px; letter-spacing: -0.03em; line-height: 1; margin-bottom: 12px;">Helvetica Neue</div>
+        <p style="font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin: 0;">Weights 400 (regular) and 500 (medium). Tight letter-spacing on display sizes (-0.035em to -0.045em). Fallback stack: "Helvetica Neue", Inter, Arial, sans-serif.</p>
+      </div>
+      <div style="padding: 28px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--pale);">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 12px;">Italic serif accent</div>
+        <div style="font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 44px; letter-spacing: -0.01em; line-height: 1; margin-bottom: 12px; color: var(--accent);">Fraunces</div>
+        <p style="font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin: 0;">Weight 400 italic. Used ONLY for accent words, blockquote emphasis, and attribution. Never set a full paragraph in Fraunces. Fallback: EB Garamond, Georgia, serif.</p>
+      </div>
+      <div style="padding: 28px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--pale);">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 12px;">Metadata &amp; eyebrows</div>
+        <div style="font-family: var(--mono); font-weight: 500; font-size: 28px; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; margin-bottom: 12px;">IBM Plex Mono</div>
+        <p style="font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin: 0;">All-caps with 0.14–0.22em tracking for eyebrows, stat labels, category tags, breadcrumbs, and copyright lines. Never use mono for headlines or body.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Hierarchy &amp; scale</div>
+    <div class="type-row">
+      <div class="meta"><strong>Hero H1</strong>font-size: clamp(54–156px)<br>line-height: 0.92<br>letter-spacing: -0.045em<br>font-weight: 500</div>
+      <div class="spec display-spec-1">Bold thinking.<br><em>Bigger</em> results.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Section H2</strong>font-size: clamp(40–80px)<br>line-height: 0.95–0.98<br>letter-spacing: -0.035em<br>font-weight: 500</div>
+      <div class="spec display-spec-2">Brands we've helped <em>scale</em>.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Sub H3</strong>font-size: clamp(28–44px)<br>line-height: 1.05<br>letter-spacing: -0.03em<br>font-weight: 500</div>
+      <div class="spec display-spec-3">OLIPOP</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>H4 · Card title</strong>font-size: 22px<br>line-height: 1.2<br>letter-spacing: -0.02em<br>font-weight: 500</div>
+      <div class="spec display-spec-4">A weekly read on the cycle.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Body</strong>font-size: 17px<br>line-height: 1.5<br>color: --ink-2</div>
+      <div class="spec body-spec">We're a strategic PR agency for founder-led consumer brands — the one that makes news when there isn't any, and measures <em>every inch</em> of impact when we do.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Eyebrow · mono</strong>font-size: 12px<br>letter-spacing: 0.18em<br>text-transform: uppercase<br>color: --muted</div>
+      <div class="spec mono-spec">Observer's 50 Most Powerful PR Firms · 2026</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Accent serif italic</strong>font-family: Fraunces<br>font-style: italic<br>color: --accent</div>
+      <div class="spec accent-spec">Bigger results.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · GRID & SPACING -->
+<section class="section" id="grid">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">05 · Grid &amp; spacing</span>
+      <div>
+        <h2>Fluid gutters. <em>Anchored</em> container.</h2>
+        <p>A single max-width container (1320px for most pages, 1280px for this guide) with fluid gutters that scale from 20px on mobile to 56px on desktop. Vertical rhythm comes from <code style="font-family: var(--mono); background: var(--pale); padding: 2px 6px; border-radius: 4px; font-size: 14px;">clamp()</code>, not fixed breakpoint values.</p>
+      </div>
+    </div>
+
+    <div class="grid-diagram">
+      <div class="diagram-card">
+        <div class="k">Container</div>
+        <h4>Max-width: 1320px · gutter: <code>clamp(20px, 4vw, 56px)</code></h4>
+        <p>Every page centers content in a 1320px container with fluid horizontal gutters. Sections breathe with vertical padding between <code>clamp(64px, 9vw, 140px)</code>.</p>
+      </div>
+      <div class="diagram-card">
+        <div class="k">Vertical rhythm</div>
+        <h4>Section padding: <code>clamp(64px, 9vw, 140px)</code></h4>
+        <p>Each major section gets generous vertical breathing room that scales with viewport. Section heads carry their own internal padding via the `.section-head` grid.</p>
+      </div>
+      <div class="diagram-card">
+        <div class="k">Radii</div>
+        <h4>Small 6px · Medium 14px · Large 22px</h4>
+        <p>Cards use medium (14px) by default. Ghost buttons and pills use 999px (full round). Inputs use small (6px). Feature cards use large (22px) sparingly.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Breakpoints</div>
+    <div class="breakpoints">
+      <div class="bp"><span class="size">1100px</span><span class="label">Wide-to-mid</span></div>
+      <div class="bp"><span class="size">1024px</span><span class="label">Tablet-land</span></div>
+      <div class="bp"><span class="size">900px</span><span class="label">Tablet-port</span></div>
+      <div class="bp"><span class="size">640px</span><span class="label">Mobile</span></div>
+      <div class="bp"><span class="size">380px</span><span class="label">Small mobile</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · COMPONENTS -->
+<section class="section" id="components">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">06 · Components</span>
+      <div>
+        <h2>The <em>kit</em>.</h2>
+        <p>Every button, eyebrow, badge, card, and tile across the site. Use these as-is for web; adapt the proportions for decks and print without changing the logic.</p>
+      </div>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp-row">
+        <div class="comp-meta">
+          <span class="k">Buttons</span>
+          <h4>Pill buttons — ink primary, ghost outline.</h4>
+          <p>Buttons are always pill-shaped (border-radius: 999px). Primary is ink-on-cream; ghost is outlined on cream. Both shift to accent red on hover. <code style="font-family: var(--mono); font-size: 12px; background: var(--pale); padding: 2px 6px; border-radius: 4px;">.btn.lg</code> modifier for hero CTAs.</p>
+        </div>
+        <div class="comp-demo">
+          <button class="btn">Start a conversation <span aria-hidden="true">→</span></button>
+          <button class="btn ghost">See the work</button>
+          <button class="btn lg">Talk to us today <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-meta">
+          <span class="k">Buttons · dark</span>
+          <h4>Inverted for dark sections.</h4>
+          <p>On ink backgrounds (scorecard, footer CTA block) the primary button flips: cream fill, ink label. Ghost becomes cream outline on ink.</p>
+        </div>
+        <div class="comp-demo dark">
+          <button class="btn">Talk to us today <span aria-hidden="true">→</span></button>
+          <button class="btn ghost">Read the Substack</button>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-meta">
+          <span class="k">Eyebrow</span>
+          <h4>Mono label with accent bullet.</h4>
+          <p>Every section header and card lede starts with an eyebrow: mono, uppercase, 0.18em letter-spacing, with a 6px orange bullet dot at the start. Use for category, status, or the section's thesis in 2–3 words.</p>
+        </div>
+        <div class="comp-demo">
+          <span class="eyebrow"><span class="bullet"></span>Why JBC</span>
+          <span class="eyebrow"><span class="bullet"></span>Observer · PR Power List 2026</span>
+          <span class="eyebrow"><span class="bullet"></span>The Spin · Latest thinking</span>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-meta">
+          <span class="k">Chips &amp; category tags</span>
+          <h4>Pills for filters, tags for sector.</h4>
+          <p>Pill chips (ink or outlined) carry filter state and category badges. Small mono caps in accent red tag sector on case study cards.</p>
+        </div>
+        <div class="comp-demo">
+          <span class="chip-pill">Fashion &amp; Retail</span>
+          <span class="chip-pill dark">All · 16</span>
+          <span class="cat-tag">Food &amp; Beverage · 2023 — ongoing</span>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-meta">
+          <span class="k">Case study tile · split</span>
+          <h4>Image + cream text panel.</h4>
+          <p>Horizontal split layout: image flush on one side, cream panel on the other. Text never overlays the image. Category/date eyebrow, display headline, lede paragraph, stats row, arrow CTA.</p>
+        </div>
+        <div class="comp-demo" style="flex-direction: column; align-items: flex-start;">
+          <div class="demo-card-split">
+            <div class="img-side">OLIPOP</div>
+            <div class="body-side">
+              <span class="s">Food &amp; Beverage · 2023 — ongoing</span>
+              <h5>OLIPOP</h5>
+              <p>Repositioned a functional soda as the category leader.</p>
+              <span class="cta">Read case study →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-meta">
+          <span class="k">Testimonial card</span>
+          <h4>Quotation mark, blockquote, attribution.</h4>
+          <p>A large italic-serif opening mark in accent red, the blockquote in display with a single italic-serif accent, and a footer that splits name (ink) and role/outlet (mono caps in muted).</p>
+        </div>
+        <div class="comp-demo">
+          <div class="demo-testimonial">
+            <span class="mark">"</span>
+            <blockquote>JBC is <em>pitch perfect</em>. There's no one I'd rather work with for PR.</blockquote>
+            <footer>
+              <span class="name">Nisha Dua</span>
+              <span>BBG Ventures</span>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-meta">
+          <span class="k">Service / principle card</span>
+          <h4>Numbered, with accent dot and explore link.</h4>
+          <p>Mono number, a small accent-red dot on the headline, a short paragraph, and a mono-caps "Explore" link. Lives in a 3-column grid on dark backgrounds (What We Do) and light (Why JBC principles).</p>
+        </div>
+        <div class="comp-demo">
+          <div class="service-card">
+            <span class="num">03</span>
+            <h5><span class="dot"></span>Media Relations</h5>
+            <p>JBC operates as your ongoing press office — executing against strategy, vetting inbound, prepping every spokesperson.</p>
+            <span class="link">Explore →</span>
+          </div>
+          <div class="service-card">
+            <span class="num">01</span>
+            <h5><span class="dot"></span>Senior-led</h5>
+            <p>Our leaders work on your account. No junior handoffs. Jennifer and Melissa are in the room.</p>
+            <span class="link">Explore →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · IMAGERY -->
+<section class="section" id="imagery">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">07 · Imagery</span>
+      <div>
+        <h2>Editorial. <em>On</em>-record.</h2>
+        <p>Photography reads like editorial — real clients, real press, real moments. The cream palette shows through in tones and retouching: warm, low-saturation, a hint of print.</p>
+      </div>
+    </div>
+
+    <div class="image-row">
+      <div class="image-card">
+        <div class="ph">Team / portrait · warm tones</div>
+        <h4>Portrait · warm tones.</h4>
+        <p>Leadership and team photography uses natural light, cream/beige tones, and a tight portrait crop. No studio gradients or stock backgrounds.</p>
+      </div>
+      <div class="image-card">
+        <div class="ph">Product / client hero</div>
+        <h4>Client hero · product-forward.</h4>
+        <p>Case study tiles use the brand's own product or campaign imagery. Kept at saturation 1.05 and contrast 1.02 — enough to pop, not enough to fight the cream surface.</p>
+      </div>
+      <div class="image-card">
+        <div class="ph">Press / editorial spread</div>
+        <h4>Press spread · editorial quote.</h4>
+        <p>When showing coverage, use the outlet's real typesetting. Italicize outlet names in body copy (Fraunces italic) — "in <em>Forbes</em>," "across <em>Fast Company</em>."</p>
+      </div>
+      <div class="image-card">
+        <div class="ph">Office / environment</div>
+        <h4>Office · natural light.</h4>
+        <p>Environment photography (the press office, the NY and LA spaces) leans cream and neutral. Landscape crop for in-line use; 10:9 for intro blocks.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Aspect ratios</div>
+    <div class="breakpoints">
+      <div class="bp"><span class="size">21:10</span><span class="label">Spin feature hero</span></div>
+      <div class="bp"><span class="size">16:10</span><span class="label">Case tile image</span></div>
+      <div class="bp"><span class="size">10:9</span><span class="label">Environment / office</span></div>
+      <div class="bp"><span class="size">4:5</span><span class="label">Portrait / badge</span></div>
+      <div class="bp"><span class="size">1:1</span><span class="label">IG tile / thumbnail</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · ICONOGRAPHY -->
+<section class="section" id="icons">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">08 · Iconography</span>
+      <div>
+        <h2>Line icons. <em>Rounded</em> hits.</h2>
+        <p>Minimal, consistent stroke weight. Social icons live in 40px pill rings. Arrows are typographic — use the character <code style="font-family: var(--mono); font-size: 13px; background: var(--pale); padding: 2px 6px; border-radius: 4px;">→</code>, never a graphic.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Social icons · footer order</div>
+    <p style="color: var(--ink-2); font-size: 15px; max-width: 600px; margin-bottom: 20px; line-height: 1.5;">The footer always renders these four in this exact order: <strong style="color: var(--ink);">Instagram → TikTok → Facebook → Email</strong>. Each sits in a 40px circle with cream stroke on ink background.</p>
+    <div class="icon-grid">
+      <div class="icon-cell">
+        <div class="ring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <span class="label">Instagram</span>
+      </div>
+      <div class="icon-cell">
+        <div class="ring">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.43 0-2.59-1.13-2.59-2.55s1.16-2.55 2.59-2.55c.27 0 .53.04.77.12V9.76a5.63 5.63 0 0 0-.77-.05A5.66 5.66 0 0 0 4.2 15.37a5.66 5.66 0 0 0 5.66 5.66 5.66 5.66 0 0 0 5.66-5.66V9.01a7.44 7.44 0 0 0 4.33 1.38V7.3s-2.14.13-3.25-1.48z"/></svg>
+        </div>
+        <span class="label">TikTok</span>
+      </div>
+      <div class="icon-cell">
+        <div class="ring">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.2c0-1 .3-1.7 1.8-1.7H17V2.3c-.3 0-1.3-.1-2.5-.1C11.9 2.2 10 3.7 10 6.7V9.5H7V13h3v9h3.5z"/></svg>
+        </div>
+        <span class="label">Facebook</span>
+      </div>
+      <div class="icon-cell">
+        <div class="ring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </div>
+        <span class="label">Email</span>
+      </div>
+    </div>
+
+    <div class="sub-head">Bullet &amp; dot system</div>
+    <p style="color: var(--ink-2); font-size: 15px; max-width: 620px; line-height: 1.55;">The 6px orange dot is JBC's most consistent graphic element. It appears before every eyebrow, in lists, and on service cards. Never use gray or any other color for bullets in primary contexts.</p>
+
+    <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 20px;">
+      <div style="display: inline-flex; align-items: center; gap: 14px; padding: 12px 20px; background: var(--pale); border-radius: 999px; border: 1px solid var(--line);">
+        <span style="width: 6px; height: 6px; background: var(--accent); border-radius: 50%;"></span>
+        <span style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">Eyebrow bullet</span>
+      </div>
+      <div style="display: inline-flex; align-items: center; gap: 14px; padding: 12px 20px; background: var(--pale); border-radius: 999px; border: 1px solid var(--line);">
+        <span style="width: 5px; height: 5px; background: var(--accent); border-radius: 50%;"></span>
+        <span style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">Sector dot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · MOTION -->
+<section class="section" id="motion">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">09 · Motion</span>
+      <div>
+        <h2>Restrained. <em>Deliberate</em>.</h2>
+        <p>Motion is always in service of content — never decoration. Four patterns cover 90% of the site: hover lifts, arrow slides, scale-on-hover for images, and intersection reveals.</p>
+      </div>
+    </div>
+
+    <div class="motion-list">
+      <div class="motion-card">
+        <span class="k">Hover · lift</span>
+        <h5>Card lift on hover</h5>
+        <p>Cards translate up 3–4px with a <code>.4s cubic-bezier(.2,.8,.2,1)</code> easing. Subtle — just enough to signal interactivity.</p>
+      </div>
+      <div class="motion-card">
+        <span class="k">Hover · arrow</span>
+        <h5>Arrow slide</h5>
+        <p>CTAs end with <code>→</code>. On hover the arrow translates right 3–6px over <code>.2s ease</code>. Applied to every "Read case study," "Read the piece," "See all work."</p>
+      </div>
+      <div class="motion-card">
+        <span class="k">Hover · image</span>
+        <h5>Image scale-in</h5>
+        <p>Case study and Spin images scale from 1 → 1.03 over <code>.6s cubic-bezier</code>. Container has overflow: hidden so the image crops on zoom.</p>
+      </div>
+      <div class="motion-card">
+        <span class="k">Scroll · reveal</span>
+        <h5>Intersection reveal</h5>
+        <p>Elements with class <code>.reveal</code> fade from opacity 0 / translateY(18px) to 0/0 over <code>.7s ease</code> when they enter the viewport. Reduced to none under <code>prefers-reduced-motion</code>.</p>
+      </div>
+      <div class="motion-card">
+        <span class="k">Nav · scrolled</span>
+        <h5>Sticky nav shadow</h5>
+        <p>The nav picks up a subtle bottom border + cream backdrop-blur once scrolled past 10px. Keeps the wordmark legible over any content below.</p>
+      </div>
+      <div class="motion-card">
+        <span class="k">Mobile · menu</span>
+        <h5>Full-screen overlay</h5>
+        <p>Mobile menu slides down from <code>translateY(-100%)</code> over <code>.35s ease</code>. Close button sits inside the overlay. Body gets <code>overflow: hidden</code> while open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · APPLICATIONS -->
+<section class="section" id="applications">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">10 · Applications</span>
+      <div>
+        <h2>How to <em>apply</em> this.</h2>
+        <p>For work that isn't a web page — capabilities decks, proposals, one-pagers, keynote slides — pull from this system in the proportions below.</p>
+      </div>
+    </div>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <h4>Capabilities <em>decks</em> &amp; proposals.</h4>
+        <ul>
+          <li><strong>Surface:</strong> Cream (`#FFF6EB`) as the default background. Alternate two or three dark (`#0A0A0A`) spreads for section breaks — scorecard, services, exec-speaking moments.</li>
+          <li><strong>Headlines:</strong> Helvetica Neue 500, tight letter-spacing. Always finish with a period. Use one italic-serif Fraunces accent word per slide headline.</li>
+          <li><strong>Eyebrows:</strong> Mono caps, tracked 0.18em, with the orange bullet. Use on every section divider slide.</li>
+          <li><strong>Stats &amp; numbers:</strong> Big display numbers (40–80pt), 0.7em italic-serif accent for the "+" or qualifier, mono label underneath.</li>
+          <li><strong>Quotes:</strong> Italic-serif opening mark in accent red, sentence-case blockquote, mono attribution.</li>
+          <li><strong>Case studies:</strong> One per spread — image left, body right. Eyebrow + client name + lede + 2–3 stat pairs.</li>
+        </ul>
+      </div>
+      <div class="app-card">
+        <h4>One-pagers &amp; <em>client</em> briefs.</h4>
+        <ul>
+          <li><strong>Cover:</strong> JBC cream wordmark on ink band at top or bottom. Client logo centered. Project title in display with one italic-serif accent.</li>
+          <li><strong>Structure:</strong> Eyebrow · headline · lede · 3–4 supporting sections. Mono-caps section labels separate content.</li>
+          <li><strong>Margins:</strong> Generous — 0.75" minimum on all sides. Let the page breathe; don't fill it.</li>
+          <li><strong>Signature:</strong> "Jennifer Bett Communications · NY &amp; LA · info@jbc-pr.com" in mono caps at the footer.</li>
+        </ul>
+      </div>
+      <div class="app-card">
+        <h4>Email <em>signatures</em>.</h4>
+        <ul>
+          <li><strong>Line 1:</strong> Full name (display, ink, medium).</li>
+          <li><strong>Line 2:</strong> Title (mono caps, muted).</li>
+          <li><strong>Line 3:</strong> "Jennifer Bett Communications" in display.</li>
+          <li><strong>Line 4:</strong> City (NY or LA) · direct email · jenniferbett.com — all mono caps.</li>
+          <li><strong>No:</strong> No animated gifs. No vCards. No hot pink. No 12-line disclaimers.</li>
+        </ul>
+      </div>
+      <div class="app-card">
+        <h4>Social &amp; <em>IG</em> templates.</h4>
+        <ul>
+          <li><strong>Press spotlights:</strong> Cream background, brand product or portrait centered, outlet wordmark at top in serif, pull-quote in sentence case.</li>
+          <li><strong>Trend forecasts:</strong> Title in display with italic-serif accent, month + year in mono caps, supporting lede in body.</li>
+          <li><strong>Reels:</strong> Open with the eyebrow bullet card, close with the JBC wordmark. Keep mono cap text for context, display for emphasis.</li>
+          <li><strong>Observer / awards posts:</strong> Keep the tan/beige tone. Observer wordmark in Fraunces italic. Names in sentence-case display underneath.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide footer -->
+<footer class="guide-foot">
+  <div class="container">
+    <p>Questions · additions · updates</p>
+    <h3>Email <em>design</em> at <a href="mailto:info@jbc-pr.com">info@jbc-pr.com</a>.</h3>
+    <p style="margin-top: 20px; font-size: 11px;">JBC Brand Guidelines · v1.0 · April 2026 · Jennifer Bett Communications® | jbc® © 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
